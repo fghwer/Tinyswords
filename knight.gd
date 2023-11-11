@@ -1,5 +1,7 @@
 extends Area2D
 
+signal hit 
+
 @export var speed = 100 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 var i = 0
@@ -39,8 +41,15 @@ func _process(delta):
 	$AnimatedSprite2D.play()
 	
 	position += velocity * delta
-	print(position)
-	#position = position.clamp(Vector2.ZERO, screen_size)
+	#print(position)
+	#position = position.clamp(Vector2(386,146), Vector2(834,466))
 		#$AnimatedSprite2D.play()
 	#else:
 	#	$AnimatedSprite2D.stop()
+
+
+func _on_body_entered(body):
+	hit.emit()
+	#position -=
+	#velocity = Vector2.ZERO
+
