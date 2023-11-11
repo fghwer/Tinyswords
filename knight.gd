@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 signal hit 
 
@@ -41,6 +41,8 @@ func _process(delta):
 	$AnimatedSprite2D.play()
 	
 	position += velocity * delta
+	
+	move_and_slide()
 	#print(position)
 	#position = position.clamp(Vector2(386,146), Vector2(834,466))
 		#$AnimatedSprite2D.play()
@@ -48,8 +50,8 @@ func _process(delta):
 	#	$AnimatedSprite2D.stop()
 
 
-func _on_body_entered(body):
-	hit.emit()
+#func _on_body_entered(body):
+#	hit.emit()
 	#position -=
 	#velocity = Vector2.ZERO
 

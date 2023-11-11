@@ -613,5 +613,3 @@ shape = SubResource("SegmentShape2D_71ky0")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("SegmentShape2D_ynnm2")
-
-[connection signal="body_entered" from="Knight" to="Knight" method="_on_body_entered"]
