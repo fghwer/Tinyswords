@@ -1,3 +1,154 @@
-[gd_scene format=3 uid="uid://chebxs8ergddk"]
+[gd_scene load_steps=21 format=3 uid="uid://chebxs8ergddk"]
+
+[ext_resource type="Texture2D" uid="uid://ci5d0h0kkhw32" path="res://assets/Factions/Knights/Warrior.png" id="1_wti3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nosu0"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbeou"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs8bh"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7285x"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lhut"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6agw4"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fye0f"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsrbo"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8hur"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe4u6"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lowq5"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdyr0"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng8vq"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgomx"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkess"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oxqy"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrrsh"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdn00"]
+atlas = ExtResource("1_wti3d")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrki2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nosu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbeou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs8bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7285x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lhut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6agw4")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fye0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsrbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8hur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe4u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lowq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdyr0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng8vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgomx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkess")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oxqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrrsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdn00")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
 
 [node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hrki2")
+animation = &"walk"
+frame_progress = 0.0109317
