@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c03qg6br6f0mu"]
+
+[ext_resource type="Texture2D" uid="uid://c65qrntctv28f" path="res://assets/Terrain/Water/Foam.png" id="1_cndub"]
+
+[resource]
+atlas = ExtResource("1_cndub")
+region = Rect2(0, 0, 192, 192)
