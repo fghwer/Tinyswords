@@ -5,24 +5,32 @@ var screen_size # Size of the game window.
 var i = 0
 var player = null
 var player_chase = false
+var player_attack = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
 	
 	if player_chase:
 		position +=(player.position - position)/speed
-		
-		$AnimatedSprite2D.play("attack")
-		
+		$AnimatedSprite2D.play("walk")
 		if(player.position.x -position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
+	
+	if player_attack:
 		
+		player.life -= 100
+		$AnimatedSprite2D.play("attack")
+		if(player.position.x -position.x) < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
+			
+	
 	else:
 		idle(delta)
 	
@@ -65,9 +73,17 @@ func idle(delta):
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
-	
-
-
 func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false
+
+
+
+func _on_attack_area_body_entered(body):
+	player = body
+	player_attack = true
+	player_chase = false
+	
+
+func _on_attack_area_body_exited(body):
+	player_attack = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2yv5pnred6pe"]
+[gd_scene load_steps=26 format=3 uid="uid://c2yv5pnred6pe"]
 
 [ext_resource type="Script" path="res://Goblin.gd" id="1_7rhme"]
 [ext_resource type="Texture2D" uid="uid://6bn3hr7efeku" path="res://assets/Factions/Goblins/Torch.png" id="2_u6vxm"]
@@ -160,6 +160,8 @@ height = 56.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cd0s0"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_geoxk"]
+
 [node name="Goblin" type="CharacterBody2D"]
 position = Vector2(542, 144)
 script = ExtResource("1_7rhme")
@@ -185,5 +187,15 @@ scale = Vector2(30, 30)
 shape = SubResource("CircleShape2D_cd0s0")
 one_way_collision_margin = 0.0
 
+[node name="attack_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_geoxk")
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="attack_area" to="." method="_on_attack_area_body_exited"]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal hit 
-
+@export var life = 3000
 @export var speed = 100 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 var i = 0
@@ -13,7 +13,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	
+	if life <= 0:
+		hide()
 	
 	var velocity = Vector2.ZERO # The player's movement vector.
 	#var i = 0
