@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+
 signal hit 
 @export var life = 3000
 @export var speed = 100 # How fast the player will move (pixels/sec).
