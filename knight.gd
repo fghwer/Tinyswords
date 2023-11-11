@@ -20,6 +20,9 @@ func _process(delta):
 	velocity.x = cos((PI/360)*i)
 	velocity.y = sin((PI/360)*i) 
 	
+	velocity *= speed
+	#print(velocity.x)
+	
 	if velocity == Vector2.ZERO:
 		$AnimatedSprite2D.animation = "idle"
 		$AnimatedSprite2D.flip_h = false
@@ -30,12 +33,13 @@ func _process(delta):
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_h = true
 		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+	#if velocity.length() > 0:
+		#velocity = velocity.normalized() * speed
 	
 	$AnimatedSprite2D.play()
 	
 	position += velocity * delta
+	print(position)
 	#position = position.clamp(Vector2.ZERO, screen_size)
 		#$AnimatedSprite2D.play()
 	#else:
