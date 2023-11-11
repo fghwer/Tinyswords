@@ -8,6 +8,13 @@ func _ready():
 	screen_size = get_viewport_rect().size
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	idle(delta)
+	
+	
+
+
+
+func idle(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
 	#var i = 0
 	#if Input.is_action_pressed("move_right"):
@@ -34,6 +41,8 @@ func _process(delta):
 	$AnimatedSprite2D.play()
 	
 	position += velocity * delta
+	
+	move_and_slide()
 	#position = position.clamp(Vector2.ZERO, screen_size)
 		#$AnimatedSprite2D.play()
 	#else:

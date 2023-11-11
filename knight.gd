@@ -12,6 +12,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	
+	
 	var velocity = Vector2.ZERO # The player's movement vector.
 	#var i = 0
 	#if Input.is_action_pressed("move_right"):
@@ -41,6 +44,8 @@ func _process(delta):
 	$AnimatedSprite2D.play()
 	
 	position += velocity * delta
+	
+	
 	#print(position)
 	#position = position.clamp(Vector2(386,146), Vector2(834,466))
 		#$AnimatedSprite2D.play()
@@ -50,6 +55,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	hit.emit()
+	speed = 0
+	print("hit")
 	#position -=
 	#velocity = Vector2.ZERO
 

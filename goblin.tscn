@@ -158,7 +158,7 @@ animations = [{
 radius = 20.0
 height = 56.0
 
-[node name="Goblin" type="Area2D"]
+[node name="Goblin" type="CharacterBody2D"]
 position = Vector2(540, 142)
 script = ExtResource("1_7rhme")
 metadata/_edit_group_ = true
