@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://bpy15o76wn11j"]
+[gd_scene load_steps=91 format=3 uid="uid://bhp4hhpnt67kq"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_yspcy"]
 [ext_resource type="PackedScene" uid="uid://chebxs8ergddk" path="res://area_2d.tscn" id="2_0ukfw"]
@@ -900,6 +900,11 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1vwuo"]
+vertices = PackedVector2Array(379, 759, 258, 633, 168, 290, 799, 287, 1143, 308, 898, 485, 536, 696, 642, 826, 642, 763, 700, 768, 1019, 1147, 700, 705, 896, 763, 1026, 837, 855, 49, 1145, 47, 386, 1147, 514, 826, 620, 701, 536, 730, 516, 766)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 9, 11, 12, 13), PackedInt32Array(5, 12, 11), PackedInt32Array(14, 15, 4, 3), PackedInt32Array(10, 16, 0, 17), PackedInt32Array(5, 11, 18, 6), PackedInt32Array(0, 6, 19, 20), PackedInt32Array(0, 20, 17), PackedInt32Array(10, 17, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(386, 1147, 379, 759, 258, 633, 168, 290, 799, 287, 855, 49, 1145, 47, 1143, 308, 898, 485, 896, 763, 1026, 837, 1019, 1147), PackedVector2Array(514, 826, 642, 826, 642, 763, 700, 768, 700, 705, 620, 701, 536, 696, 536, 730, 516, 766)])
+
 [node name="Level_1" type="Node2D"]
 position = Vector2(386, 146)
 script = ExtResource("1_yspcy")
@@ -1596,7 +1601,7 @@ tile_set = SubResource("TileSet_b4pgb")
 format = 2
 layer_0/tile_data = PackedInt32Array(786438, 0, 7, 786439, 131072, 7, 720904, 65536, 2, 720905, 131072, 2, 786440, 0, 3, 786441, 131072, 3, 655369, 65536, 1, 655370, 65536, 2, 655374, 65536, 2, 655375, 131072, 2, 720906, 65536, 3, 720910, 65536, 3, 720911, 65536, 3, 786437, 131072, 3, 786436, 0, 3, 720900, 0, 2, 720901, 65536, 2, 720902, 65536, 1, 720903, 65536, 1, 655364, 0, 1, 589828, 65536, 1, 589827, 65536, 2, 589826, 65536, 2, 589825, 0, 1, 655363, 131072, 3, 655362, 65536, 3, 655361, 0, 3, 524289, 65536, 1, 524288, 65536, 1, 589824, 65536, 3, 458753, 0, 1, 393217, 0, 1, 327681, 0, 1, 262145, 65536, 1, 262144, 0, 1, 327680, 0, 3, 196608, 0, 1, 131072, 0, 1, 65536, 0, 1, 0, 0, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 131072, 0, 65542, 131072, 1, 131078, 131072, 1, 196615, 65536, 0, 196616, 65536, 0, 196617, 65536, 0, 196618, 65536, 0, 196619, 65536, 0, 131084, 0, 1, 65548, 0, 1, 13, 0, 0, 14, 65536, 0, 15, 65536, 0, 16, 65536, 0, 17, 131072, 0, 65553, 131072, 1, 131089, 131072, 1, 196625, 131072, 1, 262161, 131072, 1, 327697, 131072, 2, 393232, 131072, 1, 458768, 131072, 1, 524304, 131072, 1, 589840, 131072, 2, 655376, 131072, 3, 393233, 131072, 3, 720907, 0, 7, 720908, 65536, 7, 720909, 131072, 7)
 
-[node name="Goblin" parent="." instance=ExtResource("12_uw7pd")]
+[node name="Goblin2" parent="." instance=ExtResource("12_uw7pd")]
 position = Vector2(343, 416)
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -1621,6 +1626,11 @@ offset_bottom = 1077.0
 position = Vector2(87, 78)
 sprite_frames = SubResource("SpriteFrames_3xahg")
 animation = &"idle"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_1vwuo")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NavigationRegion2D"]
 
 [connection signal="pressed" from="ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="ButtonPlay" to="." method="_on_button_pressed"]
