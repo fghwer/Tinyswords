@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2yv5pnred6pe"]
+[gd_scene load_steps=25 format=3 uid="uid://c2yv5pnred6pe"]
 
 [ext_resource type="Script" path="res://Goblin.gd" id="1_7rhme"]
 [ext_resource type="Texture2D" uid="uid://6bn3hr7efeku" path="res://assets/Factions/Goblins/Torch.png" id="2_u6vxm"]
@@ -7,13 +7,13 @@
 atlas = ExtResource("2_u6vxm")
 region = Rect2(0, 384, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_piefo"]
-atlas = ExtResource("2_u6vxm")
-region = Rect2(192, 384, 192, 192)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljg33"]
 atlas = ExtResource("2_u6vxm")
 region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piefo"]
+atlas = ExtResource("2_u6vxm")
+region = Rect2(192, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4hws"]
 atlas = ExtResource("2_u6vxm")
@@ -86,10 +86,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_5gtg3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_piefo")
+"texture": SubResource("AtlasTexture_ljg33")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ljg33")
+"texture": SubResource("AtlasTexture_piefo")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q4hws")
@@ -158,16 +158,32 @@ animations = [{
 radius = 20.0
 height = 56.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cd0s0"]
+
 [node name="Goblin" type="CharacterBody2D"]
-position = Vector2(540, 142)
+position = Vector2(542, 144)
 script = ExtResource("1_7rhme")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ub7qn")
-animation = &"idle"
-frame_progress = 0.964892
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_ts7xc")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+scale = Vector2(30, 30)
+shape = SubResource("CircleShape2D_cd0s0")
+one_way_collision_margin = 0.0
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

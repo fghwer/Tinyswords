@@ -1374,7 +1374,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(786438, 0, 7, 786439, 131072, 7)
 
 [node name="Goblin" parent="." instance=ExtResource("12_uw7pd")]
-position = Vector2(476, 430)
+position = Vector2(348, 373)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

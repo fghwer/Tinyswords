@@ -153,6 +153,7 @@ height = 54.0
 
 [node name="Knight" type="CharacterBody2D"]
 position = Vector2(525, 121)
+collision_layer = 3
 script = ExtResource("1_bpvyy")
 metadata/_edit_group_ = true
 
