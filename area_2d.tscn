@@ -152,6 +152,7 @@ radius = 17.0
 height = 54.0
 
 [node name="Knight" type="Area2D"]
+position = Vector2(525, 121)
 script = ExtResource("1_bpvyy")
 metadata/_edit_group_ = true
 
