@@ -10,8 +10,10 @@ func _ready():
 	var player = mob_scene.instantiate()
 	player.position = Vector2(500,500)
 	player.speed = 1
-	add_child(player)
-	
+	#add_child(player)
+	$Goblin.set_movement_target($Goblin_Target.position)
+	#$Goblin2.set_movement_target($Goblin_Target.position)
+	#$Goblin.set_movement_target(Vector2(1000, 250))
 	
 	#player_instance.visible = true
 	#player_instance.position = Vector2(200, 500)

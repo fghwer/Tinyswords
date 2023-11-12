@@ -155,8 +155,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ts7xc"]
-radius = 20.0
-height = 56.0
+radius = 19.0
+height = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cd0s0"]
 
@@ -164,6 +164,7 @@ height = 56.0
 
 [node name="Goblin" type="CharacterBody2D"]
 position = Vector2(542, 144)
+collision_mask = 7
 script = ExtResource("1_7rhme")
 metadata/_edit_group_ = true
 
@@ -183,7 +184,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-scale = Vector2(30, 30)
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_cd0s0")
 one_way_collision_margin = 0.0
 
@@ -194,6 +195,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_geoxk")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
