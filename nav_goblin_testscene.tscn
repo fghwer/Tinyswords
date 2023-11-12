@@ -1,28 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=8 format=3 uid="uid://dui7577q0pfbf"]
 
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://navigation_goblin.tscn" id="1_m6uql"]
 [ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
 [ext_resource type="Texture2D" uid="uid://b2ch7r08nuh4i" path="res://assets/Terrain/Decorations/Mushroom_03.png" id="3_o8jy4"]
+[ext_resource type="PackedScene" uid="uid://bwi2cip47a6yq" path="res://TilemapCollection.tscn" id="4_f0qxx"]
+[ext_resource type="PackedScene" uid="uid://q2lhnl4x8bgr" path="res://foam_animation_parent.tscn" id="5_b4kd8"]
+[ext_resource type="PackedScene" uid="uid://chebxs8ergddk" path="res://area_2d.tscn" id="6_8nlgc"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ljo1k"]
-vertices = PackedVector2Array(96, 432, 966, 121, 217, 417, 726, 714, 1071, 789, 834, 791, 256, 518, 164, 441, 581, 829, 822, 1084, 603, 990, 350, 808, 313, 665, 658, 629, 1464, 1124, 1019, 1044, 6, 6, 1144, 10, 95, 133, 41, 1110, 215, 609, 288, 876, 168, 611)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(3, 5, 6), PackedInt32Array(0, 2, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 3, 6, 2), PackedInt32Array(4, 14, 15, 8, 5), PackedInt32Array(16, 17, 1, 18), PackedInt32Array(19, 16, 18, 0), PackedInt32Array(17, 14, 4, 1), PackedInt32Array(1, 4, 13, 2), PackedInt32Array(20, 2, 6), PackedInt32Array(19, 20, 6, 12, 11, 21), PackedInt32Array(12, 5, 8), PackedInt32Array(19, 0, 7, 22), PackedInt32Array(19, 22, 20), PackedInt32Array(19, 21, 10, 9), PackedInt32Array(14, 19, 9), PackedInt32Array(14, 9, 15)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(6, 6, 41, 1110, 1464, 1124, 1144, 10), PackedVector2Array(95, 133, 966, 121, 96, 432), PackedVector2Array(168, 611, 164, 441, 217, 417, 215, 609), PackedVector2Array(288, 876, 603, 990, 350, 808), PackedVector2Array(581, 829, 822, 1084, 1019, 1044), PackedVector2Array(313, 665, 834, 791, 256, 518), PackedVector2Array(726, 714, 1071, 789, 658, 629)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
+vertices = PackedVector2Array(316, 25, 1733, 93, 1691, 105, 335, 49, 1126, 782, 1225, 451, 1222, 937, 1122, 998, 299, 843, 327, 849, 762, 1336, 747, 1289, 1617, 967, 1605, 954, 1390, 987, 1371, 974, 743, 448, 842, 798, 778, 791, 539, 718, 479, 273, 555, 267, 1393, 1293, 846, 1008, 781, 1032, 708, 194, 571, 181)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 0, 3, 9), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(2, 1, 12, 13), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(16, 5, 4, 17, 18, 19), PackedInt32Array(19, 20, 21, 16), PackedInt32Array(6, 15, 14, 22, 10, 7), PackedInt32Array(23, 7, 10, 11, 24), PackedInt32Array(23, 24, 18, 17), PackedInt32Array(25, 16, 21, 26)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(762, 1336, 299, 843, 316, 25, 1733, 93, 1617, 967, 1390, 987, 1393, 1293), PackedVector2Array(842, 798, 846, 1008, 1122, 998, 1126, 782), PackedVector2Array(781, 1032, 778, 791, 539, 718, 479, 273, 555, 267, 571, 181, 708, 194, 743, 448, 1225, 451, 1222, 937, 1371, 974, 1605, 954, 1691, 105, 335, 49, 327, 849, 747, 1289)])
 
-[node name="nav_goblin_testscene" type="Node"]
+[node name="Level_nav" type="Node"]
 script = ExtResource("1_yuckl")
 
 [node name="navigation_goblin" parent="." instance=ExtResource("1_m6uql")]
 z_index = 5
-position = Vector2(500, 1000)
+position = Vector2(1000, 1200)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(9, -2)
-navigation_polygon = SubResource("NavigationPolygon_ljo1k")
+navigation_polygon = SubResource("NavigationPolygon_mubjo")
 use_edge_connections = false
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(750, 500)
+position = Vector2(608, 296)
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
 texture = ExtResource("3_o8jy4")
+
+[node name="TileMapCollection" parent="." instance=ExtResource("4_f0qxx")]
+
+[node name="Foam_Animation_Parent" parent="." instance=ExtResource("5_b4kd8")]
+
+[node name="Knight" parent="." instance=ExtResource("6_8nlgc")]
+position = Vector2(633, 466)
