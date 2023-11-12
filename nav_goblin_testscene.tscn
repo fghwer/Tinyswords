@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dui7577q0pfbf"]
+
+[ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://navigation_goblin.tscn" id="1_m6uql"]
+[ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
+[ext_resource type="Texture2D" uid="uid://b2ch7r08nuh4i" path="res://assets/Terrain/Decorations/Mushroom_03.png" id="3_o8jy4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ljo1k"]
+vertices = PackedVector2Array(96, 432, 966, 121, 217, 417, 726, 714, 1071, 789, 834, 791, 256, 518, 164, 441, 581, 829, 822, 1084, 603, 990, 350, 808, 313, 665, 658, 629, 1464, 1124, 1019, 1044, 6, 6, 1144, 10, 95, 133, 41, 1110, 215, 609, 288, 876, 168, 611)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(3, 5, 6), PackedInt32Array(0, 2, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 3, 6, 2), PackedInt32Array(4, 14, 15, 8, 5), PackedInt32Array(16, 17, 1, 18), PackedInt32Array(19, 16, 18, 0), PackedInt32Array(17, 14, 4, 1), PackedInt32Array(1, 4, 13, 2), PackedInt32Array(20, 2, 6), PackedInt32Array(19, 20, 6, 12, 11, 21), PackedInt32Array(12, 5, 8), PackedInt32Array(19, 0, 7, 22), PackedInt32Array(19, 22, 20), PackedInt32Array(19, 21, 10, 9), PackedInt32Array(14, 19, 9), PackedInt32Array(14, 9, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(6, 6, 41, 1110, 1464, 1124, 1144, 10), PackedVector2Array(95, 133, 966, 121, 96, 432), PackedVector2Array(168, 611, 164, 441, 217, 417, 215, 609), PackedVector2Array(288, 876, 603, 990, 350, 808), PackedVector2Array(581, 829, 822, 1084, 1019, 1044), PackedVector2Array(313, 665, 834, 791, 256, 518), PackedVector2Array(726, 714, 1071, 789, 658, 629)])
+
+[node name="nav_goblin_testscene" type="Node"]
+script = ExtResource("1_yuckl")
+
+[node name="navigation_goblin" parent="." instance=ExtResource("1_m6uql")]
+z_index = 5
+position = Vector2(500, 1000)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(9, -2)
+navigation_polygon = SubResource("NavigationPolygon_ljo1k")
+use_edge_connections = false
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(750, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("3_o8jy4")

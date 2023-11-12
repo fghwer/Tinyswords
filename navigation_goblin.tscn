@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnwuogk3qx34q"]
+
+[ext_resource type="Script" path="res://navigation_goblin.gd" id="1_fawaq"]
+[ext_resource type="Texture2D" uid="uid://cq6qismyfleem" path="res://assets/Terrain/Decorations/Bush_03.png" id="2_dmefc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4861o"]
+size = Vector2(64, 64)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(850, 1000)
+script = ExtResource("1_fawaq")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dmefc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4861o")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 50.0
+debug_enabled = true

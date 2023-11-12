@@ -7,11 +7,12 @@ const PLAYER_SCENE_PATH: String = "res://area_2d.tscn"
 const ENEMY_SCENE_PATH: String = "res://goblin.tscn"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var player = mob_scene.instantiate()
-	player.position = Vector2(500,500)
-	player.speed = 1
+	#var player = mob_scene.instantiate()
+	#player.position = Vector2(500,500)
+	#player.speed = 1
 	#add_child(player)
 	$Goblin.set_movement_target($Goblin_Target.position)
+	$navigation_goblin.set_movement_target($Goblin_Target.position)
 	#$Goblin2.set_movement_target($Goblin_Target.position)
 	#$Goblin.set_movement_target(Vector2(1000, 250))
 	
