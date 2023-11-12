@@ -15,8 +15,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if life <= 0:
-		hide()
+	#if life <= 0:
+	#	hide()
 	
 	var velocity = Vector2.ZERO # The player's movement vector.
 	#var i = 0

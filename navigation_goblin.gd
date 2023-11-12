@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 var screen_size # Size of the game window.
 var i_nav=0
+var player_chase = false
+var player_attack = false
+var player = null
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -19,16 +22,51 @@ func set_movement_target(movement_target: Vector2):
 
 func _physics_process(_delta):
 	
-	if navigation_agent.is_navigation_finished():
-		return
-	#if i_nav == 0:
-	var target_position: Vector2 = navigation_agent.target_position
-	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-	var current_agent_position: Vector2 = navigation_agent.get_parent().position
-	#next_path_position -= current_agent_position
-	var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
-	velocity = new_velocity
-	print(target_position, current_agent_position, next_path_position)
+	print(player)
+	if player_attack and player != null:
+		#print("attack")
+		player.life -= 100
+		$AnimatedSprite2D.animation = "attack"
+		if(player.position.x - position.x) < 0: # player ist knight
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
+		if player.life <= 0:
+			player.hide()
+			player_attack = false
+			player_chase = false
+			player = null
+				
+		
+	elif player_chase and player != null:
+		#print("chase")
+		velocity = (player.position - position).normalized()*speed
+		$AnimatedSprite2D.animation = "walk"
+		if(player.position.x -position.x) < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
+	else:
+		if navigation_agent.is_navigation_finished():
+			return
+		#if i_nav == 0:
+		var target_position: Vector2 = navigation_agent.target_position
+		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+		var current_agent_position: Vector2 = navigation_agent.get_parent().position
+		#next_path_position -= current_agent_position
+		var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
+		velocity = new_velocity
+		#print(target_position, current_agent_position, next_path_position)
+		if velocity == Vector2.ZERO:
+			$AnimatedSprite2D.animation = "idle"
+			$AnimatedSprite2D.flip_h = false
+		elif velocity.x > 0:
+			$AnimatedSprite2D.animation = "walk"
+			$AnimatedSprite2D.flip_h = false
+		elif velocity.x < 0:
+			$AnimatedSprite2D.animation = "walk"
+			$AnimatedSprite2D.flip_h = true
+	$AnimatedSprite2D.play()
 	#i_nav = 100
 	#i_nav -=1
 	# Get the input direction and handle the movement/deceleration.
@@ -41,3 +79,21 @@ func _physics_process(_delta):
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_detection_area_body_entered(body):
+	player = body
+	player_chase = true
+	
+func _on_detection_area_body_exited(body):
+	player = null
+	player_chase = false
+	
+func _on_attack_area_body_entered(body):
+	player = body
+	player_attack = true
+	player_chase = false
+	
+func _on_attack_area_body_exited(body):
+	player_attack = false
+	player_chase = true

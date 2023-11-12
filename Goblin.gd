@@ -31,7 +31,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false	
-			
+		
 	elif player_chase:
 		print("chase")
 		position +=(player.position - position)/speed
@@ -135,7 +135,7 @@ func idle_navigation():
 	#velocity.x = 437
 	#velocity.y = 373
 	#position += velocity*2
-	print(velocity)
+	#print(velocity)
 	move_and_slide()
 
 
