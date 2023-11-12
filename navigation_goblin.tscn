@@ -177,7 +177,6 @@ shape = SubResource("RectangleShape2D_4861o")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 50.0
-debug_enabled = true
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2

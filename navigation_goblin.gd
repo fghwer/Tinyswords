@@ -8,6 +8,8 @@ var i_nav=0
 var player_chase = false
 var player_attack = false
 var player = null
+var frame_alt = 0
+var frame_neu = 0
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -21,12 +23,17 @@ func set_movement_target(movement_target: Vector2):
 
 
 func _physics_process(_delta):
-	
-	print(player)
+	#print(player)
 	if player_attack and player != null:
+		#var frame_alt = 0
+		#var frame_neu = 0
 		#print("attack")
-		player.life -= 100
+		
+		if frame_alt != frame_neu && frame_neu == 3:
+			player.life -= 100
 		$AnimatedSprite2D.animation = "attack"
+		#frame_alt = $AnimatedSprite2D.frame
+		#print(frame_neu)
 		if(player.position.x - position.x) < 0: # player ist knight
 			$AnimatedSprite2D.flip_h = true
 		else:
@@ -36,6 +43,14 @@ func _physics_process(_delta):
 			player_attack = false
 			player_chase = false
 			player = null
+		$AnimatedSprite2D.play()
+		frame_neu = $AnimatedSprite2D.frame
+		if frame_alt != frame_neu && frame_neu == 3:
+			player.life -= 100
+			#player.set_hpbar_value(player.life/player.maxlife)
+			#print(player.life)
+		#print(frame_alt,frame_neu)
+		frame_alt = frame_neu
 				
 		
 	elif player_chase and player != null:
@@ -46,6 +61,7 @@ func _physics_process(_delta):
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play()
 	else:
 		if navigation_agent.is_navigation_finished():
 			return
@@ -66,7 +82,7 @@ func _physics_process(_delta):
 		elif velocity.x < 0:
 			$AnimatedSprite2D.animation = "walk"
 			$AnimatedSprite2D.flip_h = true
-	$AnimatedSprite2D.play()
+		$AnimatedSprite2D.play()
 	#i_nav = 100
 	#i_nav -=1
 	# Get the input direction and handle the movement/deceleration.

@@ -3,10 +3,14 @@ extends CharacterBody2D
 
 
 signal hit 
-@export var life = 3000
+@export var maxlife = 1000
 @export var speed = 100 # How fast the player will move (pixels/sec).
+var life = maxlife
 var screen_size # Size of the game window.
 var i = 0
+
+func set_hpbar_value(HPpercent):
+	$HPbar.set_value(HPpercent)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -17,10 +21,13 @@ func _process(delta):
 	
 	#if life <= 0:
 	#	hide()
-	
+	var hpper = life/maxlife
 	var velocity = Vector2.ZERO # The player's movement vector.
 	#var i = 0
 	#if Input.is_action_pressed("move_right"):
+	
+	print(life*100/maxlife)
+	$HPbar.set_value_no_signal(life*100/maxlife)
 	i += 1
 	if i == 720:
 		i = 0
