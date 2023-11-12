@@ -26,7 +26,7 @@ func _process(delta):
 	#var i = 0
 	#if Input.is_action_pressed("move_right"):
 	
-	print(life*100/maxlife)
+	#print(life*100/maxlife)
 	$HPbar.set_value_no_signal(life*100/maxlife)
 	i += 1
 	if i == 720:

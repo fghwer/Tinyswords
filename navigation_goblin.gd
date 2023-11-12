@@ -29,8 +29,8 @@ func _physics_process(_delta):
 		#var frame_neu = 0
 		#print("attack")
 		
-		if frame_alt != frame_neu && frame_neu == 3:
-			player.life -= 100
+		#if frame_alt != frame_neu && frame_neu == 3:
+		#	player.life -= 100
 		$AnimatedSprite2D.animation = "attack"
 		#frame_alt = $AnimatedSprite2D.frame
 		#print(frame_neu)
@@ -48,7 +48,7 @@ func _physics_process(_delta):
 		if frame_alt != frame_neu && frame_neu == 3:
 			player.life -= 100
 			#player.set_hpbar_value(player.life/player.maxlife)
-			#print(player.life)
+			print(player.life)
 		#print(frame_alt,frame_neu)
 		frame_alt = frame_neu
 				
