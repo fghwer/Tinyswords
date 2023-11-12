@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 100 # How fast the player will move (pixels/sec).
+@export var speed = 1 # How fast the player will move (pixels/sec).
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 var screen_size # Size of the game window.
 var i = 0
@@ -43,9 +43,10 @@ func _physics_process(delta):
 			
 	
 	else:
+		var velocity = Vector2.ZERO
 		#movement_target = Vector2(1000, 250)
 		#set_movement_target(Vector2(1000, 250))
-		idle_navigation(delta)
+		idle_navigation()
 		#print
 		#if i_nav == 0:
 		#	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
@@ -76,11 +77,12 @@ func idle(delta):
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_h = true
 		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+	#if velocity.length() > 0:
+		#velocity = velocity.normalized() * speed
 	
 	$AnimatedSprite2D.play()
-	
+	#velocity.x = 447
+	#velocity.y = 
 	position += velocity * delta
 	
 	move_and_slide()
@@ -89,17 +91,23 @@ func idle(delta):
 	#else:
 	#	$AnimatedSprite2D.stop()
 
-func idle_navigation(delta):
+func idle_navigation():
 	
+	#var velocity = Vector2.ZERO
 	#if i_nav == 0:
-	var target_position: Vector2 = navigation_agent.target_position
-	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-	var current_agent_position: Vector2 = navigation_agent.get_parent().position
-	var velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
-	#	i_nav = 100
-	print(target_position, current_agent_position, next_path_position)
-	#i_nav -=1
 	
+	if navigation_agent.is_navigation_finished():
+		return
+	if i_nav == 0:
+		#var target_position: Vector2 = navigation_agent.target_position
+		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+		var current_agent_position: Vector2 = navigation_agent.get_parent().position
+		#next_path_position -= current_agent_position
+		var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
+		velocity = new_velocity
+		#print(current_agent_position, next_path_position)
+		i_nav = 100
+	i_nav -=1
 	#var velocity = Vector2.ZERO # The player's movement vector.
 	#var i = 0
 	#if Input.is_action_pressed("move_right"):
@@ -124,9 +132,10 @@ func idle_navigation(delta):
 	#	velocity = velocity.normalized() * speed
 	
 	$AnimatedSprite2D.play()
-	
-	position += velocity * delta
-	
+	#velocity.x = 437
+	#velocity.y = 373
+	#position += velocity*2
+	print(velocity)
 	move_and_slide()
 
 
