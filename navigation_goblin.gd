@@ -54,7 +54,7 @@ func _physics_process(_delta):
 		frame_neu = $AnimatedSprite2D.frame
 		if frame_alt != frame_neu && frame_neu == 3 && life > 0:
 			#pass
-			player.life -= 150
+			player.life -= 50
 			if player.life <= 0:
 				player.queue_free()
 				

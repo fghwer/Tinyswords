@@ -9,12 +9,14 @@ func _ready():
 	#add_child(player)
 	#$navigation_goblin.set_movement_target($Marker2D.position)
 	$MobTimer.start()
+	$knight_nav.startpos = $KnightSpawnLocation.position
 	$knight_nav.position = $KnightSpawnLocation.position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	print($MobTimer.time_left)
+	#print($knight_nav.distance_startpoint($KnightSpawnLocation.position))
+	#print($MobTimer.time_left)
 	#print($knight_nav.life) 
 	
 	for _i in $Foam_Animation_Parent.get_children():

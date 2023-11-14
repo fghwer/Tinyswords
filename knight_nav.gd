@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal hit 
 @export var maxlife = 1000
 @export var speed = 100 # How fast the player will move (pixels/sec).
+var startpos = Vector2.ZERO
 var life = maxlife
 var screen_size # Size of the game window.
 var i = 0
@@ -33,6 +34,8 @@ func _physics_process(_delta):
 	
 	#move_and_slide()
 	if player_attack and player != null:
+		#print(pow($KnightSpawnLocation.position.x - position.x,2) + pow($KnightSpawnLocation.position.y - position.y,2))
+		#print(pow(startpos.x - position.x,2) + pow(startpos.y - position.y,2))
 		#var frame_alt = 0
 		#var frame_neu = 0
 		#print("attack")
@@ -73,14 +76,17 @@ func _physics_process(_delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play()
-	elif player != null and (player.position.x - position.x)^2 + (player.position.y - position.y)^2  > 20:
-		velocity = (player.position - position).normalized()*speed
-		if(player.position.x -position.x) < 0:
+	elif pow(startpos.x - position.x,2) + pow(startpos.y - position.y,2)  > 100:
+		#print("hi")
+		velocity = (startpos - position).normalized()*speed
+		$AnimatedSprite2D.animation = "walk"
+		if(startpos.x -position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play()
 	else:
+		#print("hello")
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.animation = "idle"
 		$AnimatedSprite2D.flip_h = false
@@ -117,7 +123,13 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
+#func set_startposition( KnightSpawnLocation : Vector2 ):
+#	position = KnightSpawnLocation
 
+#func distance_startpoint( KnightSpawnLocation : Vector2 ):
+#	var distance = pow(KnightSpawnLocation.x - position.x,2) + pow(KnightSpawnLocation.y - position.y,2)
+#	return distance
+	
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
