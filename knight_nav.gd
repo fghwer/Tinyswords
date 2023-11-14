@@ -1,40 +1,42 @@
 extends CharacterBody2D
 
-
-@export var speed = 200 # How fast the player will move (pixels/sec).
+signal hit 
 @export var maxlife = 1000
-@onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
+@export var speed = 100 # How fast the player will move (pixels/sec).
 var life = maxlife
 var screen_size # Size of the game window.
-var i_nav=0
+var i = 0
 var player_chase = false
 var player_attack = false
 var player = null
 var frame_alt = 0
 var frame_neu = 0
 
-func _ready():
-	screen_size = get_viewport_rect().size
-	$HPbar.set_value_no_signal(100)
-	navigation_agent.set_target_position(Vector2(608,296))
-
-#func set_movement_target(movement_target: Vector2):
-#	navigation_agent.set_target_position(movement_target)
+const SPEED = 50.0
+#const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
 func _physics_process(_delta):
-	#print(player)
 	
+	var hpper = life/maxlife
+	#var velocity = Vector2.ZERO # The player's movement vector.
+	$HPbar.set_value_no_signal(life*100/maxlife)
+	#velocity = Vector2(100,100)
+	#if velocity.length() > 0:
+		#velocity = velocity.normalized() * speed
+	#$AnimatedSprite2D.animation = "walk"
+	#$AnimatedSprite2D.play()
+	
+	#position += velocity * delta
+	
+	#move_and_slide()
 	if player_attack and player != null:
 		#var frame_alt = 0
 		#var frame_neu = 0
 		#print("attack")
-		var hpper = life/maxlife
-		#var velocity = Vector2.ZERO # The player's movement vector.
-		$HPbar.set_value_no_signal(life*100/maxlife)
+		
 		#if frame_alt != frame_neu && frame_neu == 3:
 		#	player.life -= 100
 		velocity = Vector2.ZERO
@@ -52,15 +54,12 @@ func _physics_process(_delta):
 			player = null
 		$AnimatedSprite2D.play()
 		frame_neu = $AnimatedSprite2D.frame
-		if frame_alt != frame_neu && frame_neu == 3 && life > 0:
-			#pass
-			player.life -= 150
+		if frame_alt != frame_neu && frame_neu == 4 && life > 0:
+			player.life -= 300
 			if player.life <= 0:
 				player.queue_free()
-				
 			#player.set_hpbar_value(player.life/player.maxlife)
 			#print(player, player.life)
-		#print(player)
 		#print(frame_alt,frame_neu)
 		frame_alt = frame_neu
 				
@@ -74,26 +73,36 @@ func _physics_process(_delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play()
-	else:
-		if navigation_agent.is_navigation_finished():
-			return
-		#if i_nav == 0:
-		var target_position: Vector2 = navigation_agent.target_position
-		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		var current_agent_position: Vector2 = navigation_agent.get_parent().position
-		#next_path_position -= current_agent_position
-		var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
-		velocity = new_velocity
-		#print(target_position, current_agent_position, next_path_position)
-		if velocity == Vector2.ZERO:
-			$AnimatedSprite2D.animation = "idle"
-			$AnimatedSprite2D.flip_h = false
-		elif velocity.x > 0:
-			$AnimatedSprite2D.animation = "walk"
-			$AnimatedSprite2D.flip_h = false
-		elif velocity.x < 0:
-			$AnimatedSprite2D.animation = "walk"
+	elif player != null and (player.position.x - position.x)^2 + (player.position.y - position.y)^2  > 20:
+		velocity = (player.position - position).normalized()*speed
+		if(player.position.x -position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play()
+	else:
+		velocity = Vector2.ZERO
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.flip_h = false
+		#if navigation_agent.is_navigation_finished():
+		#	return
+		#if i_nav == 0:
+		#var target_position: Vector2 = navigation_agent.target_position
+		#var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+		#var current_agent_position: Vector2 = navigation_agent.get_parent().position
+		#next_path_position -= current_agent_position
+		#var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
+		#velocity = new_velocity
+		#print(target_position, current_agent_position, next_path_position)
+		#if velocity == Vector2.ZERO:
+			#$AnimatedSprite2D.animation = "idle"
+			#$AnimatedSprite2D.flip_h = false
+		#elif velocity.x > 0:
+			#$AnimatedSprite2D.animation = "walk"
+			#$AnimatedSprite2D.flip_h = false
+		#elif velocity.x < 0:
+			#$AnimatedSprite2D.animation = "walk"
+			#$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play()
 	#i_nav = 100
 	#i_nav -=1

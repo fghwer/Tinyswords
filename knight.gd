@@ -1,13 +1,17 @@
 extends CharacterBody2D
 
 
-
 signal hit 
 @export var maxlife = 1000
 @export var speed = 100 # How fast the player will move (pixels/sec).
 var life = maxlife
 var screen_size # Size of the game window.
 var i = 0
+var player_chase = false
+var player_attack = false
+var player = null
+var frame_alt = 0
+var frame_neu = 0
 
 func set_hpbar_value(HPpercent):
 	$HPbar.set_value(HPpercent)
@@ -17,7 +21,7 @@ func _ready():
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	
 	#if life <= 0:
 	#	hide()
@@ -36,6 +40,7 @@ func _process(delta):
 	velocity.y = sin((PI/360)*i) 
 	
 	velocity *= speed
+	velocity *= delta
 	#print(velocity.x)
 	
 	if velocity == Vector2.ZERO:
@@ -53,7 +58,7 @@ func _process(delta):
 	
 	$AnimatedSprite2D.play()
 	
-	position += velocity * delta
+	#position += velocity * delta
 	
 	move_and_slide()
 	#print(position)

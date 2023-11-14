@@ -185,3 +185,15 @@ theme_override_font_sizes/font_size = 22
 theme_override_styles/background = SubResource("StyleBoxFlat_at6g7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ckhhw")
 step = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]

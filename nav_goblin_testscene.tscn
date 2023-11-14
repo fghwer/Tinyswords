@@ -2,38 +2,49 @@
 
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://navigation_goblin.tscn" id="1_m6uql"]
 [ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
-[ext_resource type="Texture2D" uid="uid://b2ch7r08nuh4i" path="res://assets/Terrain/Decorations/Mushroom_03.png" id="3_o8jy4"]
 [ext_resource type="PackedScene" uid="uid://bwi2cip47a6yq" path="res://TilemapCollection.tscn" id="4_f0qxx"]
 [ext_resource type="PackedScene" uid="uid://q2lhnl4x8bgr" path="res://foam_animation_parent.tscn" id="5_b4kd8"]
-[ext_resource type="PackedScene" uid="uid://chebxs8ergddk" path="res://area_2d.tscn" id="6_8nlgc"]
+[ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://knight_nav.tscn" id="6_pg1o4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
 vertices = PackedVector2Array(316, 25, 1733, 93, 1691, 105, 335, 49, 1126, 782, 1225, 451, 1222, 937, 1122, 998, 299, 843, 327, 849, 762, 1336, 747, 1289, 1617, 967, 1605, 954, 1390, 987, 1371, 974, 743, 448, 842, 798, 778, 791, 539, 718, 479, 273, 555, 267, 1393, 1293, 846, 1008, 781, 1032, 708, 194, 571, 181)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 0, 3, 9), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(2, 1, 12, 13), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(16, 5, 4, 17, 18, 19), PackedInt32Array(19, 20, 21, 16), PackedInt32Array(6, 15, 14, 22, 10, 7), PackedInt32Array(23, 7, 10, 11, 24), PackedInt32Array(23, 24, 18, 17), PackedInt32Array(25, 16, 21, 26)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(762, 1336, 299, 843, 316, 25, 1733, 93, 1617, 967, 1390, 987, 1393, 1293), PackedVector2Array(842, 798, 846, 1008, 1122, 998, 1126, 782), PackedVector2Array(781, 1032, 778, 791, 539, 718, 479, 273, 555, 267, 571, 181, 708, 194, 743, 448, 1225, 451, 1222, 937, 1371, 974, 1605, 954, 1691, 105, 335, 49, 327, 849, 747, 1289)])
 
+[sub_resource type="Curve2D" id="Curve2D_ft104"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 817, 1263, 0, 0, 0, 0, 1358, 1261, 0, 0, 0, 0, 1358, 1077, 0, 0, 0, 0, 831, 1083, 0, 0, 0, 0, 817, 1263)
+}
+point_count = 5
+
 [node name="Level_nav" type="Node"]
 script = ExtResource("1_yuckl")
-
-[node name="navigation_goblin" parent="." instance=ExtResource("1_m6uql")]
-z_index = 5
-position = Vector2(1000, 1200)
+mob_scene = ExtResource("1_m6uql")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(9, -2)
 navigation_polygon = SubResource("NavigationPolygon_mubjo")
 use_edge_connections = false
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(608, 296)
+[node name="KnightSpawnLocation" type="Marker2D" parent="."]
+position = Vector2(608, 450)
 metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
-texture = ExtResource("3_o8jy4")
 
 [node name="TileMapCollection" parent="." instance=ExtResource("4_f0qxx")]
 
 [node name="Foam_Animation_Parent" parent="." instance=ExtResource("5_b4kd8")]
 
-[node name="Knight" parent="." instance=ExtResource("6_8nlgc")]
-position = Vector2(633, 466)
+[node name="knight_nav" parent="." instance=ExtResource("6_pg1o4")]
+position = Vector2(818, 632)
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ft104")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(817, 1263)
+rotation = -0.00369684
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

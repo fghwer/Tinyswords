@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bhp4hhpnt67kq"]
+[gd_scene load_steps=30 format=3 uid="uid://bhp4hhpnt67kq"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_yspcy"]
 [ext_resource type="PackedScene" uid="uid://chebxs8ergddk" path="res://area_2d.tscn" id="2_0ukfw"]
@@ -158,6 +158,12 @@ vertices = PackedVector2Array(704, 828, 1978, 1165, -384, 1159, 515, 832, -397, 
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 1, 0)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-397, -187, -384, 1159, 1978, 1165, 1977, -175), PackedVector2Array(513, 670, 515, 832, 704, 828, 704, 657)])
 
+[sub_resource type="Curve2D" id="Curve2D_6y7xd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 406, 1131, 0, 0, 0, 0, 525, 1129, 0, 0, 0, 0, 642, 1125, 0, 0, 0, 0, 746, 1131, 0, 0, 0, 0, 831, 1134, 0, 0, 0, 0, 989, 1129, 0, 0, 0, 0, 406, 1131)
+}
+point_count = 7
+
 [node name="Level_1" type="Node2D"]
 position = Vector2(386, 146)
 script = ExtResource("1_yspcy")
@@ -209,6 +215,16 @@ position = Vector2(854, 1041)
 speed = 100
 
 [node name="TileMapCollection" parent="." instance=ExtResource("9_pej0j")]
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="MobSpawnPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_6y7xd")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPath"]
+position = Vector2(406, 1131)
+rotation = -0.0168051
 
 [connection signal="pressed" from="ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="ButtonPlay" to="." method="_on_button_pressed"]
