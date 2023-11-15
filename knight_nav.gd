@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal hit 
 @export var maxlife = 1000
 @export var speed = 100 # How fast the player will move (pixels/sec).
+@onready var BloodParticle: GPUParticles2D = get_node("ParticleInterface/BloodParticle")
 var startpos = Vector2.ZERO
 var life = maxlife
 var screen_size # Size of the game window.
@@ -59,6 +60,11 @@ func _physics_process(_delta):
 		frame_neu = $AnimatedSprite2D.frame
 		if frame_alt != frame_neu && frame_neu == 4 && life > 0:
 			player.life -= 300
+			player.BloodParticle.emitting = true
+			var blood_direction = Vector3.ZERO
+			blood_direction.x = player.position.x - position.x
+			blood_direction.y = player.position.y - position.y
+			player.init_bloodparticles(blood_direction)
 			if player.life <= 0:
 				player.queue_free()
 			#player.set_hpbar_value(player.life/player.maxlife)
@@ -130,6 +136,10 @@ func _physics_process(_delta):
 #	var distance = pow(KnightSpawnLocation.x - position.x,2) + pow(KnightSpawnLocation.y - position.y,2)
 #	return distance
 	
+func init_bloodparticles(direction : Vector3):
+	BloodParticle.get_process_material().direction = direction
+	
+
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true

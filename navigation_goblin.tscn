@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://dnwuogk3qx34q"]
+[gd_scene load_steps=29 format=3 uid="uid://dnwuogk3qx34q"]
 
 [ext_resource type="Script" path="res://navigation_goblin.gd" id="1_fawaq"]
 [ext_resource type="Texture2D" uid="uid://6bn3hr7efeku" path="res://assets/Factions/Goblins/Torch.png" id="2_msixa"]
+[ext_resource type="Material" uid="uid://84x5u3o1nmcm" path="res://testprocessmaterial.tres" id="3_urm4y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkngh"]
 atlas = ExtResource("2_msixa")
@@ -221,6 +222,19 @@ theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 23
 theme_override_styles/background = SubResource("StyleBoxFlat_hmr5c")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2urfw")
+
+[node name="ParticleInterface" type="Node2D" parent="."]
+
+[node name="BloodParticle" type="GPUParticles2D" parent="ParticleInterface"]
+z_index = 7
+texture_filter = 3
+emitting = false
+amount = 20
+process_material = ExtResource("3_urm4y")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.9
+trail_lifetime = 0.01
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

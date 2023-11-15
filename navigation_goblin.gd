@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed = 200 # How fast the player will move (pixels/sec).
 @export var maxlife = 1000
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
+@onready var BloodParticle: GPUParticles2D = get_node("ParticleInterface/BloodParticle")
 var life = maxlife
 var screen_size # Size of the game window.
 var i_nav=0
@@ -17,12 +18,9 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	$HPbar.set_value_no_signal(100)
 	navigation_agent.set_target_position(Vector2(608,296))
-
-#func set_movement_target(movement_target: Vector2):
-#	navigation_agent.set_target_position(movement_target)
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	#BloodParticle.get_process_material().direction = Vector3(0,1,0)
+	#print(BloodParticle.get_process_material().direction)
+	
 
 
 func _physics_process(_delta):
@@ -55,6 +53,12 @@ func _physics_process(_delta):
 		if frame_alt != frame_neu && frame_neu == 3 && life > 0:
 			#pass
 			player.life -= 50
+			player.BloodParticle.emitting = true
+			var blood_direction = Vector3.ZERO
+			blood_direction.x = player.position.x - position.x
+			blood_direction.y = player.position.y - position.y
+			player.init_bloodparticles(blood_direction)
+			#player.BloodParticle.direction = Vector3(0,1,0)
 			if player.life <= 0:
 				player.queue_free()
 				
@@ -108,6 +112,8 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
+func init_bloodparticles(direction : Vector3):
+	BloodParticle.get_process_material().direction = direction
 
 func _on_detection_area_body_entered(body):
 	player = body

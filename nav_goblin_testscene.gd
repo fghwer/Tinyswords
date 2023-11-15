@@ -11,6 +11,7 @@ func _ready():
 	#add_child(player)
 	#$navigation_goblin.set_movement_target($Marker2D.position)
 	$MobTimer.start()
+	
 	#$knight_nav.startpos = $KnightSpawnLocation.position
 	#$knight_nav.position = $KnightSpawnLocation.position
 	#get_viewport().get_mouse_position()
