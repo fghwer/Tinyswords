@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-@export var speed = 200 # How fast the player will move (pixels/sec).
-@export var maxlife = 1000
+@export var speed = 125 # How fast the player will move (pixels/sec).
+@export var maxlife = 1000.
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 @onready var BloodParticle: GPUParticles2D = get_node("ParticleInterface/BloodParticle")
 var life = maxlife
@@ -30,13 +30,19 @@ func _physics_process(_delta):
 		#var frame_alt = 0
 		#var frame_neu = 0
 		#print("attack")
-		var hpper = life/maxlife
+		#var hpper = life/maxlife
 		#var velocity = Vector2.ZERO # The player's movement vector.
 		$HPbar.set_value_no_signal(life*100/maxlife)
 		#if frame_alt != frame_neu && frame_neu == 3:
 		#	player.life -= 100
 		velocity = Vector2.ZERO
-		$AnimatedSprite2D.animation = "attack"
+		if abs(player.position.x - position.x) >= abs(player.position.y - position.y):
+			$AnimatedSprite2D.animation = "attack"
+		elif (player.position.y < position.y):
+			$AnimatedSprite2D.animation = "attack_top"
+		else:
+			$AnimatedSprite2D.animation = "attack_bot"
+		#$AnimatedSprite2D.animation = "attack"
 		#frame_alt = $AnimatedSprite2D.frame
 		#print(frame_neu)
 		if(player.position.x - position.x) < 0: # player ist knight
@@ -82,7 +88,7 @@ func _physics_process(_delta):
 		if navigation_agent.is_navigation_finished():
 			return
 		#if i_nav == 0:
-		var target_position: Vector2 = navigation_agent.target_position
+		#var target_position: Vector2 = navigation_agent.target_position
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 		var current_agent_position: Vector2 = navigation_agent.get_parent().position
 		#next_path_position -= current_agent_position

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 signal hit 
-@export var maxlife = 1000
-@export var speed = 100 # How fast the player will move (pixels/sec).
+@export var maxlife = 1000.
+@export var speed = 75 # How fast the player will move (pixels/sec).
 @onready var BloodParticle: GPUParticles2D = get_node("ParticleInterface/BloodParticle")
 var startpos = Vector2.ZERO
 var life = maxlife
@@ -14,7 +14,7 @@ var player = null
 var frame_alt = 0
 var frame_neu = 0
 
-const SPEED = 50.0
+#const SPEED = 50.0
 #const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -22,7 +22,7 @@ const SPEED = 50.0
 
 func _physics_process(_delta):
 	
-	var hpper = life/maxlife
+	#var hpper = life/maxlife
 	#var velocity = Vector2.ZERO # The player's movement vector.
 	$HPbar.set_value_no_signal(life*100/maxlife)
 	#velocity = Vector2(100,100)
@@ -44,7 +44,12 @@ func _physics_process(_delta):
 		#if frame_alt != frame_neu && frame_neu == 3:
 		#	player.life -= 100
 		velocity = Vector2.ZERO
-		$AnimatedSprite2D.animation = "attack"
+		if abs(player.position.x - position.x) >= abs(player.position.y - position.y):
+			$AnimatedSprite2D.animation = "attack"
+		elif (player.position.y < position.y):
+			$AnimatedSprite2D.animation = "attack_top"
+		else:
+			$AnimatedSprite2D.animation = "attack_bot"
 		#frame_alt = $AnimatedSprite2D.frame
 		#print(frame_neu)
 		if(player.position.x - position.x) < 0: # player ist knight
@@ -58,8 +63,8 @@ func _physics_process(_delta):
 			player = null
 		$AnimatedSprite2D.play()
 		frame_neu = $AnimatedSprite2D.frame
-		if frame_alt != frame_neu && frame_neu == 4 && life > 0:
-			player.life -= 300
+		if frame_alt != frame_neu && (frame_neu == 4 or frame_neu == 10) && life > 0:
+			player.life -= 100
 			player.BloodParticle.emitting = true
 			var blood_direction = Vector3.ZERO
 			blood_direction.x = player.position.x - position.x

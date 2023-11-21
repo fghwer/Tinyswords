@@ -46,9 +46,6 @@ func _on_mob_timer_timeout():
 	#mob.set_movement_target($Marker2D.position)
 	
 	add_child(mob)
-	
-
-
 
 func _on_spawn_knight_button_button_up():
 	var knight = knight_scene.instantiate()

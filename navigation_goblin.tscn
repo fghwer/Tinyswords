@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dnwuogk3qx34q"]
+[gd_scene load_steps=42 format=3 uid="uid://dnwuogk3qx34q"]
 
 [ext_resource type="Script" path="res://navigation_goblin.gd" id="1_fawaq"]
 [ext_resource type="Texture2D" uid="uid://6bn3hr7efeku" path="res://assets/Factions/Goblins/Torch.png" id="2_msixa"]
+[ext_resource type="Texture2D" uid="uid://bya0r2d1jatlw" path="res://Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="3_3fwn7"]
 [ext_resource type="Material" uid="uid://84x5u3o1nmcm" path="res://testprocessmaterial.tres" id="3_urm4y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkngh"]
@@ -27,6 +28,54 @@ region = Rect2(768, 384, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf8va"]
 atlas = ExtResource("2_msixa")
 region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfvgy"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aesuh"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfotw"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1ufj"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mamex"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwg2g"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln4b3"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(0, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1dm0"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(192, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk3gc"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(384, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilmfb"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(576, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru5x3"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(768, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io4c3"]
+atlas = ExtResource("3_3fwn7")
+region = Rect2(960, 768, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxtgg"]
 atlas = ExtResource("2_msixa")
@@ -103,7 +152,53 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 10.0
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfvgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aesuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfotw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1ufj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mamex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwg2g")
+}],
+"loop": true,
+"name": &"attack_bot",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln4b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1dm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk3gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilmfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru5x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io4c3")
+}],
+"loop": true,
+"name": &"attack_top",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -129,7 +224,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -152,7 +247,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4861o"]
@@ -196,6 +291,7 @@ shape = SubResource("RectangleShape2D_4861o")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 50.0
+debug_enabled = true
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 0
