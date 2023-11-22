@@ -27,6 +27,7 @@ func _physics_process(_delta):
 	#print(player)
 	
 	if player_attack and player != null:
+		print(player.name == "BaseCastle")
 		#var frame_alt = 0
 		#var frame_neu = 0
 		#print("attack")
@@ -50,7 +51,7 @@ func _physics_process(_delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 		if player.life <= 0:
-			player.hide()
+			#player.hide()
 			player_attack = false
 			player_chase = false
 			player = null
@@ -59,13 +60,15 @@ func _physics_process(_delta):
 		if frame_alt != frame_neu && frame_neu == 3 && life > 0:
 			#pass
 			player.life -= 50
+			
+			#if player != "BaseCastle":
 			player.BloodParticle.emitting = true
 			var blood_direction = Vector3.ZERO
 			blood_direction.x = player.position.x - position.x
 			blood_direction.y = player.position.y - position.y
 			player.init_bloodparticles(blood_direction)
 			#player.BloodParticle.direction = Vector3(0,1,0)
-			if player.life <= 0:
+			if player.life <= 0 and player.name != "BaseCastle":
 				player.queue_free()
 				
 			#player.set_hpbar_value(player.life/player.maxlife)

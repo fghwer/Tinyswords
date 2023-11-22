@@ -1,6 +1,7 @@
 extends Node
 @export var mob_scene: PackedScene
 @export var knight_scene : PackedScene
+#@export var knight_scene : PackedScene
 var startpos_knight = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
