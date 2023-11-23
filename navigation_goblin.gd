@@ -17,7 +17,7 @@ var frame_neu = 0
 func _ready():
 	screen_size = get_viewport_rect().size
 	$HPbar.set_value_no_signal(100)
-	navigation_agent.set_target_position(Vector2(608,296))
+	#navigation_agent.set_target_position(Vector2(608,296))
 	#BloodParticle.get_process_material().direction = Vector3(0,1,0)
 	#print(BloodParticle.get_process_material().direction)
 	
@@ -27,7 +27,7 @@ func _physics_process(_delta):
 	#print(player)
 	
 	if player_attack and player != null:
-		print(player.name == "BaseCastle")
+		#print(player.name == "BaseCastle")
 		#var frame_alt = 0
 		#var frame_neu = 0
 		#print("attack")
@@ -123,6 +123,9 @@ func _physics_process(_delta):
 
 func init_bloodparticles(direction : Vector3):
 	BloodParticle.get_process_material().direction = direction
+	
+func init_target_position(navigation_target_pos : Vector2):
+	$NavigationAgent2D.set_target_position(navigation_target_pos)
 
 func _on_detection_area_body_entered(body):
 	player = body

@@ -1,6 +1,8 @@
 extends Node
 @export var mob_scene: PackedScene
 @export var knight_scene : PackedScene
+@export var worker_scene : PackedScene
+#@onready var navigation_agent: NavigationAgent2D = get_node("mob_scene/NavigationAgent2D")
 #@export var knight_scene : PackedScene
 var startpos_knight = Vector2.ZERO
 
@@ -11,6 +13,7 @@ func _ready():
 	#player.speed = 1
 	#add_child(player)
 	#$navigation_goblin.set_movement_target($Marker2D.position)
+	#navigation_agent.set_target_position(Vector2(608,296))
 	$MobTimer.start()
 	
 	#$knight_nav.startpos = $KnightSpawnLocation.position
@@ -20,6 +23,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	#print($BaseCastle.position)
 	#print($knight_nav.distance_startpoint($KnightSpawnLocation.position))
 	#print($MobTimer.time_left)
 	#print($knight_nav.life) 
@@ -31,8 +35,9 @@ func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 	var spawnpath = randi_range(0,100)
-	print(spawnpath)
+	#print(spawnpath)
 	#var mob_spawn_location = 0
+	mob.init_target_position($BaseCastle.position)
 	if spawnpath < 50:
 		# Choose a random location on Path2D.
 		var mob_spawn_location = get_node("MobPath/MobSpawnLocation")
@@ -55,4 +60,18 @@ func _on_spawn_knight_button_button_up():
 	knight.startpos = knight_spawn_location
 	add_child(knight)
 	
-	
+
+func _on_spawn_worker_button_pressed():
+	var worker = worker_scene.instantiate()
+	var worker_spawn_location = Vector2.ZERO
+	worker_spawn_location = $BaseCastle.position
+	worker_spawn_location.y += 120
+	var target_pos = Vector2.ZERO
+	target_pos = $GoldMine.position
+	target_pos.y += 50
+	worker.position = worker_spawn_location
+	worker.startpos = worker_spawn_location
+	worker.minepos = target_pos
+	worker.worker_3rd_pos = $Worker_3rd_pos.position
+	worker.init_target_position(target_pos)
+	add_child(worker)

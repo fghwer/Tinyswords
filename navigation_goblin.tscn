@@ -251,7 +251,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4861o"]
-size = Vector2(64, 64)
+size = Vector2(38, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8ikk"]
 radius = 160.078
@@ -287,10 +287,13 @@ sprite_frames = SubResource("SpriteFrames_70heb")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 22)
 shape = SubResource("RectangleShape2D_4861o")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 50.0
+avoidance_enabled = true
+radius = 50.0
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 0
