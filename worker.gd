@@ -42,7 +42,7 @@ func _physics_process(delta):
 			#$AnimatedSprite2D.animation = "walk"
 			$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play()
-	elif idle_after_flee_end_trigger == true:
+	elif idle_after_flee_end_trigger == true and flee_trigger == true:
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.animation = "idle"
 		if $AnimatedSprite2D.animation == "idle" and $AnimatedSprite2D.frame == 5:

@@ -417,7 +417,7 @@ color_initial_ramp = SubResource("GradientTexture1D_c11dn")
 [node name="knight_nav" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(507, 330)
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_1d5ic")
 metadata/_edit_group_ = true
 
