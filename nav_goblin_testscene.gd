@@ -73,5 +73,6 @@ func _on_spawn_worker_button_pressed():
 	worker.startpos = worker_spawn_location
 	worker.minepos = target_pos
 	worker.worker_3rd_pos = $Worker_3rd_pos.position
+	worker.worker_4rd_pos = $Worker_4rd_pos.position
 	worker.init_target_position(target_pos)
 	add_child(worker)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://wdhhntdxisic"]
+[gd_scene load_steps=32 format=3 uid="uid://wdhhntdxisic"]
 
 [ext_resource type="Script" path="res://BaseCastle.gd" id="1_hcekx"]
 [ext_resource type="Texture2D" uid="uid://q81cm5aaxfoy" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="2_pc2gx"]
@@ -191,9 +191,13 @@ scale_max = 6.0
 color = Color(0.611765, 0.611765, 0.611765, 1)
 color_initial_ramp = SubResource("GradientTexture1D_8sgm8")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j47pi"]
+radius = 3.0
+height = 96.0
+
 [node name="BaseCastle" type="StaticBody2D"]
 position = Vector2(590, 298)
-collision_layer = 11
+collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_hcekx")
 
@@ -248,3 +252,16 @@ process_material = SubResource("ParticleProcessMaterial_wt02t")
 lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 110)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j47pi")
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

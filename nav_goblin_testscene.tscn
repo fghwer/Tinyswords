@@ -26,7 +26,7 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gakqr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f8vy"]
 
 [node name="Level_nav" type="Node"]
 script = ExtResource("1_yuckl")
@@ -53,7 +53,6 @@ position = Vector2(817, 1263)
 rotation = -0.00369684
 
 [node name="SpawnKnightButton" type="Button" parent="."]
-z_index = 6
 offset_left = 1825.0
 offset_top = 1079.0
 offset_right = 2179.0
@@ -84,14 +83,28 @@ text = "Spawn Worker at Base"
 position = Vector2(1300, 390)
 
 [node name="Worker_3rd_pos" type="StaticBody2D" parent="."]
-position = Vector2(975, 500)
+position = Vector2(1240, 525)
+
+[node name="Worker_3rd_pos" type="Area2D" parent="Worker_3rd_pos"]
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Worker_3rd_pos"]
-shape = SubResource("CircleShape2D_gakqr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worker_3rd_pos/Worker_3rd_pos"]
+shape = SubResource("CircleShape2D_8f8vy")
 
-[node name="Marker" type="Marker2D" parent="Worker_3rd_pos"]
+[node name="Marker" type="Marker2D" parent="Worker_3rd_pos/Worker_3rd_pos"]
+
+[node name="Worker_4rd_pos" type="StaticBody2D" parent="."]
+position = Vector2(625, 490)
+
+[node name="Worker_4rd_pos" type="Area2D" parent="Worker_4rd_pos"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worker_4rd_pos/Worker_4rd_pos"]
+shape = SubResource("CircleShape2D_8f8vy")
+
+[node name="Marker" type="Marker2D" parent="Worker_4rd_pos/Worker_4rd_pos"]
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="button_up" from="SpawnKnightButton" to="." method="_on_spawn_knight_button_button_up"]

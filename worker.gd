@@ -10,6 +10,7 @@ var life = maxlife
 var startpos = Vector2.ZERO
 var minepos = Vector2.ZERO
 var worker_3rd_pos = Vector2.ZERO
+var worker_4rd_pos = Vector2.ZERO
 #var Base_pos = Vector2.ZERO
 #var screen_size # Size of the game window.
 #var i_nav=0
@@ -17,6 +18,9 @@ var worker_3rd_pos = Vector2.ZERO
 #var player_attack = false
 var interact_trigger = false
 var interact_stand_trigger = false
+var flee_trigger = false
+var idle_after_flee_end_trigger = false
+var i_idle_after_flee = 0
 var player = null
 var frame_alt = 0
 var frame_neu = 0
@@ -26,8 +30,28 @@ var frame_neu = 0
 func _physics_process(delta):
 	
 	$HPbar.set_value_no_signal(life*100/maxlife)	
-	
-	if interact_trigger and player != null:
+	#if player != null:
+	#	print(player.name)
+	if flee_trigger and player != null:
+		$AnimatedSprite2D.animation = "flee"
+		velocity = (position - player.position).normalized()*speed
+		if velocity.x > 0:
+			#$AnimatedSprite2D.animation = "flee"
+			$AnimatedSprite2D.flip_h = false
+		elif velocity.x < 0:
+			#$AnimatedSprite2D.animation = "walk"
+			$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play()
+	elif idle_after_flee_end_trigger == true:
+		velocity = Vector2.ZERO
+		$AnimatedSprite2D.animation = "idle"
+		if $AnimatedSprite2D.animation == "idle" and $AnimatedSprite2D.frame == 5:
+			i_idle_after_flee += 1
+			if i_idle_after_flee == 10:
+				flee_trigger = false
+				idle_after_flee_end_trigger = false
+				i_idle_after_flee = 0
+	elif interact_trigger and player != null:
 		if interact_stand_trigger:
 			velocity = Vector2.ZERO
 			interact_stand_trigger = false
@@ -36,6 +60,11 @@ func _physics_process(delta):
 		elif player.name == "GoldMine":
 			$AnimatedSprite2D.animation = "mine"
 		elif player.name == "Worker_3rd_pos":
+			player = null
+			interact_trigger = false
+			#print($BaseCastle.position)
+			init_target_position(worker_4rd_pos)
+		elif player.name == "Worker_4rd_pos":
 			player = null
 			interact_trigger = false
 			#print($BaseCastle.position)
@@ -82,8 +111,36 @@ func init_bloodparticles(direction : Vector3):
 	BloodParticle.get_process_material().direction = direction
 
 
-func _on_interact_area_body_entered(body):
+
+
+#func _on_interact_area_body_entered(body):
+##	#print("test")
+#	player = body
+#	interact_trigger = true
+#	interact_stand_trigger = true
+
+
+func _on_interact_area_area_entered(area):
 	#print("test")
-	player = body
+	player = area.get_parent()
 	interact_trigger = true
 	interact_stand_trigger = true
+
+
+func _on_flee_area_body_entered(body):
+	#print("flee")
+	player = body
+	flee_trigger = true
+
+
+#func _on_flee_area_body_exited(body):
+#	player = null
+#	flee_trigger = false
+
+
+
+func _on_stop_flee_area_body_exited(body):
+	#print("exit")
+	player = null
+	idle_after_flee_end_trigger = true
+	#flee_trigger = false

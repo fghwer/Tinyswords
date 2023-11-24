@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dsjwy0ogftvi"]
+[gd_scene load_steps=43 format=3 uid="uid://dsjwy0ogftvi"]
 
 [ext_resource type="Script" path="res://worker.gd" id="1_mqxia"]
 [ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="1_rpphm"]
@@ -261,10 +261,10 @@ border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pjbu5"]
-radius = 147.003
+radius = 168.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vonl7"]
-radius = 44.0114
+radius = 31.0161
 
 [sub_resource type="Gradient" id="Gradient_12iyj"]
 
@@ -286,6 +286,9 @@ scale_min = 2.0
 scale_max = 6.0
 color = Color(0.196078, 0.639216, 1, 1)
 color_initial_ramp = SubResource("GradientTexture1D_21dko")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j6y2w"]
+radius = 311.026
 
 [node name="worker" type="CharacterBody2D"]
 position = Vector2(688, 329)
@@ -316,7 +319,6 @@ step = 1.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 50.0
-debug_enabled = true
 
 [node name="FleeArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -342,4 +344,15 @@ lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
 
+[node name="StopFleeArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StopFleeArea"]
+shape = SubResource("CircleShape2D_j6y2w")
+
+[connection signal="body_entered" from="FleeArea" to="." method="_on_flee_area_body_entered"]
+[connection signal="body_exited" from="FleeArea" to="." method="_on_flee_area_body_exited"]
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="StopFleeArea" to="." method="_on_stop_flee_area_body_exited"]
