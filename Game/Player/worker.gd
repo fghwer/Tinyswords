@@ -144,8 +144,10 @@ func _on_stop_flee_area_body_exited(body):
 func _draftgold():
 	if !backpack >= max_backpack:
 		backpack +=1
+		print("draft")
 
 func _getGold():
 	if backpack >= 0:
 		backpack -=1
 		Global.Player.gold +=1
+		print("getgold")

@@ -18,4 +18,6 @@ func _on_button_home_pressed():
 
 func _on_button_restart_pressed():
 	# Set Userscore to 0 
+	Global.Player.gold = 100
 	get_tree().change_scene_to_file("res://nav_goblin_testscene.tscn")
+	

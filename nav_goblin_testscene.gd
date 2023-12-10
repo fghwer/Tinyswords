@@ -5,6 +5,8 @@ extends Node
 #@onready var navigation_agent: NavigationAgent2D = get_node("mob_scene/NavigationAgent2D")
 #@export var knight_scene : PackedScene
 var startpos_knight = Vector2.ZERO
+var waiting_for_click = false
+var knight_to_spawn = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +29,9 @@ func _process(_delta):
 	#print($MobTimer.time_left)
 	#print($knight_nav.life) 
 	#print(User1.gold)
+	if waiting_for_click and Input.is_action_just_pressed("click"):
+		_spawn_knight_at_mouse_position()
+		
 	
 	for _i in $Foam_Animation_Parent.get_children():
 		_i.play()
@@ -61,19 +66,23 @@ func _on_mob_timer_timeout():
 func _on_spawn_knight_button_button_up():
 	
 	if Global.Player.gold >= 50:
-	
-		var knight = knight_scene.instantiate() # erstelle knight instanz
-		# warte auf user 
-		if InputEventMouseButton:
-			print("Mouse Click/Unclick at: ", get_viewport().get_mouse_position())
-			var knight_spawn_location = get_viewport().get_mouse_position() # get mouse postion
-			knight.position = knight_spawn_location 
-			knight.startpos = knight_spawn_location
-		# Print the size of the viewport.
+		knight_to_spawn = knight_scene.instantiate()
+		waiting_for_click = true
+		print("button")
+		
+		
+		
+
+func _spawn_knight_at_mouse_position():
+	if knight_to_spawn:
+		var mouse_position = get_viewport().get_mouse_position()
+		knight_to_spawn.position = mouse_position
+		knight_to_spawn.startpos = mouse_position
+		add_child(knight_to_spawn)
+		knight_to_spawn = null
+		waiting_for_click = false
+		print("spawn")
 		Global.Player.gold -= 50
-		add_child(knight)
-		
-		
 
 func _on_spawn_worker_button_pressed():
 	
