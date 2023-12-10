@@ -47,7 +47,8 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play()
 		frame_neu = $AnimatedSprite2D.frame
 		if frame_alt != frame_neu && (frame_neu == 4 or frame_neu == 10) && life > 0:
-			player.life -= 100
+			if player.life != null:
+				player.life -= 100
 			player.BloodParticle.emitting = true
 			var blood_direction = Vector3.ZERO
 			blood_direction.x = player.position.x - position.x
