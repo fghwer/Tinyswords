@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://navigation_goblin.tscn" id="1_m6uql"]
 [ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
 [ext_resource type="PackedScene" uid="uid://bwi2cip47a6yq" path="res://TilemapCollection.tscn" id="4_f0qxx"]
-[ext_resource type="PackedScene" uid="uid://dsjwy0ogftvi" path="res://worker.tscn" id="4_qsf12"]
+[ext_resource type="PackedScene" uid="uid://dsjwy0ogftvi" path="res://Game/Player/worker.tscn" id="4_qsf12"]
 [ext_resource type="PackedScene" uid="uid://q2lhnl4x8bgr" path="res://foam_animation_parent.tscn" id="5_b4kd8"]
-[ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://knight_nav.tscn" id="6_pg1o4"]
-[ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://base_castle.tscn" id="6_t6skt"]
-[ext_resource type="PackedScene" uid="uid://dpi3jmc1unbuh" path="res://gold_mine.tscn" id="8_0gjid"]
+[ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://Game/Player/knight_nav.tscn" id="6_pg1o4"]
+[ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="6_t6skt"]
+[ext_resource type="PackedScene" uid="uid://dpi3jmc1unbuh" path="res://Game/Buildings/gold_mine.tscn" id="8_0gjid"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
 vertices = PackedVector2Array(1711, 126, 1724, 101, 1733, 93, 1617, 967, 1596, 958, 1515, 252, 1524, 273, 1390, 987, 1241, 918, 9, 34, 15, 46, -1, 717, -10, 724, 9, 480, 6, 663, 1252, 632, 1108, 924, 1106, 843, 1133, 441, 764, 1320, 785, 909, 837, 911, 852, 983, 548, 165, 714, 156, 741, 444, 546, 277, 377, 591, 371, 524, 562, 632, 1393, 1293, 762, 1336, 1034, 989, 292, 484, 1245, 243, 1517, 441, 1422, 444, 857, 840)
@@ -105,6 +105,12 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_8f8vy")
 
 [node name="Marker" type="Marker2D" parent="Worker_4rd_pos/Worker_4rd_pos"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 2098.0
+offset_top = 9.0
+offset_right = 2336.0
+offset_bottom = 60.0
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="button_up" from="SpawnKnightButton" to="." method="_on_spawn_knight_button_button_up"]

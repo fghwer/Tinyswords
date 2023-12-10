@@ -5,6 +5,7 @@ extends Node
 #@onready var navigation_agent: NavigationAgent2D = get_node("mob_scene/NavigationAgent2D")
 #@export var knight_scene : PackedScene
 var startpos_knight = Vector2.ZERO
+var User1 = User.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,10 +28,15 @@ func _process(_delta):
 	#print($knight_nav.distance_startpoint($KnightSpawnLocation.position))
 	#print($MobTimer.time_left)
 	#print($knight_nav.life) 
-	
+	#print(User1.gold)
 	for _i in $Foam_Animation_Parent.get_children():
 		_i.play()
 		
+	
+	var label = get_node("TextEdit")
+	label.set_text(str(User1.gold) + ": Gold")
+	
+
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()

@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="Tinyswords"
-run/main_scene="res://start.tscn"
+run/main_scene="res://GUI/start.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
 
 [display]
 

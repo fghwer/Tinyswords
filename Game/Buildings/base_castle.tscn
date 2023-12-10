@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://wdhhntdxisic"]
 
-[ext_resource type="Script" path="res://BaseCastle.gd" id="1_hcekx"]
+[ext_resource type="Script" path="res://Game/Buildings/BaseCastle.gd" id="1_hcekx"]
 [ext_resource type="Texture2D" uid="uid://q81cm5aaxfoy" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="2_pc2gx"]
 [ext_resource type="Texture2D" uid="uid://bnukoo08qt1yy" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Destroyed.png" id="3_my7hj"]
 [ext_resource type="Texture2D" uid="uid://drtdah6ngiivv" path="res://Tiny Swords (Update 010)/Effects/Fire/Fire.png" id="4_aq0p5"]

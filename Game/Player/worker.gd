@@ -113,13 +113,6 @@ func init_bloodparticles(direction : Vector3):
 
 
 
-#func _on_interact_area_body_entered(body):
-##	#print("test")
-#	player = body
-#	interact_trigger = true
-#	interact_stand_trigger = true
-
-
 func _on_interact_area_area_entered(area):
 	#print("test")
 	player = area.get_parent()
@@ -131,11 +124,6 @@ func _on_flee_area_body_entered(body):
 	#print("flee")
 	player = body
 	flee_trigger = true
-
-
-#func _on_flee_area_body_exited(body):
-#	player = null
-#	flee_trigger = false
 
 
 

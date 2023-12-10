@@ -1,6 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://dsjwy0ogftvi"]
 
-[ext_resource type="Script" path="res://worker.gd" id="1_mqxia"]
+[ext_resource type="Script" path="res://Game/Player/worker.gd" id="1_mqxia"]
 [ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="1_rpphm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1vhe"]

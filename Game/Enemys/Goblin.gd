@@ -48,12 +48,6 @@ func _physics_process(delta):
 		#set_movement_target(Vector2(1000, 250))
 		idle_navigation()
 		#print
-		#if i_nav == 0:
-		#	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		#	var current_agent_position: Vector2 = global_position
-		#	var velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
-		#	i_nav = 100
-		#i_nav -=1
 	
 
 func idle(delta):

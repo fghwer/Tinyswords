@@ -22,27 +22,12 @@ var frame_neu = 0
 
 func _physics_process(_delta):
 	
-	#var hpper = life/maxlife
-	#var velocity = Vector2.ZERO # The player's movement vector.
 	$HPbar.set_value_no_signal(life*100/maxlife)
-	#velocity = Vector2(100,100)
-	#if velocity.length() > 0:
-		#velocity = velocity.normalized() * speed
-	#$AnimatedSprite2D.animation = "walk"
-	#$AnimatedSprite2D.play()
-	
-	#position += velocity * delta
+
 	
 	#move_and_slide()
 	if player_attack and player != null:
-		#print(pow($KnightSpawnLocation.position.x - position.x,2) + pow($KnightSpawnLocation.position.y - position.y,2))
-		#print(pow(startpos.x - position.x,2) + pow(startpos.y - position.y,2))
-		#var frame_alt = 0
-		#var frame_neu = 0
-		#print("attack")
 		
-		#if frame_alt != frame_neu && frame_neu == 3:
-		#	player.life -= 100
 		velocity = Vector2.ZERO
 		if abs(player.position.x - position.x) >= abs(player.position.y - position.y):
 			$AnimatedSprite2D.animation = "attack"
@@ -50,8 +35,6 @@ func _physics_process(_delta):
 			$AnimatedSprite2D.animation = "attack_top"
 		else:
 			$AnimatedSprite2D.animation = "attack_bot"
-		#frame_alt = $AnimatedSprite2D.frame
-		#print(frame_neu)
 		if(player.position.x - position.x) < 0: # player ist knight
 			$AnimatedSprite2D.flip_h = true
 		else:
@@ -87,6 +70,7 @@ func _physics_process(_delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play()
+		
 	elif pow(startpos.x - position.x,2) + pow(startpos.y - position.y,2)  > 100:
 		#print("hi")
 		velocity = (startpos - position).normalized()*speed
@@ -101,37 +85,7 @@ func _physics_process(_delta):
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.animation = "idle"
 		$AnimatedSprite2D.flip_h = false
-		#if navigation_agent.is_navigation_finished():
-		#	return
-		#if i_nav == 0:
-		#var target_position: Vector2 = navigation_agent.target_position
-		#var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		#var current_agent_position: Vector2 = navigation_agent.get_parent().position
-		#next_path_position -= current_agent_position
-		#var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
-		#velocity = new_velocity
-		#print(target_position, current_agent_position, next_path_position)
-		#if velocity == Vector2.ZERO:
-			#$AnimatedSprite2D.animation = "idle"
-			#$AnimatedSprite2D.flip_h = false
-		#elif velocity.x > 0:
-			#$AnimatedSprite2D.animation = "walk"
-			#$AnimatedSprite2D.flip_h = false
-		#elif velocity.x < 0:
-			#$AnimatedSprite2D.animation = "walk"
-			#$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play()
-	#i_nav = 100
-	#i_nav -=1
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction = 1#Input.get_axis("ui_left", "ui_right")
-	#if direction:
-	#velocity.x = direction * speed
-	#velocity.y = direction * speed
-	#else:
-	#	velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
 
 #func set_startposition( KnightSpawnLocation : Vector2 ):

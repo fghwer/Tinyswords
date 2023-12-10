@@ -1,6 +1,6 @@
 [gd_scene load_steps=60 format=3 uid="uid://gkjo8nl0byar"]
 
-[ext_resource type="Script" path="res://knight_nav.gd" id="1_1d5ic"]
+[ext_resource type="Script" path="res://Game/Player/knight_nav.gd" id="1_1d5ic"]
 [ext_resource type="Texture2D" uid="uid://bytg6xgju7svf" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_vp8ea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvw8a"]

@@ -25,9 +25,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	#life -= 1
-	#print(life/maxlife)
-	#print(Explosion.frame)
 	
 	if life < maxlife * 0.75 and not trigger_fire1:
 		$Fire1.visible = true
@@ -62,18 +59,3 @@ func init_bloodparticles(direction : Vector3):
 	BloodParticle.get_process_material().direction = direction
 	
 
-
-
-
-
-
-#func _on_interact_area_body_entered(body):
-#	gold += 1
-#	print(gold)
-	
-
-
-
-#func _on_interact_area_body_exited(body):
-#	gold += 1
-#	print(gold)
