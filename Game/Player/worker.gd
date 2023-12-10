@@ -118,7 +118,6 @@ func init_bloodparticles(direction : Vector3):
 
 
 
-
 func _on_interact_area_area_entered(area):
 	#print("test")
 	player = area.get_parent()

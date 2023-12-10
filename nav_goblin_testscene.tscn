@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=96 format=3 uid="uid://dui7577q0pfbf"]
 
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="1_m6uql"]
 [ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://Game/Player/knight_nav.tscn" id="6_pg1o4"]
 [ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="6_t6skt"]
 [ext_resource type="Texture2D" uid="uid://bytg6xgju7svf" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="7_16nfk"]
+[ext_resource type="Script" path="res://GUI/MobTimer.gd" id="7_ow1mq"]
 [ext_resource type="PackedScene" uid="uid://dpi3jmc1unbuh" path="res://Game/Buildings/gold_mine.tscn" id="8_0gjid"]
 [ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="9_wgfxy"]
 
@@ -648,6 +649,7 @@ navigation_polygon = SubResource("NavigationPolygon_mubjo")
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 15.0
+script = ExtResource("7_ow1mq")
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_ft104")
@@ -717,6 +719,13 @@ shape = SubResource("CircleShape2D_8f8vy")
 
 [node name="Marker" type="Marker2D" parent="Worker_4rd_pos/Worker_4rd_pos"]
 
+[node name="Score" type="TextEdit" parent="."]
+offset_left = 800.0
+offset_top = -6.0
+offset_right = 1225.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 50
+
 [node name="Gold" type="TextEdit" parent="."]
 offset_left = 2098.0
 offset_top = 9.0
@@ -724,6 +733,7 @@ offset_right = 2336.0
 offset_bottom = 60.0
 
 [node name="Life" type="TextEdit" parent="Gold"]
+layout_mode = 0
 offset_left = 2098.0
 offset_top = 9.0
 offset_right = 2336.0

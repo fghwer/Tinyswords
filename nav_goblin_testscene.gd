@@ -36,8 +36,12 @@ func _process(_delta):
 	for _i in $Foam_Animation_Parent.get_children():
 		_i.play()
 		
-	var label = get_node("Gold")
-	label.set_text(str(Global.Player.gold) + ": Gold")
+	var gold_label = get_node("Gold")
+	gold_label.set_text(str(Global.Player.gold) + ": Gold")
+	
+	var score_label = get_node("Score")
+	score_label.set_text(str(Global.Player.score) + ": Score")
+	
 	
 
 
@@ -45,6 +49,7 @@ func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 	var spawnpath = randi_range(0,100)
+	Global.Player.score += 100
 	#print(spawnpath)
 	#var mob_spawn_location = 0
 	mob.init_target_position($BaseCastle.position)
