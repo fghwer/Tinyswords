@@ -12,6 +12,7 @@ var trigger_fire2 = false
 var trigger_fire3 = false
 var trigger_dead = false
 var gold = 0
+var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,6 +55,14 @@ func _process(delta):
 		$CastleSprite.animation = "destroy"
 		
 		trigger_dead = true
+		
+		## Game Over 
+		timer.start()
+		timer.set_wait_time(50.0)
+		timer.wait_time 
+		get_tree().change_scene_to_file("res://GUI/gameover.tscn")
+		
+		
 
 func init_bloodparticles(direction : Vector3):
 	BloodParticle.get_process_material().direction = direction

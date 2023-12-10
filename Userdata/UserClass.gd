@@ -10,5 +10,5 @@ var life = null
 
 func _init():
 	print("user erstellt")
-	self.gold = 3
+	self.gold = 100
 	self.life = 3

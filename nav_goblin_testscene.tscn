@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dui7577q0pfbf"]
 
-[ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://navigation_goblin.tscn" id="1_m6uql"]
+[ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="1_m6uql"]
 [ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
 [ext_resource type="PackedScene" uid="uid://bwi2cip47a6yq" path="res://TilemapCollection.tscn" id="4_f0qxx"]
 [ext_resource type="PackedScene" uid="uid://dsjwy0ogftvi" path="res://Game/Player/worker.tscn" id="4_qsf12"]
@@ -106,7 +106,13 @@ shape = SubResource("CircleShape2D_8f8vy")
 
 [node name="Marker" type="Marker2D" parent="Worker_4rd_pos/Worker_4rd_pos"]
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Gold" type="TextEdit" parent="."]
+offset_left = 2098.0
+offset_top = 9.0
+offset_right = 2336.0
+offset_bottom = 60.0
+
+[node name="Life" type="TextEdit" parent="Gold"]
 offset_left = 2098.0
 offset_top = 9.0
 offset_right = 2336.0

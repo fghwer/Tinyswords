@@ -14,14 +14,11 @@ func _process(delta):
 		
 	elif active_trigger == false:
 		$MineSprite.animation = "inactive"
-		
-
 
 
 func _on_active_area_body_entered(body):
 	active_trigger = true
 	
-
 
 
 func _on_active_area_body_exited(body):

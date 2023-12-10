@@ -24,6 +24,8 @@ var i_idle_after_flee = 0
 var player = null
 var frame_alt = 0
 var frame_neu = 0
+var backpack = 0
+var max_backpack = 100
 
 
 
@@ -57,8 +59,12 @@ func _physics_process(delta):
 			interact_stand_trigger = false
 		if player.name == "BaseCastle":
 			$AnimatedSprite2D.animation = "idle"
+			_getGold()
+			
 		elif player.name == "GoldMine":
 			$AnimatedSprite2D.animation = "mine"
+			_draftgold()
+			
 		elif player.name == "Worker_3rd_pos":
 			player = null
 			interact_trigger = false
@@ -118,6 +124,7 @@ func _on_interact_area_area_entered(area):
 	player = area.get_parent()
 	interact_trigger = true
 	interact_stand_trigger = true
+	
 
 
 func _on_flee_area_body_entered(body):
@@ -132,3 +139,13 @@ func _on_stop_flee_area_body_exited(body):
 	player = null
 	idle_after_flee_end_trigger = true
 	#flee_trigger = false
+
+
+func _draftgold():
+	if !backpack >= max_backpack:
+		backpack +=1
+
+func _getGold():
+	if backpack >= 0:
+		backpack -=1
+		Global.Player.gold +=1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dpi3jmc1unbuh"]
 
 [ext_resource type="Texture2D" uid="uid://78kvt8v71osa" path="res://Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Active.png" id="1_4ydae"]
-[ext_resource type="Script" path="res://gold_mine.gd" id="1_06tq7"]
+[ext_resource type="Script" path="res://Game/Buildings/gold_mine.gd" id="1_06tq7"]
 [ext_resource type="Texture2D" uid="uid://bdr5d0ly30gv8" path="res://Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Destroyed.png" id="2_77lu6"]
 [ext_resource type="Texture2D" uid="uid://d2ywyccqibmqn" path="res://Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Inactive.png" id="3_rrr2x"]
 
