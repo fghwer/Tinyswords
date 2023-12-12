@@ -426,6 +426,10 @@ offset_bottom = 80.0
 theme_override_font_sizes/font_size = 50
 placeholder_text = "test"
 
+[node name="Score2" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="button_up" from="SpawnKnightButton" to="." method="_on_spawn_knight_button_button_up"]
 [connection signal="pressed" from="SpawnWorkerButton" to="." method="_on_spawn_worker_button_pressed"]

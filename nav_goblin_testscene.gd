@@ -7,7 +7,7 @@ extends Node
 var startpos_knight = Vector2.ZERO
 var waiting_for_click = false
 var knight_to_spawn = null
-var cost_knight = 3
+var cost_knight = 2
 var cost_worker = 2
 
 # Called when the node enters the scene tree for the first time.
@@ -40,7 +40,7 @@ func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 	var spawnpath = randi_range(0,100)
-	Global.Player.score += 100
+	#Global.Player.score += 100
 	#print(spawnpath)
 	#var mob_spawn_location = 0
 	mob.init_target_position($BaseCastle.position)
@@ -61,7 +61,7 @@ func _on_mob_timer_timeout():
 
 func _on_spawn_knight_button_button_up():
 	
-	if Global.Player.gold >= 3:
+	if Global.Player.gold >= cost_knight:
 		knight_to_spawn = knight_scene.instantiate()
 		waiting_for_click = true
 		print("button")
@@ -78,7 +78,7 @@ func _spawn_knight_at_mouse_position():
 		knight_to_spawn = null
 		waiting_for_click = false
 		print("spawn")
-		Global.Player.gold -= 3
+		Global.Player.gold -= cost_knight
 
 func _on_spawn_worker_button_pressed():
 	

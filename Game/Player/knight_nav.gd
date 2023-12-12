@@ -55,6 +55,7 @@ func _physics_process(_delta):
 			blood_direction.y = player.position.y - position.y
 			player.init_bloodparticles(blood_direction)
 			if player.life <= 0:
+				Global.Player.score += 100
 				player.queue_free()
 			#player.set_hpbar_value(player.life/player.maxlife)
 			#print(player, player.life)
