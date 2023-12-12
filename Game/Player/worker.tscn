@@ -343,6 +343,7 @@ process_material = SubResource("ParticleProcessMaterial_bfbv2")
 lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
+fixed_fps = 7
 
 [node name="StopFleeArea" type="Area2D" parent="."]
 collision_layer = 0

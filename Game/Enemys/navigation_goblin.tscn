@@ -332,6 +332,7 @@ process_material = ExtResource("4_ak3t1")
 lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
+fixed_fps = 7
 trail_lifetime = 0.01
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

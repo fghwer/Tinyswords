@@ -252,6 +252,7 @@ process_material = SubResource("ParticleProcessMaterial_wt02t")
 lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
+fixed_fps = 7
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_layer = 8
