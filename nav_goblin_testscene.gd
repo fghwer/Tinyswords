@@ -7,28 +7,19 @@ extends Node
 var startpos_knight = Vector2.ZERO
 var waiting_for_click = false
 var knight_to_spawn = null
+var cost_knight = 3
+var cost_worker = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#var player = mob_scene.instantiate()
-	#player.position = Vector2(500,500)
-	#player.speed = 1
-	#add_child(player)
-	#$navigation_goblin.set_movement_target($Marker2D.position)
-	#navigation_agent.set_target_position(Vector2(608,296))
+	Global.Player.gold = 4
+	Global.Player.score = 0
 	$MobTimer.start()
-	#$knight_nav.startpos = $KnightSpawnLocation.position
-	#$knight_nav.position = $KnightSpawnLocation.position
-	#get_viewport().get_mouse_position()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	#print($BaseCastle.position)
-	#print($knight_nav.distance_startpoint($KnightSpawnLocation.position))
-	#print($MobTimer.time_left)
-	#print($knight_nav.life) 
-	#print(User1.gold)
+
 	if waiting_for_click and Input.is_action_just_pressed("click"):
 		_spawn_knight_at_mouse_position()
 		
@@ -37,7 +28,7 @@ func _process(_delta):
 		_i.play()
 		
 	var gold_label = get_node("Gold")
-	gold_label.set_text(str(Global.Player.gold) + ": Gold")
+	gold_label.set_text(str(Global.Player.gold))
 	
 	var score_label = get_node("Score")
 	score_label.set_text(str(Global.Player.score) + ": Score")
@@ -70,7 +61,7 @@ func _on_mob_timer_timeout():
 
 func _on_spawn_knight_button_button_up():
 	
-	if Global.Player.gold >= 50:
+	if Global.Player.gold >= 3:
 		knight_to_spawn = knight_scene.instantiate()
 		waiting_for_click = true
 		print("button")
@@ -87,11 +78,11 @@ func _spawn_knight_at_mouse_position():
 		knight_to_spawn = null
 		waiting_for_click = false
 		print("spawn")
-		Global.Player.gold -= 50
+		Global.Player.gold -= 3
 
 func _on_spawn_worker_button_pressed():
 	
-	if Global.Player.gold >= 30:
+	if Global.Player.gold >= cost_worker:
 		
 		var worker = worker_scene.instantiate()
 		var worker_spawn_location = Vector2.ZERO
@@ -107,5 +98,5 @@ func _on_spawn_worker_button_pressed():
 		worker.worker_4rd_pos = $Worker_4rd_pos.position
 		worker.init_target_position(target_pos)
 		add_child(worker)
-		Global.Player.gold -= 30
+		Global.Player.gold -= cost_worker
 	
