@@ -296,7 +296,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65m7k"]
-size = Vector2(81, 67)
+size = Vector2(17, 19.25)
 
 [node name="Foam_Animation_Parent" type="Node"]
 
@@ -796,7 +796,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(1, 66)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top2" type="AnimatedSprite2D" parent="."]
@@ -807,7 +807,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top2/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 65)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top3" type="AnimatedSprite2D" parent="."]
@@ -818,7 +818,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top3/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top4" type="AnimatedSprite2D" parent="."]
@@ -829,7 +829,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top4/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top5" type="AnimatedSprite2D" parent="."]
@@ -840,7 +840,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top5/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top6" type="AnimatedSprite2D" parent="."]
@@ -851,7 +851,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top6"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top6/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top7" type="AnimatedSprite2D" parent="."]
@@ -862,7 +862,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top7"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top7/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top8" type="AnimatedSprite2D" parent="."]
@@ -873,7 +873,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top8"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top8/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top9" type="AnimatedSprite2D" parent="."]
@@ -884,18 +884,18 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top9"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top9/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top10" type="AnimatedSprite2D" parent="."]
-position = Vector2(435, 245)
+position = Vector2(435, 249)
 sprite_frames = SubResource("SpriteFrames_c32qw")
 animation = &"new_animation"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top10"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top10/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0.5, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top11" type="AnimatedSprite2D" parent="."]
@@ -906,7 +906,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top11"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top11/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top12" type="AnimatedSprite2D" parent="."]
@@ -917,7 +917,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top12"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top12/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top13" type="AnimatedSprite2D" parent="."]
@@ -928,7 +928,7 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top13"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top13/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")
 
 [node name="tree_top14" type="AnimatedSprite2D" parent="."]
@@ -939,5 +939,5 @@ animation = &"new_animation"
 [node name="StaticBody2D" type="StaticBody2D" parent="tree_top14"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree_top14/StaticBody2D"]
-position = Vector2(0, 41)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_65m7k")

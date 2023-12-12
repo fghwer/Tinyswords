@@ -192,7 +192,7 @@ color = Color(0.611765, 0.611765, 0.611765, 1)
 color_initial_ramp = SubResource("GradientTexture1D_8sgm8")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j47pi"]
-radius = 3.0
+radius = 5.0
 height = 96.0
 
 [node name="BaseCastle" type="StaticBody2D"]
