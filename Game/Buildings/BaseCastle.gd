@@ -24,7 +24,7 @@ func _ready():
 	$Fire3.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	
 	if life < maxlife * 0.75 and not trigger_fire1:
@@ -59,7 +59,7 @@ func _process(delta):
 		## Game Over 
 		timer.start()
 		timer.set_wait_time(50.0)
-		timer.wait_time 
+		timer.wait_time
 		get_tree().change_scene_to_file("res://GUI/gameover.tscn")
 		
 		

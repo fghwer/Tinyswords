@@ -131,7 +131,7 @@ func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
 	
-func _on_detection_area_body_exited(body):
+func _on_detection_area_body_exited(_body):
 	player = null
 	player_chase = false
 	
@@ -140,6 +140,6 @@ func _on_attack_area_body_entered(body):
 	player_attack = true
 	player_chase = false
 	
-func _on_attack_area_body_exited(body):
+func _on_attack_area_body_exited(_body):
 	player_attack = false
 	player_chase = true
