@@ -57,9 +57,9 @@ func _process(_delta):
 		trigger_dead = true
 		
 		## Game Over 
-		timer.start()
-		timer.set_wait_time(50.0)
-		timer.wait_time
+		#timer.start()
+		#timer.set_wait_time(50.0)
+		#timer.wait_time
 		get_tree().change_scene_to_file("res://GUI/gameover.tscn")
 		
 		

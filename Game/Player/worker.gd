@@ -44,7 +44,7 @@ func _physics_process(_delta):
 			#$AnimatedSprite2D.animation = "walk"
 			$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play()
-	elif idle_after_flee_end_trigger == true and flee_trigger == true:
+	elif ( idle_after_flee_end_trigger == true or player == null) and flee_trigger == true:
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.animation = "idle"
 		if $AnimatedSprite2D.animation == "idle" and $AnimatedSprite2D.frame == 5:
@@ -131,14 +131,12 @@ func _on_interact_area_area_entered(area):
 
 
 func _on_flee_area_body_entered(body):
-	#print("flee")
+	print("flee")
 	player = body
 	flee_trigger = true
 
-
-
 func _on_stop_flee_area_body_exited(_body):
-	#print("exit")
+	print("exit")
 	player = null
 	idle_after_flee_end_trigger = true
 	#flee_trigger = false

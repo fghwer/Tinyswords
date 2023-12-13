@@ -50,16 +50,19 @@ func _physics_process(_delta):
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
-		if player.life <= 0:
-			#player.hide()
-			player_attack = false
-			player_chase = false
-			player = null
+		if player.life != null:
+			if player.life <= 0:
+				#player.hide()
+				player_attack = false
+				player_chase = false
+				player = null
 		$AnimatedSprite2D.play()
 		frame_neu = $AnimatedSprite2D.frame
-		if frame_alt != frame_neu && frame_neu == 3 && player.life > 0:
+		if frame_alt != frame_neu && frame_neu == 3 && player != null:
+			if player.life != null:
+				if player.life > 0:
 			#pass
-			player.life -= 50
+					player.life -= 50
 			
 			#if player != "BaseCastle":
 			player.BloodParticle.emitting = true

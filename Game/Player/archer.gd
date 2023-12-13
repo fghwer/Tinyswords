@@ -14,7 +14,7 @@ var player = null
 var frame_alt = 0
 var frame_neu = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	$ProgressBar.set_value_no_signal(life*100/maxlife)
 	
@@ -50,10 +50,11 @@ func _physics_process(delta):
 			player = null
 		$AnimatedSprite2D.play()
 		frame_neu = $AnimatedSprite2D.frame
-		if frame_alt != frame_neu && frame_neu == 6:
-			# && player != null:
+		if frame_alt != frame_neu && frame_neu == 6 && player != null:
+			# && player != null::
 			if player.life != null:
-				player.life -= 100
+				if player.life > 0:
+					player.life -= 100
 			player.BloodParticle.emitting = true
 			var blood_direction = Vector3.ZERO
 			var arrow_lifetime = 0
@@ -135,6 +136,6 @@ func _on_attack_area_body_entered(body):
 	player_attack = true
 	player_chase = false
 
-func _on_attack_area_body_exited(body):
+func _on_attack_area_body_exited(_body):
 	player_attack = false
 	player_chase = true
