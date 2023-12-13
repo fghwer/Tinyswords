@@ -57,7 +57,7 @@ func _physics_process(_delta):
 			player = null
 		$AnimatedSprite2D.play()
 		frame_neu = $AnimatedSprite2D.frame
-		if frame_alt != frame_neu && frame_neu == 3 && life > 0:
+		if frame_alt != frame_neu && frame_neu == 3 && player.life > 0:
 			#pass
 			player.life -= 50
 			
