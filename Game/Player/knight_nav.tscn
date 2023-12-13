@@ -368,8 +368,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwbp4"]
-radius = 17.0
-height = 34.0
+radius = 6.0
+height = 12.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uqc2"]
 bg_color = Color(0.447059, 0.447059, 0.447059, 0.945098)
@@ -417,9 +417,8 @@ color_initial_ramp = SubResource("GradientTexture1D_c11dn")
 [node name="knight_nav" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(507, 330)
-collision_layer = 2
+collision_layer = 3
 script = ExtResource("1_1d5ic")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a4y73")
@@ -427,7 +426,7 @@ animation = &"walk"
 frame_progress = 0.127468
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, 15)
 shape = SubResource("CapsuleShape2D_gwbp4")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
