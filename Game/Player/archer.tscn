@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cha58xc6rvcqn"]
+[gd_scene load_steps=67 format=3 uid="uid://cha58xc6rvcqn"]
 
 [ext_resource type="Script" path="res://Game/Player/archer.gd" id="1_0oy7s"]
 [ext_resource type="Texture2D" uid="uid://rd5fq633d2yh" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="1_oe6qd"]
@@ -402,6 +402,22 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_wj33q"]
 radius = 7.07107
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaumx"]
+bg_color = Color(0.447059, 0.447059, 0.447059, 0.945098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhwag"]
+bg_color = Color(0.141176, 0.992157, 0.27451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bof2"]
 bg_color = Color(0.447059, 0.447059, 0.447059, 0.945098)
 
@@ -457,7 +473,22 @@ animation = &"shot_top"
 position = Vector2(0, 26)
 shape = SubResource("CircleShape2D_wj33q")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = -1
+offset_left = -38.0
+offset_top = 45.0
+offset_right = 42.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_styles/background = SubResource("StyleBoxFlat_uaumx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yhwag")
+step = 1.0
+show_percentage = false
+
 [node name="HPbar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -42.0
 offset_top = 49.0
 offset_right = 43.0

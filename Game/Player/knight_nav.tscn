@@ -430,19 +430,19 @@ frame_progress = 0.127468
 position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_gwbp4")
 
-[node name="HPbar" type="ProgressBar" parent="."]
-z_index = 5
-offset_left = -53.0
-offset_top = 52.0
-offset_right = 54.0
-offset_bottom = 84.0
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = -1
+offset_left = -38.0
+offset_top = 45.0
+offset_right = 42.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 23
 theme_override_styles/background = SubResource("StyleBoxFlat_0uqc2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7m5rn")
 step = 1.0
+show_percentage = false
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 0

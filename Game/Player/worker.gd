@@ -31,7 +31,7 @@ var backpack = 0
 
 func _physics_process(_delta):
 	
-	$HPbar.set_value_no_signal(life*100/maxlife)	
+	$ProgressBar.set_value_no_signal(life*100/maxlife)	
 	#if player != null:
 	#	print(player.name)
 	if flee_trigger and player != null:

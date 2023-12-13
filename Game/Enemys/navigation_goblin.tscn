@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dnwuogk3qx34q"]
+[gd_scene load_steps=44 format=3 uid="uid://dnwuogk3qx34q"]
 
 [ext_resource type="Script" path="res://Game/Enemys/navigation_goblin.gd" id="1_8hytq"]
 [ext_resource type="Texture2D" uid="uid://6bn3hr7efeku" path="res://assets/Factions/Goblins/Torch.png" id="2_xv77v"]
@@ -275,6 +275,22 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfg22"]
+bg_color = Color(0.447059, 0.447059, 0.447059, 0.945098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_as1gs"]
+bg_color = Color(0.141176, 0.992157, 0.27451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(850, 1000)
@@ -310,6 +326,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_gjhqk")
 
 [node name="HPbar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -63.0
 offset_top = 52.0
 offset_right = 64.0
@@ -320,6 +337,20 @@ theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 23
 theme_override_styles/background = SubResource("StyleBoxFlat_hmr5c")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2urfw")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = -1
+offset_left = -38.0
+offset_top = 45.0
+offset_right = 42.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_styles/background = SubResource("StyleBoxFlat_jfg22")
+theme_override_styles/fill = SubResource("StyleBoxFlat_as1gs")
+step = 1.0
+show_percentage = false
 
 [node name="ParticleInterface" type="Node2D" parent="."]
 

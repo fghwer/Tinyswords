@@ -16,7 +16,7 @@ var frame_neu = 0
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	$HPbar.set_value_no_signal(100)
+	$ProgressBar.set_value_no_signal(100)
 	#navigation_agent.set_target_position(Vector2(608,296))
 	#BloodParticle.get_process_material().direction = Vector3(0,1,0)
 	#print(BloodParticle.get_process_material().direction)
@@ -33,7 +33,7 @@ func _physics_process(_delta):
 		#print("attack")
 		#var hpper = life/maxlife
 		#var velocity = Vector2.ZERO # The player's movement vector.
-		$HPbar.set_value_no_signal(life*100/maxlife)
+		$ProgressBar.set_value_no_signal(life*100/maxlife)
 		#if frame_alt != frame_neu && frame_neu == 3:
 		#	player.life -= 100
 		velocity = Vector2.ZERO

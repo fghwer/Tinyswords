@@ -16,7 +16,7 @@ var frame_neu = 0
 
 func _physics_process(delta):
 	
-	$HPbar.set_value_no_signal(life*100/maxlife)
+	$ProgressBar.set_value_no_signal(life*100/maxlife)
 	
 	if player_attack and player != null:
 		
