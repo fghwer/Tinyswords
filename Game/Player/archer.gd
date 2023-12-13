@@ -65,12 +65,18 @@ func _physics_process(delta):
 			if arrow_lifetime > 0.3: # cutoff so arrow always disappears
 				arrow_lifetime = 0.3
 			arrow_rotation = sqrt(pow(blood_direction.x,2) + pow(blood_direction.y,2))
-			arrow_rotation = (blood_direction.x/arrow_rotation)
-			arrow_rotation = acos(arrow_rotation) * 360. / (2.*PI)
-			#arrow_rotation = sin(arrow_rotation)
+			arrow_rotation = acos(blood_direction.x/arrow_rotation)
+			if blood_direction.y > 0:
+				arrow_rotation = (-1.0)*arrow_rotation * 360. / (2.*PI)
+			elif blood_direction.x > 0:
+				arrow_rotation = (1.0)*arrow_rotation * 360. / (2.*PI)#(-1.0)*arrow_rotation * 360. / (2.*PI)
+			elif blood_direction.x < 0:
+				arrow_rotation = -180-((-1.0)*arrow_rotation * 360. / (2.*PI) + 180.)
+	
 			player.init_bloodparticles(blood_direction)
 			init_arrowparticles(blood_direction, arrow_lifetime, arrow_rotation)
 			Arrow.emitting = true
+			print(arrow_rotation)
 			#print(acos(arrow_rotation) * 360. / (2.*PI), " ", acos(arrow_rotation)* 360. / (2.*PI), " ",atan(arrow_rotation)* 360. / (2.*PI))
 			
 			if player.life <= 0:

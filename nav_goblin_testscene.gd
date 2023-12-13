@@ -14,7 +14,7 @@ var knight_to_spawn = null
 var archer_to_spawn = null
 var cost_knight = 2
 var cost_worker = 2
-var cost_archer = 2
+var cost_archer = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
