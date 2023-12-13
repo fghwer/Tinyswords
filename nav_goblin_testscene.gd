@@ -28,7 +28,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-
+	
+	if Input.is_action_just_pressed("spawn_knight"):
+		_on_spawn_knight_button_button_up()
+	elif Input.is_action_just_pressed("spawn_worker"):
+		_on_spawn_worker_button_pressed()
+	elif Input.is_action_just_pressed("spawn_archer"):
+		_on_spawn_archer_button_button_up()
 	if waiting_for_click and Input.is_action_just_pressed("click"):
 		_spawn_knight_at_mouse_position()
 		_spawn_archer_at_mouse_position()
