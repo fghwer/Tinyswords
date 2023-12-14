@@ -38,7 +38,7 @@ func _ready():
 func _physics_process(_delta):
 	
 	$ProgressBar.set_value_no_signal(life*100/maxlife)	
-	print(backpack)
+	#print(backpack)
 	if backpack == 1 and not trigger_gold:
 		#print("hi", trigger_gold)
 		$GoldTransport.visible = true
