@@ -529,6 +529,7 @@ fixed_fps = 7
 [node name="ArrowInterface" type="Node2D" parent="."]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ArrowInterface"]
+position = Vector2(5, 12)
 emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_3kk71")

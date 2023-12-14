@@ -23,15 +23,106 @@
 [ext_resource type="Texture2D" uid="uid://bieo11eu2dlii" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png" id="21_4l87i"]
 [ext_resource type="Texture2D" uid="uid://dedim2okv6obq" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_Connection_Right.png" id="22_jbf1u"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5ls4"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
+vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1109, 409, 1048, 654, 49, 850, 52, 1041, 12, 732, 525, 355, 894, 356, 369, 605, 6, 601, 47, 228, 49, 484, 11, 727)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 12, 11, 18, 9), PackedInt32Array(19, 12, 17, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(24, 23, 29, 30), PackedInt32Array(27, 26, 8, 31), PackedInt32Array(31, 8, 7, 32), PackedInt32Array(11, 14, 33), PackedInt32Array(34, 11, 33, 35), PackedInt32Array(36, 37, 38, 34, 35, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(2, 44, 3), PackedInt32Array(45, 19, 20, 41, 40, 46, 47, 48), PackedInt32Array(45, 48, 49, 50), PackedInt32Array(51, 50, 49, 52), PackedInt32Array(2, 1, 53, 54), PackedInt32Array(54, 53, 55, 56), PackedInt32Array(56, 55, 57, 51, 58), PackedInt32Array(47, 46, 59, 60), PackedInt32Array(9, 18, 10), PackedInt32Array(7, 10, 34, 38), PackedInt32Array(7, 38, 61), PackedInt32Array(4, 7, 61, 5), PackedInt32Array(29, 0, 6, 37, 36, 30), PackedInt32Array(62, 63, 56, 64), PackedInt32Array(25, 28, 32, 7, 42), PackedInt32Array(43, 42, 7, 59), PackedInt32Array(65, 66, 60, 59, 7, 67), PackedInt32Array(67, 7, 58, 68), PackedInt32Array(51, 52, 69, 70, 68), PackedInt32Array(4, 3, 64, 71), PackedInt32Array(71, 64, 56), PackedInt32Array(51, 68, 58), PackedInt32Array(56, 58, 71)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(763, 1332, -7, 1050, -11, 221, 6.07489, 219.744, 9, 34, 1024, -39, 1325, -37, 2362, 219, 2360, 1039, 2304, 1037, 2295, 674, 1994, 673, 2019, 970, 1321, 947, 1262, 1174, 1294, 1242, 1460, 1302, 902, 1295, 1062, 1243, 1107, 1174, 1040, 947, 822, 960), PackedVector2Array(49, 850, 12, 732, 364, 733, 328, 963, 810, 959, 764, 1320, -4, 1047, 52, 1041), PackedVector2Array(1044, 714, 1188, 719, 1316, 719, 1316, 654, 1048, 654), PackedVector2Array(2000, 608, 2034, 350, 1679, 350, 1246, 400, 1249, 63, 1324, -31, 2346, 220, 2308, 225, 2302, 285, 2291, 611), PackedVector2Array(1109, 409, 894, 356, 525, 355, 369, 605, 6, 601, 49, 484, 47, 228, 13, 220, 15, 46, 1028, -31, 1117, 65), PackedVector2Array(5, 606, 370, 610, 364, 729, 11, 727), PackedVector2Array(2001, 612, 2291, 614, 2296, 670, 1993, 669), PackedVector2Array(1122, 65, 1115, 411, 1240, 399, 1243, 64), PackedVector2Array(1701, 475, 1870, 480, 1873, 423, 1704, 423)])
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xej5b"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f8vy"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmany"]
+[sub_resource type="Curve2D" id="Curve2D_0plhr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 6, 1030, 0, 0, 0, 0, 6, 237, 0, 0, 0, 0, 6, 1030)
+}
+point_count = 3
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxk24"]
+[sub_resource type="Curve2D" id="Curve2D_ag5fu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 921, 1291, 0, 0, 0, 0, 1451, 1296, 0, 0, 0, 0, 1296, 1250, 0, 0, 0, 0, 1071, 1243, 0, 0, 0, 0, 921, 1291)
+}
+point_count = 5
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6nvxn"]
+[sub_resource type="Curve2D" id="Curve2D_e0m5v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2317, 1030, 0, 0, 0, 0, 2368, 1028, 0, 0, 0, 0, 2368, 220, 0, 0, 0, 0, 2319, 228, 0, 0, 0, 0, 2318, 555, 0, 0, 0, 0, 2349, 591, 0, 0, 0, 0, 2348, 710, 0, 0, 0, 0, 2327, 766, 0, 0, 0, 0, 2317, 1030)
+}
+point_count = 9
+
+[sub_resource type="Curve2D" id="Curve2D_yu7uq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1041, -33, 0, 0, 0, 0, 1323, -32, 0, 0, 0, 0, 1184, -24, 0, 0, 0, 0, 1041, -33)
+}
+point_count = 4
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se3lu"]
+texture = ExtResource("15_n2gig")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r5oi"]
+texture = ExtResource("16_40tfu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mfgu"]
+texture = ExtResource("20_87eo5")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3cqhb"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_se3lu")
+sources/1 = SubResource("TileSetAtlasSource_7r5oi")
+sources/2 = SubResource("TileSetAtlasSource_6mfgu")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjyrt"]
+texture = ExtResource("21_4l87i")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fucyx"]
+texture = ExtResource("22_jbf1u")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lktuy"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_tjyrt")
+sources/1 = SubResource("TileSetAtlasSource_fucyx")
+
+[sub_resource type="InputEventKey" id="InputEventKey_4xpbi"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_mfvyq"]
+events = [SubResource("InputEventKey_4xpbi")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tc07l"]
 atlas = ExtResource("7_16nfk")
@@ -48,32 +139,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_q5bv2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_osq5o")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_7axr7")
-}],
-"loop": true,
-"name": &"hover",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_wnup4")
-}],
-"loop": true,
-"name": &"pressed",
-"speed": 5.0
-}]
+[sub_resource type="InputEventKey" id="InputEventKey_58fo7"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_275x6"]
+events = [SubResource("InputEventKey_58fo7")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1vhe"]
 atlas = ExtResource("9_wgfxy")
@@ -313,6 +385,14 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="InputEventKey" id="InputEventKey_jf14t"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_0pkwn"]
+events = [SubResource("InputEventKey_jf14t")]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bab5h"]
 atlas = ExtResource("14_d6pfs")
 region = Rect2(576, 768, 192, 192)
@@ -328,99 +408,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
-vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 1118, 66, 1122, 65, 1115, 411, 1109, 409, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1048, 654, 49, 850, 52, 1041, 12, 732, 525, 355, 894, 356, 369, 605, 6, 601, 47, 228, 49, 484, 11, 727)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 12, 11, 18, 9), PackedInt32Array(19, 12, 17, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(24, 23, 29, 30), PackedInt32Array(27, 26, 8, 31), PackedInt32Array(31, 8, 7, 32), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(11, 14, 37), PackedInt32Array(38, 11, 37, 39), PackedInt32Array(40, 41, 42, 38, 39, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(2, 48, 3), PackedInt32Array(49, 19, 20, 45, 44, 34), PackedInt32Array(49, 34, 33, 50), PackedInt32Array(49, 50, 51, 52), PackedInt32Array(53, 52, 51, 54), PackedInt32Array(2, 1, 55, 56), PackedInt32Array(56, 55, 57, 58), PackedInt32Array(58, 57, 59, 53, 60), PackedInt32Array(9, 18, 10), PackedInt32Array(7, 10, 38, 42), PackedInt32Array(7, 42, 61), PackedInt32Array(4, 7, 61, 5), PackedInt32Array(29, 0, 6, 41, 40, 30), PackedInt32Array(62, 63, 58, 64), PackedInt32Array(25, 28, 32, 7, 46), PackedInt32Array(47, 46, 7, 35), PackedInt32Array(65, 66, 36, 35, 7, 67), PackedInt32Array(67, 7, 60, 68), PackedInt32Array(53, 54, 69, 70, 68), PackedInt32Array(4, 3, 64, 71), PackedInt32Array(71, 64, 58), PackedInt32Array(53, 68, 60), PackedInt32Array(58, 60, 71)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(763, 1332, -7, 1050, -11, 221, 6.07489, 219.744, 9, 34, 1024, -39, 1325, -37, 2362, 219, 2360, 1039, 2304, 1037, 2295, 674, 1994, 673, 2019, 970, 1321, 947, 1262, 1174, 1294, 1242, 1460, 1302, 902, 1295, 1062, 1243, 1107, 1174, 1040, 947, 822, 960), PackedVector2Array(49, 850, 12, 732, 364, 733, 328, 963, 810, 959, 764, 1320, -4, 1047, 52, 1041), PackedVector2Array(1044, 714, 1188, 719, 1316, 719, 1316, 654, 1048, 654), PackedVector2Array(2000, 608, 2034, 350, 1679, 350, 1246, 400, 1249, 63, 1324, -31, 2346, 220, 2308, 225, 2302, 285, 2291, 611), PackedVector2Array(1109, 409, 894, 356, 525, 355, 369, 605, 6, 601, 49, 484, 47, 228, 13, 220, 15, 46, 1028, -31, 1118, 66), PackedVector2Array(5, 606, 370, 610, 364, 729, 11, 727), PackedVector2Array(2001, 612, 2291, 614, 2296, 670, 1993, 669), PackedVector2Array(1122, 65, 1115, 411, 1240, 399, 1243, 64), PackedVector2Array(1701, 475, 1870, 480, 1873, 423, 1704, 423)])
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8f8vy"]
-
-[sub_resource type="Curve2D" id="Curve2D_0plhr"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 6, 1030, 0, 0, 0, 0, 6, 237, 0, 0, 0, 0, 6, 1030)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_ag5fu"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 921, 1291, 0, 0, 0, 0, 1451, 1296, 0, 0, 0, 0, 1296, 1250, 0, 0, 0, 0, 1071, 1243, 0, 0, 0, 0, 921, 1291)
-}
-point_count = 5
-
-[sub_resource type="Curve2D" id="Curve2D_e0m5v"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2317, 1030, 0, 0, 0, 0, 2368, 1028, 0, 0, 0, 0, 2368, 220, 0, 0, 0, 0, 2319, 228, 0, 0, 0, 0, 2318, 555, 0, 0, 0, 0, 2349, 591, 0, 0, 0, 0, 2348, 710, 0, 0, 0, 0, 2327, 766, 0, 0, 0, 0, 2317, 1030)
-}
-point_count = 9
-
-[sub_resource type="Curve2D" id="Curve2D_yu7uq"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1041, -33, 0, 0, 0, 0, 1323, -32, 0, 0, 0, 0, 1184, -24, 0, 0, 0, 0, 1041, -33)
-}
-point_count = 4
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se3lu"]
-texture = ExtResource("15_n2gig")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-2:1/0 = 0
-1:1/0 = 0
-0:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r5oi"]
-texture = ExtResource("16_40tfu")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mfgu"]
-texture = ExtResource("20_87eo5")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_3cqhb"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_se3lu")
-sources/1 = SubResource("TileSetAtlasSource_7r5oi")
-sources/2 = SubResource("TileSetAtlasSource_6mfgu")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjyrt"]
-texture = ExtResource("21_4l87i")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fucyx"]
-texture = ExtResource("22_jbf1u")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_lktuy"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_tjyrt")
-sources/1 = SubResource("TileSetAtlasSource_fucyx")
-
 [node name="Level_nav" type="Node"]
 script = ExtResource("1_yuckl")
 
@@ -431,106 +418,6 @@ mob_scene = ExtResource("1_m6uql")
 knight_scene = ExtResource("6_pg1o4")
 worker_scene = ExtResource("4_qsf12")
 archer_scene = ExtResource("5_w6lqq")
-
-[node name="SpawnKnightButton" type="Button" parent="CollectionCharacters"]
-z_index = 2
-offset_left = 1552.0
-offset_top = 1017.0
-offset_right = 1738.0
-offset_bottom = 1195.0
-mouse_default_cursor_shape = 3
-theme_override_styles/normal = SubResource("StyleBoxEmpty_v5ls4")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_xej5b")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kmany")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uxk24")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_6nvxn")
-action_mode = 0
-keep_pressed_outside = true
-metadata/_edit_group_ = true
-
-[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnKnightButton"]
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
-offset_left = 45.0
-offset_top = 123.0
-offset_right = 89.0
-offset_bottom = 181.0
-theme_override_font_sizes/font_size = 40
-text = "3"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
-position = Vector2(110, 140)
-texture = ExtResource("12_0tlau")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
-position = Vector2(93, 70)
-sprite_frames = SubResource("SpriteFrames_65x3r")
-
-[node name="ButtonAnimation" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
-z_index = -1
-position = Vector2(93, 89)
-sprite_frames = SubResource("SpriteFrames_q5bv2")
-animation = &"pressed"
-
-[node name="SpawnWorkerButton" type="Button" parent="CollectionCharacters"]
-z_index = 2
-offset_left = 1765.0
-offset_top = 1017.0
-offset_right = 1951.0
-offset_bottom = 1195.0
-metadata/_edit_group_ = true
-
-[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnWorkerButton"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
-position = Vector2(93, 85)
-sprite_frames = SubResource("SpriteFrames_odovj")
-animation = &"idle"
-
-[node name="Label" type="Label" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
-offset_left = 45.0
-offset_top = 123.0
-offset_right = 89.0
-offset_bottom = 181.0
-theme_override_font_sizes/font_size = 40
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
-position = Vector2(110, 140)
-texture = ExtResource("12_0tlau")
-
-[node name="SpawnArcherButton" type="Button" parent="CollectionCharacters"]
-z_index = 2
-offset_left = 1975.0
-offset_top = 1017.0
-offset_right = 2161.0
-offset_bottom = 1195.0
-metadata/_edit_group_ = true
-
-[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnArcherButton"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
-position = Vector2(93, 85)
-sprite_frames = SubResource("SpriteFrames_7yaoj")
-
-[node name="Label" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
-offset_left = 45.0
-offset_top = 123.0
-offset_right = 89.0
-offset_bottom = 181.0
-theme_override_font_sizes/font_size = 40
-text = "4"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
-position = Vector2(110, 140)
-texture = ExtResource("12_0tlau")
 
 [node name="BaseCastle" parent="CollectionCharacters" instance=ExtResource("6_t6skt")]
 position = Vector2(1192, 611)
@@ -575,7 +462,7 @@ shape = SubResource("CircleShape2D_8f8vy")
 [node name="Marker" type="Marker2D" parent="CollectionCharacters/Worker_4rd_pos/Worker_4rd_pos"]
 
 [node name="Gold" type="Label" parent="CollectionCharacters"]
-z_index = 1
+z_index = 2
 offset_left = 2190.0
 offset_top = 13.0
 offset_right = 2234.0
@@ -591,7 +478,7 @@ position = Vector2(60, 27)
 texture = ExtResource("12_0tlau")
 
 [node name="Score" type="Label" parent="CollectionCharacters"]
-z_index = 1
+z_index = 2
 offset_left = 928.0
 offset_right = 1328.0
 offset_bottom = 100.0
@@ -629,6 +516,7 @@ position = Vector2(1041, -33)
 rotation = 0.00354608
 
 [node name="UIBanners" type="TileMap" parent="CollectionCharacters"]
+z_index = 1
 position = Vector2(30, 50)
 scale = Vector2(2.2, 2.2)
 tile_set = SubResource("TileSet_3cqhb")
@@ -636,13 +524,115 @@ format = 2
 layer_0/tile_data = PackedInt32Array(393231, 131072, 0, 458767, 131072, 1, 524303, 131072, 2, 393230, 65536, 0, 458766, 65536, 1, 524302, 65536, 2, 393229, 65536, 0, 458765, 65536, 1, 524301, 65536, 2, 393228, 65536, 0, 458764, 65536, 1, 524300, 65536, 2, 393227, 65537, 0, 458763, 65537, 1, 524299, 65537, 2, 393226, 1, 0, 458762, 1, 1, 524298, 1, 2)
 
 [node name="UIRibbons" type="TileMap" parent="CollectionCharacters"]
+z_index = 1
 position = Vector2(-485, 15)
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_lktuy")
 format = 2
 layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0)
 
-[connection signal="button_up" from="CollectionCharacters/SpawnKnightButton" to="CollectionCharacters" method="_on_spawn_knight_button_button_up"]
-[connection signal="pressed" from="CollectionCharacters/SpawnWorkerButton" to="CollectionCharacters" method="_on_spawn_worker_button_pressed"]
-[connection signal="button_up" from="CollectionCharacters/SpawnArcherButton" to="CollectionCharacters" method="_on_spawn_archer_button_button_up"]
+[node name="SpawnKnightButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 1557.0
+offset_top = 1017.0
+offset_right = 1749.0
+offset_bottom = 1209.0
+mouse_default_cursor_shape = 3
+shortcut = SubResource("Shortcut_mfvyq")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("9_osq5o")
+texture_pressed = ExtResource("11_wnup4")
+texture_hover = ExtResource("10_7axr7")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnKnightButton"]
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 89.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
+position = Vector2(110, 129)
+texture = ExtResource("12_0tlau")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_65x3r")
+
+[node name="SpawnWorkerButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 1766.0
+offset_top = 1017.0
+offset_right = 1958.0
+offset_bottom = 1209.0
+shortcut = SubResource("Shortcut_275x6")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("9_osq5o")
+texture_pressed = ExtResource("11_wnup4")
+texture_hover = ExtResource("10_7axr7")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnWorkerButton"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
+position = Vector2(93, 85)
+sprite_frames = SubResource("SpriteFrames_odovj")
+animation = &"idle"
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 89.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
+position = Vector2(110, 129)
+texture = ExtResource("12_0tlau")
+
+[node name="SpawnArcherButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 1975.0
+offset_top = 1017.0
+offset_right = 2167.0
+offset_bottom = 1209.0
+shortcut = SubResource("Shortcut_0pkwn")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("9_osq5o")
+texture_pressed = ExtResource("11_wnup4")
+texture_hover = ExtResource("10_7axr7")
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnArcherButton"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+position = Vector2(93, 85)
+sprite_frames = SubResource("SpriteFrames_7yaoj")
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+offset_left = 45.0
+offset_top = 123.0
+offset_right = 89.0
+offset_bottom = 181.0
+theme_override_font_sizes/font_size = 40
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+position = Vector2(110, 140)
+texture = ExtResource("12_0tlau")
+
 [connection signal="timeout" from="CollectionCharacters/MobTimer" to="CollectionCharacters" method="_on_mob_timer_timeout"]
+[connection signal="pressed" from="CollectionCharacters/SpawnKnightButton" to="CollectionCharacters" method="_on_spawn_knight_button_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnWorkerButton" to="CollectionCharacters" method="_on_spawn_worker_button_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnArcherButton" to="CollectionCharacters" method="_on_spawn_archer_button_pressed"]

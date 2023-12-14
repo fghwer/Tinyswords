@@ -30,12 +30,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
-	if Input.is_action_just_pressed("spawn_knight"):
-		_on_spawn_knight_button_button_up()
-	elif Input.is_action_just_pressed("spawn_worker"):
-		_on_spawn_worker_button_pressed()
-	elif Input.is_action_just_pressed("spawn_archer"):
-		_on_spawn_archer_button_button_up()
+	#if Input.is_action_just_pressed("spawn_knight"):
+	#	_on_spawn_knight_button_button_up()
+	#elif Input.is_action_just_pressed("spawn_worker"):
+	#	_on_spawn_worker_button_pressed()
+	#elif Input.is_action_just_pressed("spawn_archer"):
+	#	_on_spawn_archer_button_button_up()
 	if waiting_for_click and Input.is_action_just_pressed("click"):
 		_spawn_knight_at_mouse_position()
 		_spawn_archer_at_mouse_position()
@@ -84,26 +84,18 @@ func _on_mob_timer_timeout():
 		mob.position = mob_spawn_location.position
 	add_child(mob)
 
-func _on_spawn_knight_button_button_up():
-	
-	if Global.Player.gold >= cost_knight:
-		knight_to_spawn = knight_scene.instantiate()
-		waiting_for_click = true
-		print("button")
+#func _on_spawn_knight_button_button_up():
+#	
+#	if Global.Player.gold >= cost_knight:
+#		knight_to_spawn = knight_scene.instantiate()
+#		waiting_for_click = true
+#		print("button")
+
 		
 		
 		
 
-func _spawn_knight_at_mouse_position():
-	if knight_to_spawn:
-		var mouse_position = get_viewport().get_mouse_position()
-		knight_to_spawn.position = mouse_position
-		knight_to_spawn.startpos = mouse_position
-		add_child(knight_to_spawn)
-		knight_to_spawn = null
-		waiting_for_click = false
-		print("spawn")
-		Global.Player.gold -= cost_knight
+
 		
 		
 
@@ -130,12 +122,19 @@ func _on_spawn_worker_button_pressed():
 	
 
 
-func _on_spawn_archer_button_button_up():
-		
+#func _on_spawn_archer_button_button_up():
+#		
+#	if Global.Player.gold >= cost_archer:
+#		archer_to_spawn = archer_scene.instantiate()
+#		waiting_for_click = true
+			
+
+
+
+func _on_spawn_archer_button_pressed():
 	if Global.Player.gold >= cost_archer:
 		archer_to_spawn = archer_scene.instantiate()
 		waiting_for_click = true
-		
 
 func _spawn_archer_at_mouse_position():
 	if archer_to_spawn:
@@ -146,5 +145,24 @@ func _spawn_archer_at_mouse_position():
 		archer_to_spawn = null
 		waiting_for_click = false
 		#print("spawn archer")
-		Global.Player.gold -= cost_archer		
+		Global.Player.gold -= cost_archer	
+
+
+func _on_spawn_knight_button_pressed():
+	if Global.Player.gold >= cost_knight:
+		knight_to_spawn = knight_scene.instantiate()
+		waiting_for_click = true
+		print("button")
+		
+func _spawn_knight_at_mouse_position():
+	if knight_to_spawn:
+		var mouse_position = get_viewport().get_mouse_position()
+		knight_to_spawn.position = mouse_position
+		knight_to_spawn.startpos = mouse_position
+		add_child(knight_to_spawn)
+		knight_to_spawn = null
+		waiting_for_click = false
+		print("spawn")
+		Global.Player.gold -= cost_knight
+		
 
