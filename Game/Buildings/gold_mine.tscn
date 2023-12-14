@@ -49,11 +49,11 @@ radius = 17.0
 height = 134.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bnxh8"]
-radius = 84.006
+radius = 90.0222
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdl7"]
-radius = 31.0
-height = 72.0
+radius = 40.0
+height = 80.0
 
 [sub_resource type="Gradient" id="Gradient_ce671"]
 
@@ -112,5 +112,5 @@ one_shot = true
 explosiveness = 0.9
 fixed_fps = 7
 
-[connection signal="body_entered" from="ActiveArea" to="." method="_on_active_area_body_entered"]
-[connection signal="body_exited" from="ActiveArea" to="." method="_on_active_area_body_exited"]
+[connection signal="area_entered" from="ActiveArea" to="." method="_on_active_area_area_entered"]
+[connection signal="area_exited" from="ActiveArea" to="." method="_on_active_area_area_exited"]

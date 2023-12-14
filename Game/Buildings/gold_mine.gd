@@ -11,6 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	#print(active_trigger)
 	if active_trigger == true:
 		$MineSprite.animation = "active"
 		
@@ -18,10 +19,12 @@ func _process(_delta):
 		$MineSprite.animation = "inactive"
 
 
-func _on_active_area_body_entered(_body):
+
+func _on_active_area_area_entered(area):
+	#print("active")
 	active_trigger = true
 	
 
-
-func _on_active_area_body_exited(_body):
-	active_trigger = false
+func _on_active_area_area_exited(area):
+	#print("inactive")
+	active_trigger = false	
