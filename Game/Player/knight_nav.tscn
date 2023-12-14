@@ -421,16 +421,17 @@ collision_layer = 3
 script = ExtResource("1_1d5ic")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 24)
 sprite_frames = SubResource("SpriteFrames_a4y73")
 animation = &"walk"
 frame_progress = 0.127468
+offset = Vector2(-2, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 15)
 shape = SubResource("CapsuleShape2D_gwbp4")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-z_index = -1
 offset_left = -38.0
 offset_top = 45.0
 offset_right = 42.0

@@ -467,15 +467,16 @@ script = ExtResource("1_0oy7s")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 33)
 sprite_frames = SubResource("SpriteFrames_g4dqy")
 animation = &"shot_top"
+offset = Vector2(0, -33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 26)
 shape = SubResource("CircleShape2D_wj33q")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-z_index = -1
 offset_left = -38.0
 offset_top = 45.0
 offset_right = 42.0

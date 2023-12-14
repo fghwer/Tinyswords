@@ -892,93 +892,99 @@ layer_0/tile_data = PackedInt32Array(851977, 589824, 0, 851976, 589824, 0, 85197
 
 [node name="tree_top11" type="AnimatedSprite2D" parent="AnimatedTerrain"]
 y_sort_enabled = true
-position = Vector2(482, 803)
+position = Vector2(483, 877)
 sprite_frames = SubResource("SpriteFrames_xacwc")
 animation = &"new_animation"
-metadata/_edit_group_ = true
+offset = Vector2(-1, -74)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedTerrain/tree_top11"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTerrain/tree_top11/StaticBody2D"]
-position = Vector2(0, 60)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xhyye")
 
 [node name="tree_top17" type="AnimatedSprite2D" parent="AnimatedTerrain"]
 y_sort_enabled = true
-position = Vector2(1460, 765)
+position = Vector2(1461, 839)
 sprite_frames = SubResource("SpriteFrames_xacwc")
 animation = &"new_animation"
+offset = Vector2(-1, -74)
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedTerrain/tree_top17"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTerrain/tree_top17/StaticBody2D"]
-position = Vector2(0, 60)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xhyye")
 
 [node name="tree_top15" type="AnimatedSprite2D" parent="AnimatedTerrain"]
 y_sort_enabled = true
-position = Vector2(1488, 413)
+position = Vector2(1488, 486)
 sprite_frames = SubResource("SpriteFrames_xacwc")
 animation = &"new_animation"
+offset = Vector2(0, -73)
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedTerrain/tree_top15"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTerrain/tree_top15/StaticBody2D"]
-position = Vector2(0, 60)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xhyye")
 
 [node name="tree_top16" type="AnimatedSprite2D" parent="AnimatedTerrain"]
 y_sort_enabled = true
-position = Vector2(465, 346)
+position = Vector2(466, 418)
 sprite_frames = SubResource("SpriteFrames_xacwc")
 animation = &"new_animation"
+offset = Vector2(-1, -72)
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedTerrain/tree_top16"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTerrain/tree_top16/StaticBody2D"]
-position = Vector2(0, 60)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xhyye")
 
 [node name="tree_top14" type="AnimatedSprite2D" parent="AnimatedTerrain"]
 y_sort_enabled = true
-position = Vector2(1381, 847)
+position = Vector2(1388, 920)
 sprite_frames = SubResource("SpriteFrames_xacwc")
 animation = &"new_animation"
+offset = Vector2(-7, -73)
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedTerrain/tree_top14"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTerrain/tree_top14/StaticBody2D"]
-position = Vector2(0, 60)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xhyye")
 
 [node name="tree_top12" type="AnimatedSprite2D" parent="AnimatedTerrain"]
 y_sort_enabled = true
-position = Vector2(418, 413)
+position = Vector2(419, 487)
 sprite_frames = SubResource("SpriteFrames_xacwc")
 animation = &"new_animation"
+offset = Vector2(-1, -74)
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedTerrain/tree_top12"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTerrain/tree_top12/StaticBody2D"]
-position = Vector2(0, 60)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xhyye")
 
 [node name="tree_top13" type="AnimatedSprite2D" parent="AnimatedTerrain"]
 y_sort_enabled = true
-position = Vector2(588, 892)
+position = Vector2(587, 966)
 sprite_frames = SubResource("SpriteFrames_xacwc")
 animation = &"new_animation"
+offset = Vector2(1, -74)
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedTerrain/tree_top13"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTerrain/tree_top13/StaticBody2D"]
-position = Vector2(0, 60)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xhyye")
 
 [node name="foam_bot_border2" type="AnimatedSprite2D" parent="AnimatedTerrain"]

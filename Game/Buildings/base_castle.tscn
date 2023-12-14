@@ -167,8 +167,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y12hw"]
-radius = 24.0
-height = 262.0
+radius = 27.0
+height = 270.0
 
 [sub_resource type="Gradient" id="Gradient_pvam0"]
 
@@ -202,7 +202,9 @@ collision_mask = 0
 script = ExtResource("1_hcekx")
 
 [node name="CastleSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 110)
 sprite_frames = SubResource("SpriteFrames_6r5jn")
+offset = Vector2(0, -110)
 
 [node name="Fire1" type="Node2D" parent="."]
 position = Vector2(0, -5)

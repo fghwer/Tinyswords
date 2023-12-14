@@ -298,10 +298,12 @@ collision_layer = 5
 script = ExtResource("1_8hytq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 32)
 sprite_frames = SubResource("SpriteFrames_70heb")
 animation = &"attack"
 frame = 2
 frame_progress = 0.295086
+offset = Vector2(1, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 21)
@@ -341,7 +343,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_hmr5c")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2urfw")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-z_index = -1
 offset_left = -38.0
 offset_top = 45.0
 offset_right = 42.0
