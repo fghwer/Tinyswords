@@ -250,8 +250,8 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4861o"]
-size = Vector2(38, 20)
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfdog"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8ikk"]
 radius = 160.078
@@ -296,15 +296,14 @@ y_sort_enabled = true
 position = Vector2(850, 1000)
 collision_layer = 5
 script = ExtResource("1_8hytq")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_70heb")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 22)
-shape = SubResource("RectangleShape2D_4861o")
+position = Vector2(0, 21)
+shape = SubResource("CircleShape2D_pfdog")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 50.0
@@ -312,6 +311,7 @@ avoidance_enabled = true
 radius = 50.0
 
 [node name="detection_area" type="Area2D" parent="."]
+y_sort_enabled = true
 collision_layer = 0
 collision_mask = 2
 

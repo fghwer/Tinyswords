@@ -461,6 +461,7 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 
 [node name="Archer" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_0oy7s")
 metadata/_edit_group_ = true

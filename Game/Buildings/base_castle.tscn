@@ -255,6 +255,7 @@ explosiveness = 0.9
 fixed_fps = 7
 
 [node name="InteractArea" type="Area2D" parent="."]
+y_sort_enabled = true
 collision_layer = 8
 collision_mask = 0
 

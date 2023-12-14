@@ -49,43 +49,50 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.animation = "idle"
 		if $AnimatedSprite2D.animation == "idle" and $AnimatedSprite2D.frame == 5:
 			i_idle_after_flee += 1
-			if i_idle_after_flee == 10:
+			if i_idle_after_flee == 10 or player == null:
 				flee_trigger = false
 				idle_after_flee_end_trigger = false
 				i_idle_after_flee = 0
-	elif interact_trigger and player != null:
+	elif interact_trigger:# and player != null:
+		
 		if interact_stand_trigger:
 			velocity = Vector2.ZERO
 			interact_stand_trigger = false
-		if player.name == "BaseCastle":
-			$AnimatedSprite2D.animation = "idle"
-			#_getGold()
+		if player != null:
+			if player.name == "BaseCastle":
+				$AnimatedSprite2D.animation = "idle"
+				if $AnimatedSprite2D.frame == 5:
+					player = null
+					interact_trigger = false
+					init_target_position(minepos)
+					#_getGold()
+			elif player.name == "GoldMine":
+				$AnimatedSprite2D.animation = "mine"
+				if $AnimatedSprite2D.frame == 5:
+					player = null
+					interact_trigger = false
+					init_target_position(worker_3rd_pos)
+				#_draftgold()
+			elif player.name == "Worker_3rd_pos":
+				player = null
+				interact_trigger = false
+				#print($BaseCastle.position)
+				init_target_position(worker_4rd_pos)
+			elif player.name == "Worker_4rd_pos":
+				player = null
+				interact_trigger = false
+				#print($BaseCastle.position)
+				init_target_position(startpos)
+		else: 
+			interact_trigger = false
 			
-		elif player.name == "GoldMine":
-			$AnimatedSprite2D.animation = "mine"
-			#_draftgold()
-			
-		elif player.name == "Worker_3rd_pos":
-			player = null
-			interact_trigger = false
-			#print($BaseCastle.position)
-			init_target_position(worker_4rd_pos)
-		elif player.name == "Worker_4rd_pos":
-			player = null
-			interact_trigger = false
-			#print($BaseCastle.position)
-			init_target_position(startpos)
-		if $AnimatedSprite2D.animation == "mine" and $AnimatedSprite2D.frame == 5:
-			player = null
-			interact_trigger = false
-			#print($BaseCastle.position)
-			init_target_position(worker_3rd_pos)
-		elif $AnimatedSprite2D.animation == "idle" and $AnimatedSprite2D.frame == 5:
-			player = null
-			interact_trigger = false
-			init_target_position(minepos)
 	else:
-		
+		if interact_trigger != false or interact_stand_trigger != false or flee_trigger != false or idle_after_flee_end_trigger != false:
+			print(interact_trigger, interact_stand_trigger, flee_trigger,idle_after_flee_end_trigger)
+			interact_trigger = false
+			interact_stand_trigger = false
+			flee_trigger = false
+			idle_after_flee_end_trigger = false
 		if navigation_agent.is_navigation_finished():
 				return
 		else:
@@ -121,22 +128,31 @@ func init_bloodparticles(direction : Vector3):
 func _on_interact_area_area_entered(area):
 	#print("test")
 	player = area.get_parent()
-	interact_trigger = true
-	interact_stand_trigger = true
 	if player.name == "BaseCastle" and backpack != 0:
+		interact_trigger = true
+		interact_stand_trigger = true
 		Global.Player.gold +=1
+		backpack = 0
 	elif player.name == "GoldMine" and backpack == 0:
+		interact_trigger = true
+		interact_stand_trigger = true
 		backpack = 1
+	elif player.name == "Worker_3rd_pos" and backpack != 0:
+		interact_trigger = true
+	elif player.name == "Worker_4rd_pos" and backpack != 0:
+		interact_trigger = true
+	#else: 
+	#	print("oops:", player.name, backpack)
 	
 
 
 func _on_flee_area_body_entered(body):
-	print("flee")
+	#print("flee")
 	player = body
 	flee_trigger = true
 
 func _on_stop_flee_area_body_exited(_body):
-	print("exit")
+	#print("exit")
 	player = null
 	idle_after_flee_end_trigger = true
 	#flee_trigger = false

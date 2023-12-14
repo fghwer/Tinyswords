@@ -77,7 +77,7 @@ func _physics_process(_delta):
 			player.init_bloodparticles(blood_direction)
 			init_arrowparticles(blood_direction, arrow_lifetime, arrow_rotation)
 			Arrow.emitting = true
-			print(arrow_rotation)
+			#print(arrow_rotation)
 			#print(acos(arrow_rotation) * 360. / (2.*PI), " ", acos(arrow_rotation)* 360. / (2.*PI), " ",atan(arrow_rotation)* 360. / (2.*PI))
 			
 			if player.life <= 0:

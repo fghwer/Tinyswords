@@ -39,7 +39,7 @@ func _process(_delta):
 		_spawn_knight_at_mouse_position()
 		_spawn_archer_at_mouse_position()
 	
-	for _i in $Foam_Animation_Parent.get_children():
+	for _i in $TileMapCollection/AnimatedTerrain.get_children():
 		_i.play()
 		
 	var gold_label = get_node("Gold")
@@ -54,7 +54,7 @@ func _process(_delta):
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
-	var spawnpath = randi_range(0,100)
+	var spawnpath = randi_range(0,200)
 	#Global.Player.score += 100
 	#print(spawnpath)
 	#var mob_spawn_location = 0
@@ -65,13 +65,22 @@ func _on_mob_timer_timeout():
 		mob_spawn_location.progress_ratio = randf()
 		mob.position = mob_spawn_location.position
 		
-	elif spawnpath > 1:
+	elif spawnpath >= 50 and spawnpath < 100:
 		# Choose a random location on Path2D.
 		var mob_spawn_location = get_node("MobPath2/MobSpawnLocation")
 		mob_spawn_location.progress_ratio = randf()
 		mob.position = mob_spawn_location.position
 	#mob.set_movement_target($Marker2D.position)
-	
+	elif spawnpath >= 100 and spawnpath < 150:
+		# Choose a random location on Path2D.
+		var mob_spawn_location = get_node("MobPath3/MobSpawnLocation")
+		mob_spawn_location.progress_ratio = randf()
+		mob.position = mob_spawn_location.position
+	elif spawnpath >= 150:
+		# Choose a random location on Path2D.
+		var mob_spawn_location = get_node("MobPath4/MobSpawnLocation")
+		mob_spawn_location.progress_ratio = randf()
+		mob.position = mob_spawn_location.position
 	add_child(mob)
 
 func _on_spawn_knight_button_button_up():
@@ -135,5 +144,5 @@ func _spawn_archer_at_mouse_position():
 		add_child(archer_to_spawn)
 		archer_to_spawn = null
 		waiting_for_click = false
-		print("spawn archer")
+		#print("spawn archer")
 		Global.Player.gold -= cost_archer		
