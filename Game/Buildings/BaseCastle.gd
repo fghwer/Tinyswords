@@ -12,7 +12,7 @@ var trigger_fire2 = false
 var trigger_fire3 = false
 var trigger_dead = false
 var gold = 0
-var timer = Timer.new()
+#var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +55,8 @@ func _process(_delta):
 		$CastleSprite.animation = "destroy"
 		
 		trigger_dead = true
+		
+	elif trigger_dead and Explosion.frame == 8:
 		
 		## Game Over 
 		#timer.start()

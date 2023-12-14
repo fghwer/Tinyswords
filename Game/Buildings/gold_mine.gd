@@ -20,11 +20,11 @@ func _process(_delta):
 
 
 
-func _on_active_area_area_entered(area):
+func _on_active_area_area_entered(_area):
 	#print("active")
 	active_trigger = true
 	
 
-func _on_active_area_area_exited(area):
+func _on_active_area_area_exited(_area):
 	#print("inactive")
 	active_trigger = false	

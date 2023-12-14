@@ -72,7 +72,7 @@ func _physics_process(_delta):
 			#if player != "BaseCastle":
 			
 			#player.BloodParticle.direction = Vector3(0,1,0)
-			if player.life <= 0:# and player.name != "BaseCastle":
+			if player.life <= 0 and player.name != "BaseCastle":
 				player.queue_free()
 				
 			#player.set_hpbar_value(player.life/player.maxlife)
