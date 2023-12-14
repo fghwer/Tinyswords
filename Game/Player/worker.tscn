@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://dsjwy0ogftvi"]
+[gd_scene load_steps=55 format=3 uid="uid://dsjwy0ogftvi"]
 
 [ext_resource type="Script" path="res://Game/Player/worker.gd" id="1_mqxia"]
 [ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="1_rpphm"]
+[ext_resource type="Texture2D" uid="uid://8o6khnhmnu5t" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Spawn.png" id="3_wliia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1vhe"]
 atlas = ExtResource("1_rpphm")
@@ -50,6 +51,30 @@ region = Rect2(768, 960, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c45uo"]
 atlas = ExtResource("1_rpphm")
 region = Rect2(960, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vidv"]
+atlas = ExtResource("1_rpphm")
+region = Rect2(0, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohde5"]
+atlas = ExtResource("1_rpphm")
+region = Rect2(192, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wabt"]
+atlas = ExtResource("1_rpphm")
+region = Rect2(384, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4ahf"]
+atlas = ExtResource("1_rpphm")
+region = Rect2(576, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81xej"]
+atlas = ExtResource("1_rpphm")
+region = Rect2(768, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgyu6"]
+atlas = ExtResource("1_rpphm")
+region = Rect2(960, 768, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jj67"]
 atlas = ExtResource("1_rpphm")
@@ -169,6 +194,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"flee",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vidv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohde5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wabt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4ahf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81xej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgyu6")
+}],
+"loop": true,
+"name": &"flee_idle",
 "speed": 7.0
 }, {
 "frames": [{
@@ -306,6 +354,28 @@ color_initial_ramp = SubResource("GradientTexture1D_21dko")
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6y2w"]
 radius = 226.108
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uesk"]
+atlas = ExtResource("3_wliia")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug7b2"]
+atlas = ExtResource("3_wliia")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ud6c0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uesk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug7b2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="worker" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(688, 329)
@@ -315,7 +385,7 @@ script = ExtResource("1_mqxia")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_gyh1j")
-animation = &"idle"
+animation = &"flee_idle"
 centered = false
 offset = Vector2(-96, -123)
 
@@ -390,6 +460,25 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StopFleeArea"]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_j6y2w")
+
+[node name="GoldTransport" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Gold1" type="AnimatedSprite2D" parent="GoldTransport"]
+position = Vector2(0.213547, 0.969856)
+rotation = 0.23911
+sprite_frames = SubResource("SpriteFrames_ud6c0")
+frame = 1
+frame_progress = 0.957627
+offset = Vector2(-28.626, -74.3041)
+
+[node name="Gold2" type="AnimatedSprite2D" parent="GoldTransport"]
+y_sort_enabled = true
+position = Vector2(0.213493, 1.53104)
+rotation = -0.958186
+sprite_frames = SubResource("SpriteFrames_ud6c0")
+frame_progress = 0.199746
+offset = Vector2(58.6435, -42.6985)
 
 [connection signal="body_entered" from="FleeArea" to="." method="_on_flee_area_body_entered"]
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]

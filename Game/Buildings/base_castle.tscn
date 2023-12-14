@@ -196,45 +196,58 @@ radius = 20.0
 height = 118.0
 
 [node name="BaseCastle" type="StaticBody2D"]
+y_sort_enabled = true
 position = Vector2(590, 298)
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_hcekx")
 
 [node name="CastleSprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, 110)
 sprite_frames = SubResource("SpriteFrames_6r5jn")
 offset = Vector2(0, -110)
 
 [node name="Fire1" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -5)
 
 [node name="Fire" type="AnimatedSprite2D" parent="Fire1"]
-position = Vector2(-1, -23)
+y_sort_enabled = true
+position = Vector2(-1, 123)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_whe8g")
 animation = &"burn"
+offset = Vector2(0, -182.5)
 
 [node name="Fire2" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Fire" type="AnimatedSprite2D" parent="Fire2"]
-position = Vector2(-107, 69)
+y_sort_enabled = true
+position = Vector2(-108, 116)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_whe8g")
 animation = &"burn"
+offset = Vector2(1.25, -58.75)
 
 [node name="Fire3" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(165, 10)
 
 [node name="Fire" type="AnimatedSprite2D" parent="Fire3"]
-position = Vector2(-107, 69)
+y_sort_enabled = true
+position = Vector2(-108, 107)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_whe8g")
 animation = &"burn"
+offset = Vector2(1.25, -47.5)
 
 [node name="Explosion" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Explosion" type="AnimatedSprite2D" parent="Explosion"]
+y_sort_enabled = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_2cifk")
 frame = 8

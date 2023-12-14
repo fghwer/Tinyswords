@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var maxlife = 1000.
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 @onready var BloodParticle: GPUParticles2D = get_node("ParticleInterface/BloodParticle")
+@onready var Gold1: AnimatedSprite2D = get_node("GoldTransport/Gold1")
+@onready var Gold2: AnimatedSprite2D = get_node("GoldTransport/Gold2")
 #@onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 #@onready var BloodParticle: GPUParticles2D = get_node("ParticleInterface/BloodParticle")
 var life = maxlife
@@ -25,13 +27,28 @@ var player = null
 var frame_alt = 0
 var frame_neu = 0
 var backpack = 0
+var trigger_gold = false
 #var max_backpack = 1
 
-
+func _ready():
+	$GoldTransport.visible = false
+	Gold1.stop()
+	Gold2.stop()
 
 func _physics_process(_delta):
 	
 	$ProgressBar.set_value_no_signal(life*100/maxlife)	
+	print(backpack)
+	if backpack == 1 and not trigger_gold:
+		#print("hi", trigger_gold)
+		$GoldTransport.visible = true
+		#Gold1.visible = true
+		#Gold2.visible = true
+		Gold1.animation = "default"
+		Gold2.animation = "default"
+		Gold1.play()
+		Gold2.play()
+		trigger_gold = true
 	#if player != null:
 	#	print(player.name)
 	if flee_trigger and player != null:
@@ -66,9 +83,14 @@ func _physics_process(_delta):
 					interact_trigger = false
 					init_target_position(minepos)
 					#_getGold()
+				elif $AnimatedSprite2D.frame == 1 and backpack == 1:
+					backpack = 0
+					trigger_gold = false
+					$GoldTransport.visible = false
 			elif player.name == "GoldMine":
 				$AnimatedSprite2D.animation = "mine"
 				if $AnimatedSprite2D.frame == 5:
+					backpack = 1
 					player = null
 					interact_trigger = false
 					init_target_position(worker_3rd_pos)
@@ -105,13 +127,23 @@ func _physics_process(_delta):
 			velocity = new_velocity
 			#print(target_position, current_agent_position, next_path_position)
 		if velocity == Vector2.ZERO:
-			$AnimatedSprite2D.animation = "idle"
+			if backpack ==0:
+				$AnimatedSprite2D.animation = "idle"
+			else:
+				$AnimatedSprite2D.animation = "flee_idle"
 			$AnimatedSprite2D.flip_h = false
 		elif velocity.x > 0:
-			$AnimatedSprite2D.animation = "walk"
+			if backpack == 0:
+				$AnimatedSprite2D.animation = "walk"
+			else:
+				$AnimatedSprite2D.animation = "flee"
 			$AnimatedSprite2D.flip_h = false
 		elif velocity.x < 0:
-			$AnimatedSprite2D.animation = "walk"
+			if backpack == 0:
+				$AnimatedSprite2D.animation = "walk"
+			else:
+				$AnimatedSprite2D.animation = "flee"
+			#$AnimatedSprite2D.animation = "walk"
 			$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play()	
 
@@ -132,11 +164,11 @@ func _on_interact_area_area_entered(area):
 		interact_trigger = true
 		interact_stand_trigger = true
 		Global.Player.gold +=1
-		backpack = 0
+		#backpack = 0
 	elif player.name == "GoldMine" and backpack == 0:
 		interact_trigger = true
 		interact_stand_trigger = true
-		backpack = 1
+		#backpack = 1
 	elif player.name == "Worker_3rd_pos" and backpack != 0:
 		interact_trigger = true
 	elif player.name == "Worker_4rd_pos" and backpack != 0:

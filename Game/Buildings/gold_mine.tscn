@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpi3jmc1unbuh"]
+[gd_scene load_steps=24 format=3 uid="uid://dpi3jmc1unbuh"]
 
 [ext_resource type="Texture2D" uid="uid://78kvt8v71osa" path="res://Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Active.png" id="1_4ydae"]
 [ext_resource type="Script" path="res://Game/Buildings/gold_mine.gd" id="1_06tq7"]
 [ext_resource type="Texture2D" uid="uid://bdr5d0ly30gv8" path="res://Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Destroyed.png" id="2_77lu6"]
 [ext_resource type="Texture2D" uid="uid://d2ywyccqibmqn" path="res://Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Inactive.png" id="3_rrr2x"]
+[ext_resource type="Texture2D" uid="uid://8o6khnhmnu5t" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Spawn.png" id="5_ggsfy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5i64r"]
 atlas = ExtResource("1_4ydae")
@@ -49,11 +50,11 @@ radius = 17.0
 height = 134.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bnxh8"]
-radius = 90.0222
+radius = 76.0066
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdl7"]
-radius = 40.0
-height = 80.0
+radius = 11.0
+height = 22.0
 
 [sub_resource type="Gradient" id="Gradient_ce671"]
 
@@ -74,11 +75,70 @@ scale_max = 6.0
 color = Color(0.611765, 0.611765, 0.611765, 1)
 color_initial_ramp = SubResource("GradientTexture1D_apt7m")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4jv0"]
+atlas = ExtResource("5_ggsfy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byuak"]
+atlas = ExtResource("5_ggsfy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcff8"]
+atlas = ExtResource("5_ggsfy")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dpkv"]
+atlas = ExtResource("5_ggsfy")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv8gb"]
+atlas = ExtResource("5_ggsfy")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cjhx"]
+atlas = ExtResource("5_ggsfy")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmlfy"]
+atlas = ExtResource("5_ggsfy")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bc7qf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4jv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byuak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcff8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dpkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv8gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cjhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmlfy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="GoldMine" type="StaticBody2D"]
+y_sort_enabled = true
 collision_mask = 0
 script = ExtResource("1_06tq7")
 
 [node name="MineSprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, 39)
 sprite_frames = SubResource("SpriteFrames_wwatk")
 animation = &"active"
@@ -113,6 +173,16 @@ lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
 fixed_fps = 7
+
+[node name="GoldSpawn" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Gold" type="AnimatedSprite2D" parent="GoldSpawn"]
+position = Vector2(4, 73)
+sprite_frames = SubResource("SpriteFrames_bc7qf")
+frame = 3
+frame_progress = 0.640894
+offset = Vector2(-4, -33)
 
 [connection signal="area_entered" from="ActiveArea" to="." method="_on_active_area_area_entered"]
 [connection signal="area_exited" from="ActiveArea" to="." method="_on_active_area_area_exited"]
