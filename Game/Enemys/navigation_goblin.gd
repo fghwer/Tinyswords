@@ -75,8 +75,6 @@ func _physics_process(_delta):
 				#player.BloodParticle.direction = Vector3(0,1,0)
 				if player.life <= 0 and player.name != "BaseCastle":
 					player.queue_free()
-					Global.Player.population -= 2
-					
 					var i_olb = 0
 					for _i in $attack_area.get_overlapping_bodies():
 						i_olb += 1

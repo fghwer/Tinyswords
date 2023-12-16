@@ -7,8 +7,6 @@ var gold = null
 var life = null
 var level = 1
 var score = null
-var populationMax = null
-var population = null
 
 
 func _init():
@@ -17,5 +15,3 @@ func _init():
 	self.life = 3
 	self.score = 0
 	self.life = 0
-	self.population = 0
-	self.populationMax = 10
