@@ -20,4 +20,4 @@ func _on_button_labor_pressed():
 
 
 func _on_button_level_1_pressed():
-	get_tree().change_scene_to_file("res://nav_goblin_testscene.tscn")
+	get_tree().change_scene_to_file("res://Level/Level_1/Level_1.tscn")
