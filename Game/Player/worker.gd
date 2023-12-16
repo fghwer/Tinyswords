@@ -187,6 +187,7 @@ func _on_stop_flee_area_body_exited(_body):
 	#print("exit")
 	player = null
 	idle_after_flee_end_trigger = true
+	print("bitte")
 	#flee_trigger = false
 
 
