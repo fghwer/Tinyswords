@@ -4,18 +4,23 @@ extends Node2D
 @export var knight_scene : PackedScene
 @export var worker_scene : PackedScene
 @export var archer_scene : PackedScene
+@export var house_scene : PackedScene
 @onready var SpawnKnightButtonLabel: Label = get_node("SpawnKnightButton/ButtonLayout/Label")
 @onready var SpawnWorkerButtonLabel: Label = get_node("SpawnWorkerButton/ButtonLayout/Label")
 @onready var SpawnArcherButtonLabel: Label = get_node("SpawnArcherButton/ButtonLayout/Label")
+@onready var SpawnHouseButtonLabel: Label = get_node("SpawnHouseButton2/ButtonLayout/Label")
+
 #@onready var navigation_agent: NavigationAgent2D = get_node("mob_scene/NavigationAgent2D")
 #@export var knight_scene : PackedScene
 var startpos_knight = Vector2.ZERO
 var waiting_for_click = false
 var knight_to_spawn = null
 var archer_to_spawn = null
+var house_to_spawn = null
 var cost_knight = 2
 var cost_worker = 2
 var cost_archer = 1
+var cost_house = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +29,7 @@ func _ready():
 	SpawnKnightButtonLabel.set_text(str(cost_knight))
 	SpawnWorkerButtonLabel.set_text(str(cost_worker))
 	SpawnArcherButtonLabel.set_text(str(cost_archer))
+	SpawnHouseButtonLabel.set_text(str(cost_house))
 	$MobTimer.start()
 
 
@@ -39,6 +45,8 @@ func _process(_delta):
 	if waiting_for_click and Input.is_action_just_pressed("click"):
 		_spawn_knight_at_mouse_position()
 		_spawn_archer_at_mouse_position()
+		_on_spawn_house_button_2_pressed()
+		
 	
 	for _i in $TileMapCollection/AnimatedTerrain.get_children():
 		_i.play()
@@ -164,5 +172,26 @@ func _spawn_knight_at_mouse_position():
 		waiting_for_click = false
 		print("spawn")
 		Global.Player.gold -= cost_knight
+		
+
+
+
+func _on_spawn_house_button_2_pressed():
+	print("test")
+	if Global.Player.gold >= cost_house:
+		house_to_spawn = house_scene.instantiate()
+		waiting_for_click = true
+		print("button")
+
+func _spawn_house_at_mouse_position():
+	if house_to_spawn:
+		var mouse_position = get_viewport().get_mouse_position()
+		house_to_spawn.position = mouse_position
+		house_to_spawn.startpos = mouse_position
+		add_child(house_to_spawn)
+		house_to_spawn = null
+		waiting_for_click = false
+		print("spawn")
+		Global.Player.gold -= cost_house
 		
 

@@ -58,3 +58,4 @@ func init_bloodparticles(direction : Vector3):
 	BloodParticle.get_process_material().direction = direction
 	
 
+
