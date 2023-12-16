@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=85 format=3 uid="uid://dui7577q0pfbf"]
 
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="1_m6uql"]
 [ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
@@ -17,9 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bjoyh48rvbf4g" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Hover_9Slides.png" id="10_7axr7"]
 [ext_resource type="Texture2D" uid="uid://cxvjuwt0kd6jm" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides_Pressed.png" id="11_wnup4"]
 [ext_resource type="Texture2D" uid="uid://1v77kmd101c" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Idle.png" id="12_0tlau"]
-[ext_resource type="Texture2D" uid="uid://6pyusyeuojpn" path="res://Tiny Swords (Update 010)/Resources/Resources/W_Idle.png" id="13_t2o3v"]
 [ext_resource type="Texture2D" uid="uid://rd5fq633d2yh" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="14_d6pfs"]
-[ext_resource type="Texture2D" uid="uid://bdhrciqo4ung8" path="res://Tiny Swords (Update 010)/Resources/Resources/M_Idle.png" id="14_f8fmh"]
 [ext_resource type="Texture2D" uid="uid://derjuf8obuolq" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="15_n2gig"]
 [ext_resource type="Texture2D" uid="uid://dmrjbnspkdt4x" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.png" id="16_40tfu"]
 [ext_resource type="Texture2D" uid="uid://bpmumnm2haumu" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Up.png" id="20_87eo5"]
@@ -28,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://com1yineegfp4" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Construction.png" id="24_a0g5r"]
 [ext_resource type="Texture2D" uid="uid://dc7m4s14pxf7d" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="25_ipbps"]
 [ext_resource type="Texture2D" uid="uid://cr4xta41b3enk" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Destroyed.png" id="26_ixq0n"]
-[ext_resource type="PackedScene" uid="uid://ci5g4hxg7yq4l" path="res://Game/Buildings/wood_tree.tscn" id="29_1womv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
 vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 616, 390, 894, 356, 1109, 409, 611, 435, 525, 355, 521, 385, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 369, 605, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 517, 431, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1048, 654, 49, 850, 52, 1041, 12, 732, 6, 601, 47, 228, 49, 484, 11, 727)
@@ -521,40 +518,8 @@ vertical_alignment = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Gold"]
-position = Vector2(70, 27)
+position = Vector2(60, 27)
 texture = ExtResource("12_0tlau")
-
-[node name="Wood" type="Label" parent="CollectionCharacters"]
-z_index = 2
-offset_left = 2190.0
-offset_top = 110.0
-offset_right = 2234.0
-offset_bottom = 182.0
-theme_override_font_sizes/font_size = 50
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 2
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Wood"]
-position = Vector2(70, 17)
-texture = ExtResource("13_t2o3v")
-
-[node name="Meat" type="Label" parent="CollectionCharacters"]
-z_index = 2
-offset_left = 2190.0
-offset_top = 205.0
-offset_right = 2234.0
-offset_bottom = 277.0
-theme_override_font_sizes/font_size = 50
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 2
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Meat"]
-position = Vector2(70, 27)
-texture = ExtResource("14_f8fmh")
 
 [node name="Score" type="Label" parent="CollectionCharacters"]
 z_index = 2
@@ -608,7 +573,7 @@ position = Vector2(-485, 15)
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_lktuy")
 format = 2
-layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 65563, 0, 0, 65564, 65536, 0, 131099, 0, 0, 131100, 65536, 0, 65565, 65536, 0, 131101, 65536, 0)
+layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0)
 
 [node name="SpawnKnightButton" type="TextureButton" parent="CollectionCharacters"]
 z_index = 2
@@ -747,9 +712,6 @@ offset = Vector2(0, -70)
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
 position = Vector2(110, 129)
 texture = ExtResource("12_0tlau")
-
-[node name="WoodTree" parent="CollectionCharacters" instance=ExtResource("29_1womv")]
-position = Vector2(627, 805)
 
 [connection signal="timeout" from="CollectionCharacters/MobTimer" to="CollectionCharacters" method="_on_mob_timer_timeout"]
 [connection signal="pressed" from="CollectionCharacters/SpawnKnightButton" to="CollectionCharacters" method="_on_spawn_knight_button_pressed"]

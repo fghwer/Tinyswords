@@ -61,10 +61,9 @@ func _physics_process(_delta):
 			#$AnimatedSprite2D.animation = "walk"
 			$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play()
-	elif ( idle_after_flee_end_trigger == true or player == null) and flee_trigger:
+	elif ( idle_after_flee_end_trigger == true or player == null) and flee_trigger == true:
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.animation = "idle"
-		#flee_trigger = false
 		if $AnimatedSprite2D.animation == "idle" and $AnimatedSprite2D.frame == 5:
 			i_idle_after_flee += 1
 			if i_idle_after_flee == 10 or player == null:
@@ -159,56 +158,37 @@ func init_bloodparticles(direction : Vector3):
 
 
 func _on_interact_area_area_entered(area):
-	if flee_trigger == true:
-		pass
-	else:
-		#print("test")
-		player = area.get_parent()
-		if player.name == "BaseCastle" and backpack != 0:
-			interact_trigger = true
-			interact_stand_trigger = true
-			Global.Player.gold +=1
-			#backpack = 0
-		elif player.name == "GoldMine" and backpack == 0:
-			interact_trigger = true
-			interact_stand_trigger = true
-			#backpack = 1
-		elif player.name == "Worker_3rd_pos" and backpack != 0:
-			interact_trigger = true
-		elif player.name == "Worker_4rd_pos" and backpack != 0:
-			interact_trigger = true
-		#else: 
-		#	print("oops:", player.name, backpack)
+	#print("test")
+	player = area.get_parent()
+	if player.name == "BaseCastle" and backpack != 0:
+		interact_trigger = true
+		interact_stand_trigger = true
+		Global.Player.gold +=1
+		#backpack = 0
+	elif player.name == "GoldMine" and backpack == 0:
+		interact_trigger = true
+		interact_stand_trigger = true
+		#backpack = 1
+	elif player.name == "Worker_3rd_pos" and backpack != 0:
+		interact_trigger = true
+	elif player.name == "Worker_4rd_pos" and backpack != 0:
+		interact_trigger = true
+	#else: 
+	#	print("oops:", player.name, backpack)
 	
 
 
 func _on_flee_area_body_entered(body):
-	if flee_trigger == true:
-		pass
-	else:
-		#print("flee")
-		player = body
-		flee_trigger = true
+	#print("flee")
+	player = body
+	flee_trigger = true
 
 func _on_stop_flee_area_body_exited(_body):
 	#print("exit")
-	#player = null
-	#idle_after_flee_end_trigger = true
+	player = null
+	idle_after_flee_end_trigger = true
 	#flee_trigger = false
-	var other_player_in_area = false
-	for _i in $StopFleeArea.get_overlapping_bodies():
-		#i_olb += 1
-		#print(i_olb, _i)
-		#var smallest_dist_i = 1000000. # just larger value than all distances
-		if _i != null:# and i_olb != 1: # i_olb is 1 for first list element (which is old, dead player - not updated when player dies)
-			other_player_in_area = true
-	if other_player_in_area:		
-		pass
-	else:
-		player = null
-		idle_after_flee_end_trigger = true
-	#player = null
-	#player_chase = false
+
 
 #func _draftgold():
 #	if !backpack >= max_backpack:
