@@ -23,7 +23,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	#life -= 1
+	life -= 1
 	
 	if life < maxlife * 0.50 and not trigger_fire1:
 		$Fire1.visible = true

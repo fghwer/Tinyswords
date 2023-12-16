@@ -24,7 +24,8 @@ var cost_house = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.Player.gold = 4
+	print($UpgradeBanner.get_path())
+	Global.Player.gold = 10
 	Global.Player.populationMax = 10
 	Global.Player.score = 0
 	SpawnKnightButtonLabel.set_text(str(cost_knight))

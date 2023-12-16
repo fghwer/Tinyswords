@@ -1,10 +1,10 @@
-[gd_scene load_steps=85 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=86 format=3 uid="uid://dui7577q0pfbf"]
 
 [ext_resource type="Script" path="res://Level/Level_1/Level_1.gd" id="1_6up8h"]
 [ext_resource type="Script" path="res://CollectionCharacters.gd" id="2_ttrpn"]
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="3_0pj3o"]
 [ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://Game/Player/knight_nav.tscn" id="4_8sppa"]
-[ext_resource type="PackedScene" uid="uid://dsjwy0ogftvi" path="res://Game/Player/worker.tscn" id="5_ekr6e"]
+[ext_resource type="PackedScene" uid="uid://cestlw4yjtrau" path="res://Game/Player/worker.tscn" id="5_ekr6e"]
 [ext_resource type="PackedScene" uid="uid://cha58xc6rvcqn" path="res://Game/Player/archer.tscn" id="6_wngri"]
 [ext_resource type="PackedScene" uid="uid://c38je02pmeokp" path="res://Game/Buildings/base_house.tscn" id="7_ks358"]
 [ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="8_1i7x5"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bpmumnm2haumu" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Up.png" id="18_dhh7v"]
 [ext_resource type="Texture2D" uid="uid://bieo11eu2dlii" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png" id="19_ki7b0"]
 [ext_resource type="Texture2D" uid="uid://dedim2okv6obq" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_Connection_Right.png" id="20_nr657"]
+[ext_resource type="Script" path="res://Userdata/Global.gd" id="21_hs4we"]
 [ext_resource type="Texture2D" uid="uid://wydcaa3ycwb" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides.png" id="21_oh3wr"]
 [ext_resource type="Texture2D" uid="uid://cxvjuwt0kd6jm" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides_Pressed.png" id="22_u1gae"]
 [ext_resource type="Texture2D" uid="uid://bjoyh48rvbf4g" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Hover_9Slides.png" id="23_arswm"]
@@ -176,6 +177,29 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tc07l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="InputEventKey" id="InputEventKey_jf14t"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_0pkwn"]
+events = [SubResource("InputEventKey_jf14t")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bab5h"]
+atlas = ExtResource("26_l1jaf")
+region = Rect2(576, 768, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7yaoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bab5h")
 }],
 "loop": true,
 "name": &"default",
@@ -428,31 +452,10 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="InputEventKey" id="InputEventKey_jf14t"]
-device = -1
-keycode = 51
-unicode = 51
-
-[sub_resource type="Shortcut" id="Shortcut_0pkwn"]
-events = [SubResource("InputEventKey_jf14t")]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bab5h"]
-atlas = ExtResource("26_l1jaf")
-region = Rect2(576, 768, 192, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7yaoj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bab5h")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Level_nav" type="Node"]
 script = ExtResource("1_6up8h")
+
+[node name="UpgradeBanner" type="Node" parent="."]
 
 [node name="CollectionCharacters" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -592,6 +595,109 @@ scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_lktuy")
 format = 2
 layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0)
+
+[node name="UpgradeBanner" type="TileMap" parent="CollectionCharacters"]
+visible = false
+z_index = 1
+position = Vector2(30, 50)
+scale = Vector2(2.2, 2.2)
+tile_set = SubResource("TileSet_3cqhb")
+format = 2
+layer_0/tile_data = PackedInt32Array(393231, 131072, 0, 458767, 131072, 1, 524303, 131072, 2, 393230, 65536, 0, 458766, 65536, 1, 524302, 65536, 2, 393229, 65536, 0, 458765, 65536, 1, 524301, 65536, 2, 393228, 65536, 0, 458764, 65536, 1, 524300, 65536, 2, 393227, 131072, 2, 458763, 65537, 1, 524299, 65537, 2, 393226, 65536, 2, 458762, 1, 1, 524298, 1, 2, 393216, 1, 0, 458752, 1, 1, 524288, 1, 2, 393217, 65537, 0, 458753, 65537, 1, 524289, 65537, 2, 393218, 131072, 0, 458754, 131072, 1, 524290, 131072, 2, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 65542, 65536, 0, 131078, 65536, 1, 131079, 65536, 1, 131080, 65536, 1, 131081, 65536, 1, 131082, 65536, 1, 196618, 65536, 1, 196617, 65536, 1, 196616, 65536, 1, 196614, 65536, 1, 196615, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 65536, 1, 262153, 65536, 1, 262154, 65536, 1, 327690, 65536, 1, 327689, 65536, 1, 327688, 65536, 1, 327687, 65536, 1, 327686, 65536, 1, 327685, 65536, 1, 262149, 65536, 1, 196613, 65536, 1, 131077, 65536, 1, 65541, 65536, 0, 393221, 65536, 2, 393222, 65536, 2, 393223, 65536, 2, 393224, 65536, 2, 393225, 65536, 2, 327691, 131072, 1, 262155, 131072, 1, 196619, 131072, 1, 65547, 131072, 0, 131083, 131072, 1, 65540, 1, 0, 131076, 1, 1, 196612, 1, 1, 262148, 1, 1, 327684, 1, 1, 393220, 1, 2)
+script = ExtResource("21_hs4we")
+
+[node name="Update_Button_1" type="TextureButton" parent="CollectionCharacters/UpgradeBanner"]
+z_index = 2
+offset_left = 306.364
+offset_top = 290.0
+offset_right = 498.364
+offset_bottom = 482.0
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 3
+shortcut = SubResource("Shortcut_mfvyq")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_1"]
+
+[node name="Label" type="Label" parent="CollectionCharacters/UpgradeBanner/Update_Button_1/ButtonLayout"]
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 89.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_1/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_65x3r")
+
+[node name="Update_Button_2" type="TextureButton" parent="CollectionCharacters/UpgradeBanner"]
+z_index = 2
+offset_left = 465.0
+offset_top = 289.091
+offset_right = 657.0
+offset_bottom = 481.091
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_0pkwn")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_2"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_2/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_7yaoj")
+
+[node name="Label" type="Label" parent="CollectionCharacters/UpgradeBanner/Update_Button_2/ButtonLayout"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+offset_left = 45.0
+offset_top = 110.0
+offset_right = 89.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 40
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Update_Button_3" type="TextureButton" parent="CollectionCharacters/UpgradeBanner"]
+z_index = 2
+offset_left = 613.182
+offset_top = 290.455
+offset_right = 805.182
+offset_bottom = 482.455
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 3
+shortcut = SubResource("Shortcut_mfvyq")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_3"]
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="CollectionCharacters/UpgradeBanner/Update_Button_3/ButtonLayout"]
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 89.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_3/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_65x3r")
 
 [node name="SpawnKnightButton" type="TextureButton" parent="CollectionCharacters"]
 z_index = 2
@@ -733,6 +839,9 @@ position = Vector2(130, 129)
 texture = ExtResource("12_t3ngb")
 
 [connection signal="timeout" from="CollectionCharacters/MobTimer" to="CollectionCharacters" method="_on_mob_timer_timeout"]
+[connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_1" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_1_pressed"]
+[connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_2" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_2_pressed"]
+[connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_3" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_3_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnKnightButton" to="CollectionCharacters" method="_on_spawn_knight_button_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnWorkerButton" to="CollectionCharacters" method="_on_spawn_worker_button_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnArcherButton" to="CollectionCharacters" method="_on_spawn_archer_button_pressed"]
