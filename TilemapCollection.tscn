@@ -1,18 +1,18 @@
 [gd_scene load_steps=72 format=3 uid="uid://bwi2cip47a6yq"]
 
-[ext_resource type="Texture2D" uid="uid://wse1mh4usof1" path="res://assets/Terrain/Ground/Grass_Flat.png" id="1_lh2oy"]
-[ext_resource type="Texture2D" uid="uid://ctd8wlm8tyeg3" path="res://assets/Terrain/Water/Water.png" id="2_nywx3"]
-[ext_resource type="Texture2D" uid="uid://c65qrntctv28f" path="res://assets/Terrain/Water/Foam.png" id="3_ca04i"]
-[ext_resource type="Texture2D" uid="uid://fsxj01y5e60s" path="res://water.tres" id="4_3pluf"]
-[ext_resource type="Texture2D" uid="uid://q81cm5aaxfoy" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="5_3qjev"]
-[ext_resource type="Texture2D" uid="uid://b7ru0qavp6ibt" path="res://Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="6_oh2br"]
-[ext_resource type="Texture2D" uid="uid://cefp22rlcbldx" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Blue.png" id="7_hd6sd"]
-[ext_resource type="Texture2D" uid="uid://cwlafyw0lu0sb" path="res://Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Elevation.png" id="8_d8igr"]
-[ext_resource type="Texture2D" uid="uid://bp6341oa5pa0s" path="res://Tiny Swords (Update 010)/Terrain/Bridge/Bridge_All.png" id="9_fsc4l"]
-[ext_resource type="Texture2D" uid="uid://b0ap7upgprvnj" path="res://Tiny Swords (Update 010)/Resources/Trees/Tree.png" id="10_t6v6f"]
+[ext_resource type="Texture2D" uid="uid://wse1mh4usof1" path="res://assets/Terrain/Ground/Grass_Flat.png" id="1_4buh1"]
+[ext_resource type="Texture2D" uid="uid://ctd8wlm8tyeg3" path="res://assets/Terrain/Water/Water.png" id="2_2vnc2"]
+[ext_resource type="Texture2D" uid="uid://c65qrntctv28f" path="res://assets/Terrain/Water/Foam.png" id="3_2gmol"]
+[ext_resource type="Texture2D" uid="uid://fsxj01y5e60s" path="res://water.tres" id="4_w2j0q"]
+[ext_resource type="Texture2D" uid="uid://q81cm5aaxfoy" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="5_rbwkq"]
+[ext_resource type="Texture2D" uid="uid://b7ru0qavp6ibt" path="res://Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="6_652tj"]
+[ext_resource type="Texture2D" uid="uid://cefp22rlcbldx" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Blue.png" id="7_wup0c"]
+[ext_resource type="Texture2D" uid="uid://cwlafyw0lu0sb" path="res://Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Elevation.png" id="8_hs26d"]
+[ext_resource type="Texture2D" uid="uid://bp6341oa5pa0s" path="res://Tiny Swords (Update 010)/Terrain/Bridge/Bridge_All.png" id="9_8xqqu"]
+[ext_resource type="Texture2D" uid="uid://b0ap7upgprvnj" path="res://Tiny Swords (Update 010)/Resources/Trees/Tree.png" id="10_0hmq3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwkog"]
-texture = ExtResource("1_lh2oy")
+texture = ExtResource("1_4buh1")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -36,7 +36,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_lwkog")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rwao"]
-texture = ExtResource("2_nywx3")
+texture = ExtResource("2_2vnc2")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
@@ -45,7 +45,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_0rwao")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2qlc"]
-texture = ExtResource("3_ca04i")
+texture = ExtResource("3_2gmol")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:1/0 = 0
@@ -121,7 +121,7 @@ texture_region_size = Vector2i(64, 64)
 17:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwuhd"]
-texture = ExtResource("4_3pluf")
+texture = ExtResource("4_w2j0q")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
@@ -131,7 +131,7 @@ sources/0 = SubResource("TileSetAtlasSource_d2qlc")
 sources/1 = SubResource("TileSetAtlasSource_jwuhd")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vghr5"]
-texture = ExtResource("5_3qjev")
+texture = ExtResource("5_rbwkq")
 texture_region_size = Vector2i(64, 64)
 2:3/0 = 0
 2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -206,7 +206,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_vghr5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uhjdm"]
-texture = ExtResource("6_oh2br")
+texture = ExtResource("6_652tj")
 texture_region_size = Vector2i(64, 64)
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -298,7 +298,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_uhjdm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dj6yl"]
-texture = ExtResource("7_hd6sd")
+texture = ExtResource("7_wup0c")
 texture_region_size = Vector2i(64, 64)
 1:3/0 = 0
 1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -336,7 +336,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_dj6yl")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nrvlr"]
-texture = ExtResource("8_d8igr")
+texture = ExtResource("8_hs26d")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -459,7 +459,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_nrvlr")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gcb4j"]
-texture = ExtResource("9_fsc4l")
+texture = ExtResource("9_8xqqu")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -516,7 +516,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gcb4j")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tc14a"]
-texture = ExtResource("6_oh2br")
+texture = ExtResource("6_652tj")
 texture_region_size = Vector2i(64, 64)
 4:0/0 = 0
 9:0/0 = 0
@@ -526,19 +526,19 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_tc14a")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfw5u"]
-atlas = ExtResource("10_t6v6f")
+atlas = ExtResource("10_0hmq3")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgo75"]
-atlas = ExtResource("10_t6v6f")
+atlas = ExtResource("10_0hmq3")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng5cl"]
-atlas = ExtResource("10_t6v6f")
+atlas = ExtResource("10_0hmq3")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oeru1"]
-atlas = ExtResource("10_t6v6f")
+atlas = ExtResource("10_0hmq3")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xacwc"]
@@ -565,35 +565,35 @@ animations = [{
 size = Vector2(17, 19.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e67me"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33cem"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(256, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bo0rt"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(448, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqtkw"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(640, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q2koq"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(832, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q62dw"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1024, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxx0k"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1216, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmi62"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1408, 128, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6to6y"]
@@ -629,35 +629,35 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_74hjc"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7jk5"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fj648"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(384, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqmdt"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(576, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rkbl"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(768, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvkaa"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(960, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ti8p"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1152, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njwu5"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1344, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c7v00"]
@@ -693,35 +693,35 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qc5ni"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(128, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqgrd"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(320, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y30mp"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(512, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oob71"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(704, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1o2wt"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(896, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c35sd"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1088, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsrye"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1280, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s3hro"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1472, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c5msp"]
@@ -757,35 +757,35 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmq58"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0488i"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohwxg"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdkc"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(640, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xc7h8"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(832, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bb2a"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1024, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypdrx"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1216, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pce2a"]
-atlas = ExtResource("3_ca04i")
+atlas = ExtResource("3_2gmol")
 region = Rect2(1408, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bvpar"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=78 format=3 uid="uid://dui7577q0pfbf"]
 
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="1_m6uql"]
 [ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="6_t6skt"]
 [ext_resource type="Texture2D" uid="uid://bytg6xgju7svf" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="7_16nfk"]
 [ext_resource type="Script" path="res://GUI/MobTimer.gd" id="7_ow1mq"]
+[ext_resource type="PackedScene" uid="uid://c38je02pmeokp" path="res://Game/Buildings/base_house.tscn" id="8_0fg1f"]
 [ext_resource type="PackedScene" uid="uid://dpi3jmc1unbuh" path="res://Game/Buildings/gold_mine.tscn" id="8_0gjid"]
 [ext_resource type="Texture2D" uid="uid://wydcaa3ycwb" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides.png" id="9_osq5o"]
 [ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="9_wgfxy"]
@@ -421,6 +422,9 @@ archer_scene = ExtResource("5_w6lqq")
 
 [node name="BaseCastle" parent="CollectionCharacters" instance=ExtResource("6_t6skt")]
 position = Vector2(1192, 611)
+
+[node name="BaseHouse" parent="CollectionCharacters" instance=ExtResource("8_0fg1f")]
+position = Vector2(576, 359)
 
 [node name="GoldMine" parent="CollectionCharacters" instance=ExtResource("8_0gjid")]
 position = Vector2(1796, 435)
