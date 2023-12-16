@@ -36,11 +36,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
-	#for _i in self.get_children():
-	#	var n_pop = 0
-	#	if _i is CharacterBody2D:
-	#		print(_i.name)
-	
 	#if Input.is_action_just_pressed("spawn_knight"):
 	#	_on_spawn_knight_button_button_up()
 	#elif Input.is_action_just_pressed("spawn_worker"):
@@ -177,18 +172,18 @@ func _spawn_knight_at_mouse_position():
 		add_child(knight_to_spawn)
 		knight_to_spawn = null
 		waiting_for_click = false
-		#print("spawn")
+		print("spawn")
 		Global.Player.gold -= cost_knight
 		
 
 
 
 func _on_spawn_house_button_2_pressed():
-	#print("test")
+	print("test")
 	if Global.Player.gold >= cost_house:
 		house_to_spawn = house_scene.instantiate()
 		waiting_for_click = true
-		#print("button")
+		print("button")
 
 func _spawn_house_at_mouse_position():
 	if house_to_spawn:
@@ -198,7 +193,7 @@ func _spawn_house_at_mouse_position():
 		add_child(house_to_spawn)
 		house_to_spawn = null
 		waiting_for_click = false
-		#print("spawn")
+		print("spawn")
 		Global.Player.gold -= cost_house
 		
 
