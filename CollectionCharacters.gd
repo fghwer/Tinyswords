@@ -20,16 +20,18 @@ var house_to_spawn = null
 var cost_knight = 2
 var cost_worker = 2
 var cost_archer = 1
-var cost_house = 4
+var cost_house = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.Player.gold = 4
+	Global.Player.populationMax = 10
 	Global.Player.score = 0
 	SpawnKnightButtonLabel.set_text(str(cost_knight))
 	SpawnWorkerButtonLabel.set_text(str(cost_worker))
 	SpawnArcherButtonLabel.set_text(str(cost_archer))
 	SpawnHouseButtonLabel.set_text(str(cost_house))
+	
 	$MobTimer.start()
 
 
@@ -59,6 +61,8 @@ func _process(_delta):
 	var score_label = get_node("Score")
 	score_label.set_text("Score : " + str(Global.Player.score))
 	
+	var population_label = get_node("Population")
+	population_label.set_text(str(Global.Player.populationMax)+ " / " + str(Global.Player.population))
 	
 
 

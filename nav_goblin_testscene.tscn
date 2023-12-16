@@ -28,11 +28,50 @@
 [ext_resource type="Texture2D" uid="uid://cr4xta41b3enk" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Destroyed.png" id="26_ixq0n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
-vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 616, 390, 894, 356, 1109, 409, 611, 435, 525, 355, 521, 385, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 369, 605, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 517, 431, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1048, 654, 49, 850, 52, 1041, 12, 732, 6, 601, 47, 228, 49, 484, 11, 727)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 16, 15, 20), PackedInt32Array(21, 22, 23, 12, 11, 24, 9), PackedInt32Array(25, 12, 23, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 19, 20), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(31, 20, 36, 7), PackedInt32Array(30, 29, 37, 38), PackedInt32Array(34, 33, 8, 39), PackedInt32Array(39, 8, 7, 40), PackedInt32Array(11, 14, 41), PackedInt32Array(42, 11, 41, 43), PackedInt32Array(44, 45, 46, 42, 43, 47), PackedInt32Array(48, 49, 50, 51), PackedInt32Array(2, 52, 3), PackedInt32Array(53, 25, 26, 49, 48, 54, 55, 56), PackedInt32Array(53, 56, 57, 58), PackedInt32Array(59, 58, 57, 60), PackedInt32Array(2, 1, 61, 62), PackedInt32Array(62, 61, 63, 64), PackedInt32Array(64, 63, 65, 59, 66), PackedInt32Array(55, 54, 67, 17), PackedInt32Array(9, 24, 10), PackedInt32Array(7, 10, 42, 46), PackedInt32Array(7, 46, 68), PackedInt32Array(4, 7, 68, 5), PackedInt32Array(37, 0, 6, 45, 44, 38), PackedInt32Array(69, 70, 64, 71), PackedInt32Array(32, 35, 40, 7, 50), PackedInt32Array(51, 50, 7, 67), PackedInt32Array(17, 67, 7, 18), PackedInt32Array(36, 18, 7), PackedInt32Array(31, 7, 66, 72), PackedInt32Array(59, 60, 73, 74, 72), PackedInt32Array(4, 3, 71, 75), PackedInt32Array(75, 71, 64), PackedInt32Array(59, 72, 66), PackedInt32Array(64, 66, 75)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(763, 1332, -7, 1050, -11, 221, 6.07489, 219.744, 9, 34, 1024, -39, 1325, -37, 2362, 219, 2360, 1039, 2304, 1037, 2295, 674, 1994, 673, 2019, 970, 1321, 947, 1262, 1174, 1294, 1242, 1460, 1302, 902, 1295, 1062, 1243, 1107, 1174, 1040, 947, 822, 960), PackedVector2Array(49, 850, 12, 732, 364, 733, 328, 963, 810, 959, 764, 1320, -4, 1047, 52, 1041), PackedVector2Array(1044, 714, 1188, 719, 1316, 719, 1316, 654, 1048, 654), PackedVector2Array(2000, 608, 2034, 350, 1679, 350, 1246, 400, 1249, 63, 1324, -31, 2346, 220, 2308, 225, 2302, 285, 2291, 611), PackedVector2Array(1109, 409, 894, 356, 525, 355, 369, 605, 6, 601, 49, 484, 47, 228, 13, 220, 15, 46, 1028, -31, 1117, 65), PackedVector2Array(5, 606, 370, 610, 364, 729, 11, 727), PackedVector2Array(2001, 612, 2291, 614, 2296, 670, 1993, 669), PackedVector2Array(1122, 65, 1115, 411, 1240, 399, 1243, 64), PackedVector2Array(1701, 475, 1870, 480, 1873, 423, 1704, 423), PackedVector2Array(521, 385, 616, 390, 611, 435, 517, 431)])
+vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1109, 409, 1048, 654, 49, 850, 52, 1041, 12, 732, 525, 355, 894, 356, 369, 605, 6, 601, 47, 228, 49, 484, 11, 727)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 12, 11, 18, 9), PackedInt32Array(19, 12, 17, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(24, 23, 29, 30), PackedInt32Array(27, 26, 8, 31), PackedInt32Array(31, 8, 7, 32), PackedInt32Array(11, 14, 33), PackedInt32Array(34, 11, 33, 35), PackedInt32Array(36, 37, 38, 34, 35, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(2, 44, 3), PackedInt32Array(45, 19, 20, 41, 40, 46, 47, 48), PackedInt32Array(45, 48, 49, 50), PackedInt32Array(51, 50, 49, 52), PackedInt32Array(2, 1, 53, 54), PackedInt32Array(54, 53, 55, 56), PackedInt32Array(56, 55, 57, 51, 58), PackedInt32Array(47, 46, 59, 60), PackedInt32Array(9, 18, 10), PackedInt32Array(7, 10, 34, 38), PackedInt32Array(7, 38, 61), PackedInt32Array(4, 7, 61, 5), PackedInt32Array(29, 0, 6, 37, 36, 30), PackedInt32Array(62, 63, 56, 64), PackedInt32Array(25, 28, 32, 7, 42), PackedInt32Array(43, 42, 7, 59), PackedInt32Array(65, 66, 60, 59, 7, 67), PackedInt32Array(67, 7, 58, 68), PackedInt32Array(51, 52, 69, 70, 68), PackedInt32Array(4, 3, 64, 71), PackedInt32Array(71, 64, 56), PackedInt32Array(51, 68, 58), PackedInt32Array(56, 58, 71)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(763, 1332, -7, 1050, -11, 221, 6.07489, 219.744, 9, 34, 1024, -39, 1325, -37, 2362, 219, 2360, 1039, 2304, 1037, 2295, 674, 1994, 673, 2019, 970, 1321, 947, 1262, 1174, 1294, 1242, 1460, 1302, 902, 1295, 1062, 1243, 1107, 1174, 1040, 947, 822, 960), PackedVector2Array(49, 850, 12, 732, 364, 733, 328, 963, 810, 959, 764, 1320, -4, 1047, 52, 1041), PackedVector2Array(1044, 714, 1188, 719, 1316, 719, 1316, 654, 1048, 654), PackedVector2Array(2000, 608, 2034, 350, 1679, 350, 1246, 400, 1249, 63, 1324, -31, 2346, 220, 2308, 225, 2302, 285, 2291, 611), PackedVector2Array(1109, 409, 894, 356, 525, 355, 369, 605, 6, 601, 49, 484, 47, 228, 13, 220, 15, 46, 1028, -31, 1117, 65), PackedVector2Array(5, 606, 370, 610, 364, 729, 11, 727), PackedVector2Array(2001, 612, 2291, 614, 2296, 670, 1993, 669), PackedVector2Array(1122, 65, 1115, 411, 1240, 399, 1243, 64), PackedVector2Array(1701, 475, 1870, 480, 1873, 423, 1704, 423)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8f8vy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d5ip"]
+atlas = ExtResource("24_a0g5r")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq8ve"]
+atlas = ExtResource("25_ipbps")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esdtu"]
+atlas = ExtResource("26_ixq0n")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udavn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d5ip")
+}],
+"loop": true,
+"name": &"Build",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq8ve")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esdtu")
+}],
+"loop": true,
+"name": &"destroy",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_0plhr"]
 _data = {
@@ -412,45 +451,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5d5ip"]
-atlas = ExtResource("24_a0g5r")
-region = Rect2(0, 0, 128, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq8ve"]
-atlas = ExtResource("25_ipbps")
-region = Rect2(0, 0, 128, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_esdtu"]
-atlas = ExtResource("26_ixq0n")
-region = Rect2(0, 0, 128, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_udavn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5d5ip")
-}],
-"loop": true,
-"name": &"Build",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fq8ve")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_esdtu")
-}],
-"loop": true,
-"name": &"destroy",
-"speed": 5.0
-}]
-
 [node name="Level_nav" type="Node"]
 script = ExtResource("1_yuckl")
 
@@ -521,6 +521,24 @@ metadata/_edit_group_ = true
 position = Vector2(60, 27)
 texture = ExtResource("12_0tlau")
 
+[node name="Population" type="Label" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 41.0
+offset_top = 11.0
+offset_right = 239.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 50
+text = "2 / 2"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_group_ = true
+
+[node name="HouseSprite" type="AnimatedSprite2D" parent="CollectionCharacters/Population"]
+position = Vector2(-10, 60)
+scale = Vector2(0.328125, 0.359646)
+sprite_frames = SubResource("SpriteFrames_udavn")
+offset = Vector2(0, -70)
+
 [node name="Score" type="Label" parent="CollectionCharacters"]
 z_index = 2
 offset_left = 928.0
@@ -573,7 +591,7 @@ position = Vector2(-485, 15)
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_lktuy")
 format = 2
-layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0)
+layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0)
 
 [node name="SpawnKnightButton" type="TextureButton" parent="CollectionCharacters"]
 z_index = 2
