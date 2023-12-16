@@ -11,7 +11,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-
+	print("hi")
+   #eiFDHiweod
 
 func _on_button_labor_pressed():
 	get_tree().change_scene_to_file("res://labor.tscn")
