@@ -20,7 +20,7 @@ var house_to_spawn = null
 var cost_knight = 2
 var cost_worker = 2
 var cost_archer = 1
-var cost_house = 3
+var cost_house = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,9 +43,11 @@ func _process(_delta):
 	#elif Input.is_action_just_pressed("spawn_archer"):
 	#	_on_spawn_archer_button_button_up()
 	if waiting_for_click and Input.is_action_just_pressed("click"):
+		if house_to_spawn:
+			print("waiting for click:", house_scene, house_to_spawn)
 		_spawn_knight_at_mouse_position()
 		_spawn_archer_at_mouse_position()
-		_on_spawn_house_button_2_pressed()
+		_spawn_house_at_mouse_position()
 		
 	
 	for _i in $TileMapCollection/AnimatedTerrain.get_children():

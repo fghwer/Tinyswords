@@ -466,9 +466,6 @@ house_scene = ExtResource("8_0fg1f")
 [node name="BaseCastle" parent="CollectionCharacters" instance=ExtResource("6_t6skt")]
 position = Vector2(1192, 611)
 
-[node name="BaseHouse" parent="CollectionCharacters" instance=ExtResource("8_0fg1f")]
-position = Vector2(576, 359)
-
 [node name="GoldMine" parent="CollectionCharacters" instance=ExtResource("8_0gjid")]
 position = Vector2(1796, 435)
 

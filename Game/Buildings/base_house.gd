@@ -8,7 +8,7 @@ extends StaticBody2D
 var life = maxlife
 var trigger_fire1 = false
 var trigger_fire2 = false
-
+var startpos = Vector2.ZERO
 var trigger_dead = false
 
 #var timer = Timer.new()
@@ -23,7 +23,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	life -= 1
+	#life -= 1
 	
 	if life < maxlife * 0.50 and not trigger_fire1:
 		$Fire1.visible = true
