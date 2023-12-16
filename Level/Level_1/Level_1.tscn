@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=88 format=3 uid="uid://dui7577q0pfbf"]
 
 [ext_resource type="Script" path="res://Level/Level_1/Level_1.gd" id="1_6up8h"]
 [ext_resource type="Script" path="res://CollectionCharacters.gd" id="2_ttrpn"]
@@ -162,8 +162,8 @@ sources/1 = SubResource("TileSetAtlasSource_fucyx")
 
 [sub_resource type="InputEventKey" id="InputEventKey_4xpbi"]
 device = -1
-keycode = 49
-unicode = 49
+keycode = 50
+unicode = 50
 
 [sub_resource type="Shortcut" id="Shortcut_mfvyq"]
 events = [SubResource("InputEventKey_4xpbi")]
@@ -185,8 +185,8 @@ animations = [{
 
 [sub_resource type="InputEventKey" id="InputEventKey_jf14t"]
 device = -1
-keycode = 51
-unicode = 51
+keycode = 52
+unicode = 52
 
 [sub_resource type="Shortcut" id="Shortcut_0pkwn"]
 events = [SubResource("InputEventKey_jf14t")]
@@ -208,8 +208,8 @@ animations = [{
 
 [sub_resource type="InputEventKey" id="InputEventKey_58fo7"]
 device = -1
-keycode = 50
-unicode = 50
+keycode = 51
+unicode = 51
 
 [sub_resource type="Shortcut" id="Shortcut_275x6"]
 events = [SubResource("InputEventKey_58fo7")]
@@ -452,10 +452,16 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="InputEventKey" id="InputEventKey_1i8i0"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_jva2j"]
+events = [SubResource("InputEventKey_1i8i0")]
+
 [node name="Level_nav" type="Node"]
 script = ExtResource("1_6up8h")
-
-[node name="UpgradeBanner" type="Node" parent="."]
 
 [node name="CollectionCharacters" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -597,6 +603,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0)
 
 [node name="UpgradeBanner" type="TileMap" parent="CollectionCharacters"]
+process_mode = 2
 visible = false
 z_index = 1
 position = Vector2(30, 50)
@@ -808,7 +815,7 @@ offset_top = 1017.0
 offset_right = 342.0
 offset_bottom = 1209.0
 mouse_default_cursor_shape = 3
-shortcut = SubResource("Shortcut_mfvyq")
+shortcut = SubResource("Shortcut_jva2j")
 shortcut_in_tooltip = false
 texture_normal = ExtResource("21_oh3wr")
 texture_pressed = ExtResource("22_u1gae")

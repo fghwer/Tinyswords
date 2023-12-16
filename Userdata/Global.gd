@@ -21,14 +21,17 @@ func level_up():
 
 
 func _on_update_button_1_pressed():
-	print("test1")
-
-
+	print("test1")	
+	get_node("/root/Level_nav/CollectionCharacters/UpgradeBanner").visible = false
+	get_tree().paused = false
 
 func _on_update_button_2_pressed():
 	print("test2")
-
+	get_node("/root/Level_nav/CollectionCharacters/UpgradeBanner").visible = false
+	get_tree().paused = false
 
 
 func _on_update_button_3_pressed():
 	print("test3")
+	get_node("/root/Level_nav/CollectionCharacters/UpgradeBanner").visible = false
+	get_tree().paused = false
