@@ -24,7 +24,7 @@ var cost_house = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.Player.gold = 4
+	Global.Player.gold = 20
 	Global.Player.populationMax = 10
 	Global.Player.score = 0
 	SpawnKnightButtonLabel.set_text(str(cost_knight))
@@ -163,7 +163,7 @@ func _spawn_archer_at_mouse_position():
 
 
 func _on_spawn_knight_button_pressed():
-	if Global.Player.gold >= cost_knight:
+	if Global.Player.gold >= cost_knight && Global.Player.populationMax > Global.Player.population:
 		knight_to_spawn = knight_scene.instantiate()
 		waiting_for_click = true
 		print("button")
@@ -177,6 +177,7 @@ func _spawn_knight_at_mouse_position():
 		knight_to_spawn = null
 		waiting_for_click = false
 		print("spawn")
+		Global.Player.population += 2
 		Global.Player.gold -= cost_knight
 		
 
@@ -198,6 +199,7 @@ func _spawn_house_at_mouse_position():
 		house_to_spawn = null
 		waiting_for_click = false
 		print("spawn")
+		Global.Player.populationMax += 10
 		Global.Player.gold -= cost_house
 		
 

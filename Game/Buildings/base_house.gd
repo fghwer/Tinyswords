@@ -44,6 +44,7 @@ func _process(_delta):
 		$Explosion.visible = true
 		Explosion.animation = "default"
 		Explosion.play()
+		Global.Player.populationMax -= 10
 		
 		$HouseSprite.animation = "destroy"
 		
