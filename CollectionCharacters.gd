@@ -24,7 +24,7 @@ var cost_house = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.Player.gold = 20
+	Global.Player.gold = 4
 	Global.Player.populationMax = 10
 	Global.Player.score = 0
 	SpawnKnightButtonLabel.set_text(str(cost_knight))
@@ -116,7 +116,7 @@ func _on_mob_timer_timeout():
 
 func _on_spawn_worker_button_pressed():
 	
-	if Global.Player.gold >= cost_worker:
+	if Global.Player.gold >= cost_worker && Global.Player.populationMax > Global.Player.population:
 		
 		var worker = worker_scene.instantiate()
 		var worker_spawn_location = Vector2.ZERO
@@ -146,7 +146,7 @@ func _on_spawn_worker_button_pressed():
 
 
 func _on_spawn_archer_button_pressed():
-	if Global.Player.gold >= cost_archer:
+	if Global.Player.gold >= cost_archer && Global.Player.populationMax > Global.Player.population:
 		archer_to_spawn = archer_scene.instantiate()
 		waiting_for_click = true
 
@@ -159,6 +159,7 @@ func _spawn_archer_at_mouse_position():
 		archer_to_spawn = null
 		waiting_for_click = false
 		#print("spawn archer")
+		Global.Player.population += 2
 		Global.Player.gold -= cost_archer	
 
 
