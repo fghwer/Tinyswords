@@ -13,11 +13,9 @@ func _process(_delta):
 	pass
 
 
-#test
-
 func _on_button_labor_pressed():
 	get_tree().change_scene_to_file("res://labor.tscn")
 
 
 func _on_button_level_1_pressed():
-	get_tree().change_scene_to_file("res://Level/Level_1/Level_1.tscn")
+	get_tree().change_scene_to_file("res://nav_goblin_testscene.tscn")
