@@ -1,41 +1,77 @@
-[gd_scene load_steps=88 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=85 format=3 uid="uid://dui7577q0pfbf"]
 
-[ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="1_m6uql"]
-[ext_resource type="Script" path="res://nav_goblin_testscene.gd" id="1_yuckl"]
-[ext_resource type="PackedScene" uid="uid://bwi2cip47a6yq" path="res://TilemapCollection.tscn" id="4_f0qxx"]
-[ext_resource type="PackedScene" uid="uid://dsjwy0ogftvi" path="res://Game/Player/worker.tscn" id="4_qsf12"]
-[ext_resource type="PackedScene" uid="uid://cha58xc6rvcqn" path="res://Game/Player/archer.tscn" id="5_w6lqq"]
-[ext_resource type="Script" path="res://CollectionCharacters.gd" id="6_igkpd"]
-[ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://Game/Player/knight_nav.tscn" id="6_pg1o4"]
-[ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="6_t6skt"]
-[ext_resource type="Texture2D" uid="uid://bytg6xgju7svf" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="7_16nfk"]
-[ext_resource type="Script" path="res://GUI/MobTimer.gd" id="7_ow1mq"]
-[ext_resource type="PackedScene" uid="uid://c38je02pmeokp" path="res://Game/Buildings/base_house.tscn" id="8_0fg1f"]
-[ext_resource type="PackedScene" uid="uid://dpi3jmc1unbuh" path="res://Game/Buildings/gold_mine.tscn" id="8_0gjid"]
-[ext_resource type="Texture2D" uid="uid://wydcaa3ycwb" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides.png" id="9_osq5o"]
-[ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="9_wgfxy"]
-[ext_resource type="Texture2D" uid="uid://bjoyh48rvbf4g" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Hover_9Slides.png" id="10_7axr7"]
-[ext_resource type="Texture2D" uid="uid://cxvjuwt0kd6jm" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides_Pressed.png" id="11_wnup4"]
-[ext_resource type="Texture2D" uid="uid://1v77kmd101c" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Idle.png" id="12_0tlau"]
-[ext_resource type="Texture2D" uid="uid://6pyusyeuojpn" path="res://Tiny Swords (Update 010)/Resources/Resources/W_Idle.png" id="13_t2o3v"]
-[ext_resource type="Texture2D" uid="uid://rd5fq633d2yh" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="14_d6pfs"]
-[ext_resource type="Texture2D" uid="uid://bdhrciqo4ung8" path="res://Tiny Swords (Update 010)/Resources/Resources/M_Idle.png" id="14_f8fmh"]
-[ext_resource type="Texture2D" uid="uid://derjuf8obuolq" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="15_n2gig"]
-[ext_resource type="Texture2D" uid="uid://dmrjbnspkdt4x" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.png" id="16_40tfu"]
-[ext_resource type="Texture2D" uid="uid://bpmumnm2haumu" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Up.png" id="20_87eo5"]
-[ext_resource type="Texture2D" uid="uid://bieo11eu2dlii" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png" id="21_4l87i"]
-[ext_resource type="Texture2D" uid="uid://dedim2okv6obq" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_Connection_Right.png" id="22_jbf1u"]
-[ext_resource type="Texture2D" uid="uid://com1yineegfp4" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Construction.png" id="24_a0g5r"]
-[ext_resource type="Texture2D" uid="uid://dc7m4s14pxf7d" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="25_ipbps"]
-[ext_resource type="Texture2D" uid="uid://cr4xta41b3enk" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Destroyed.png" id="26_ixq0n"]
-[ext_resource type="PackedScene" uid="uid://ci5g4hxg7yq4l" path="res://Game/Buildings/wood_tree.tscn" id="29_1womv"]
+[ext_resource type="Script" path="res://Level/Level_1/Level_1.gd" id="1_6up8h"]
+[ext_resource type="Script" path="res://CollectionCharacters.gd" id="2_ttrpn"]
+[ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="3_0pj3o"]
+[ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://Game/Player/knight_nav.tscn" id="4_8sppa"]
+[ext_resource type="PackedScene" uid="uid://dsjwy0ogftvi" path="res://Game/Player/worker.tscn" id="5_ekr6e"]
+[ext_resource type="PackedScene" uid="uid://cha58xc6rvcqn" path="res://Game/Player/archer.tscn" id="6_wngri"]
+[ext_resource type="PackedScene" uid="uid://c38je02pmeokp" path="res://Game/Buildings/base_house.tscn" id="7_ks358"]
+[ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="8_1i7x5"]
+[ext_resource type="PackedScene" uid="uid://dpi3jmc1unbuh" path="res://Game/Buildings/gold_mine.tscn" id="9_oea2h"]
+[ext_resource type="PackedScene" uid="uid://bwi2cip47a6yq" path="res://Level/Level_1/Level_1_Map.tscn" id="10_7c1hx"]
+[ext_resource type="Script" path="res://GUI/MobTimer.gd" id="11_xln2d"]
+[ext_resource type="Texture2D" uid="uid://1v77kmd101c" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Idle.png" id="12_t3ngb"]
+[ext_resource type="Texture2D" uid="uid://com1yineegfp4" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Construction.png" id="13_m1c03"]
+[ext_resource type="Texture2D" uid="uid://dc7m4s14pxf7d" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="14_rua03"]
+[ext_resource type="Texture2D" uid="uid://cr4xta41b3enk" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Destroyed.png" id="15_3d758"]
+[ext_resource type="Texture2D" uid="uid://derjuf8obuolq" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="16_4a8fv"]
+[ext_resource type="Texture2D" uid="uid://dmrjbnspkdt4x" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.png" id="17_epksj"]
+[ext_resource type="Texture2D" uid="uid://bpmumnm2haumu" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Up.png" id="18_dhh7v"]
+[ext_resource type="Texture2D" uid="uid://bieo11eu2dlii" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png" id="19_ki7b0"]
+[ext_resource type="Texture2D" uid="uid://dedim2okv6obq" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_Connection_Right.png" id="20_nr657"]
+[ext_resource type="Texture2D" uid="uid://wydcaa3ycwb" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides.png" id="21_oh3wr"]
+[ext_resource type="Texture2D" uid="uid://cxvjuwt0kd6jm" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides_Pressed.png" id="22_u1gae"]
+[ext_resource type="Texture2D" uid="uid://bjoyh48rvbf4g" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Hover_9Slides.png" id="23_arswm"]
+[ext_resource type="Texture2D" uid="uid://bytg6xgju7svf" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="24_q6be5"]
+[ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="25_1kevc"]
+[ext_resource type="Texture2D" uid="uid://rd5fq633d2yh" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="26_l1jaf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
-vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 616, 390, 894, 356, 1109, 409, 611, 435, 525, 355, 521, 385, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 369, 605, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 517, 431, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1048, 654, 49, 850, 52, 1041, 12, 732, 6, 601, 47, 228, 49, 484, 11, 727)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 16, 15, 20), PackedInt32Array(21, 22, 23, 12, 11, 24, 9), PackedInt32Array(25, 12, 23, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 19, 20), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(31, 20, 36, 7), PackedInt32Array(30, 29, 37, 38), PackedInt32Array(34, 33, 8, 39), PackedInt32Array(39, 8, 7, 40), PackedInt32Array(11, 14, 41), PackedInt32Array(42, 11, 41, 43), PackedInt32Array(44, 45, 46, 42, 43, 47), PackedInt32Array(48, 49, 50, 51), PackedInt32Array(2, 52, 3), PackedInt32Array(53, 25, 26, 49, 48, 54, 55, 56), PackedInt32Array(53, 56, 57, 58), PackedInt32Array(59, 58, 57, 60), PackedInt32Array(2, 1, 61, 62), PackedInt32Array(62, 61, 63, 64), PackedInt32Array(64, 63, 65, 59, 66), PackedInt32Array(55, 54, 67, 17), PackedInt32Array(9, 24, 10), PackedInt32Array(7, 10, 42, 46), PackedInt32Array(7, 46, 68), PackedInt32Array(4, 7, 68, 5), PackedInt32Array(37, 0, 6, 45, 44, 38), PackedInt32Array(69, 70, 64, 71), PackedInt32Array(32, 35, 40, 7, 50), PackedInt32Array(51, 50, 7, 67), PackedInt32Array(17, 67, 7, 18), PackedInt32Array(36, 18, 7), PackedInt32Array(31, 7, 66, 72), PackedInt32Array(59, 60, 73, 74, 72), PackedInt32Array(4, 3, 71, 75), PackedInt32Array(75, 71, 64), PackedInt32Array(59, 72, 66), PackedInt32Array(64, 66, 75)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(763, 1332, -7, 1050, -11, 221, 6.07489, 219.744, 9, 34, 1024, -39, 1325, -37, 2362, 219, 2360, 1039, 2304, 1037, 2295, 674, 1994, 673, 2019, 970, 1321, 947, 1262, 1174, 1294, 1242, 1460, 1302, 902, 1295, 1062, 1243, 1107, 1174, 1040, 947, 822, 960), PackedVector2Array(49, 850, 12, 732, 364, 733, 328, 963, 810, 959, 764, 1320, -4, 1047, 52, 1041), PackedVector2Array(1044, 714, 1188, 719, 1316, 719, 1316, 654, 1048, 654), PackedVector2Array(2000, 608, 2034, 350, 1679, 350, 1246, 400, 1249, 63, 1324, -31, 2346, 220, 2308, 225, 2302, 285, 2291, 611), PackedVector2Array(1109, 409, 894, 356, 525, 355, 369, 605, 6, 601, 49, 484, 47, 228, 13, 220, 15, 46, 1028, -31, 1117, 65), PackedVector2Array(5, 606, 370, 610, 364, 729, 11, 727), PackedVector2Array(2001, 612, 2291, 614, 2296, 670, 1993, 669), PackedVector2Array(1122, 65, 1115, 411, 1240, 399, 1243, 64), PackedVector2Array(1701, 475, 1870, 480, 1873, 423, 1704, 423), PackedVector2Array(521, 385, 616, 390, 611, 435, 517, 431)])
+vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1109, 409, 1048, 654, 49, 850, 52, 1041, 12, 732, 525, 355, 894, 356, 369, 605, 6, 601, 47, 228, 49, 484, 11, 727)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 12, 11, 18, 9), PackedInt32Array(19, 12, 17, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(24, 23, 29, 30), PackedInt32Array(27, 26, 8, 31), PackedInt32Array(31, 8, 7, 32), PackedInt32Array(11, 14, 33), PackedInt32Array(34, 11, 33, 35), PackedInt32Array(36, 37, 38, 34, 35, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(2, 44, 3), PackedInt32Array(45, 19, 20, 41, 40, 46, 47, 48), PackedInt32Array(45, 48, 49, 50), PackedInt32Array(51, 50, 49, 52), PackedInt32Array(2, 1, 53, 54), PackedInt32Array(54, 53, 55, 56), PackedInt32Array(56, 55, 57, 51, 58), PackedInt32Array(47, 46, 59, 60), PackedInt32Array(9, 18, 10), PackedInt32Array(7, 10, 34, 38), PackedInt32Array(7, 38, 61), PackedInt32Array(4, 7, 61, 5), PackedInt32Array(29, 0, 6, 37, 36, 30), PackedInt32Array(62, 63, 56, 64), PackedInt32Array(25, 28, 32, 7, 42), PackedInt32Array(43, 42, 7, 59), PackedInt32Array(65, 66, 60, 59, 7, 67), PackedInt32Array(67, 7, 58, 68), PackedInt32Array(51, 52, 69, 70, 68), PackedInt32Array(4, 3, 64, 71), PackedInt32Array(71, 64, 56), PackedInt32Array(51, 68, 58), PackedInt32Array(56, 58, 71)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(763, 1332, -7, 1050, -11, 221, 6.07489, 219.744, 9, 34, 1024, -39, 1325, -37, 2362, 219, 2360, 1039, 2304, 1037, 2295, 674, 1994, 673, 2019, 970, 1321, 947, 1262, 1174, 1294, 1242, 1460, 1302, 902, 1295, 1062, 1243, 1107, 1174, 1040, 947, 822, 960), PackedVector2Array(49, 850, 12, 732, 364, 733, 328, 963, 810, 959, 764, 1320, -4, 1047, 52, 1041), PackedVector2Array(1044, 714, 1188, 719, 1316, 719, 1316, 654, 1048, 654), PackedVector2Array(2000, 608, 2034, 350, 1679, 350, 1246, 400, 1249, 63, 1324, -31, 2346, 220, 2308, 225, 2302, 285, 2291, 611), PackedVector2Array(1109, 409, 894, 356, 525, 355, 369, 605, 6, 601, 49, 484, 47, 228, 13, 220, 15, 46, 1028, -31, 1117, 65), PackedVector2Array(5, 606, 370, 610, 364, 729, 11, 727), PackedVector2Array(2001, 612, 2291, 614, 2296, 670, 1993, 669), PackedVector2Array(1122, 65, 1115, 411, 1240, 399, 1243, 64), PackedVector2Array(1701, 475, 1870, 480, 1873, 423, 1704, 423)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8f8vy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d5ip"]
+atlas = ExtResource("13_m1c03")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq8ve"]
+atlas = ExtResource("14_rua03")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esdtu"]
+atlas = ExtResource("15_3d758")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udavn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d5ip")
+}],
+"loop": true,
+"name": &"Build",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq8ve")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esdtu")
+}],
+"loop": true,
+"name": &"destroy",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_0plhr"]
 _data = {
@@ -62,7 +98,7 @@ _data = {
 point_count = 4
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se3lu"]
-texture = ExtResource("15_n2gig")
+texture = ExtResource("16_4a8fv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -75,7 +111,7 @@ texture_region_size = Vector2i(64, 64)
 2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r5oi"]
-texture = ExtResource("16_40tfu")
+texture = ExtResource("17_epksj")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -88,7 +124,7 @@ texture_region_size = Vector2i(64, 64)
 2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mfgu"]
-texture = ExtResource("20_87eo5")
+texture = ExtResource("18_dhh7v")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -107,14 +143,14 @@ sources/1 = SubResource("TileSetAtlasSource_7r5oi")
 sources/2 = SubResource("TileSetAtlasSource_6mfgu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjyrt"]
-texture = ExtResource("21_4l87i")
+texture = ExtResource("19_ki7b0")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fucyx"]
-texture = ExtResource("22_jbf1u")
+texture = ExtResource("20_nr657")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
@@ -132,7 +168,7 @@ unicode = 49
 events = [SubResource("InputEventKey_4xpbi")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tc07l"]
-atlas = ExtResource("7_16nfk")
+atlas = ExtResource("24_q6be5")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65x3r"]
@@ -155,123 +191,123 @@ unicode = 50
 events = [SubResource("InputEventKey_58fo7")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1vhe"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(0, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmllu"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(192, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ff5jc"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(384, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3beps"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(576, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lvy1"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(768, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnsdw"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(960, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12cwi"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(0, 960, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oiqri"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(192, 960, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65yqv"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(384, 960, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxq3f"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(576, 960, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcvc5"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(768, 960, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c45uo"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(960, 960, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jj67"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boacq"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qn4su"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0uyd"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aeld3"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iy776"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5nul"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(0, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifr4b"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(192, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tkjqr"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(384, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13f86"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(576, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hyfpm"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(768, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n13wd"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(960, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjm0m"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(0, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2p20x"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(192, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v32ct"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(384, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dctv7"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(576, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxty1"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(768, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ci35"]
-atlas = ExtResource("9_wgfxy")
+atlas = ExtResource("25_1kevc")
 region = Rect2(960, 192, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_odovj"]
@@ -401,7 +437,7 @@ unicode = 51
 events = [SubResource("InputEventKey_jf14t")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bab5h"]
-atlas = ExtResource("14_d6pfs")
+atlas = ExtResource("26_l1jaf")
 region = Rect2(576, 768, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7yaoj"]
@@ -415,72 +451,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5d5ip"]
-atlas = ExtResource("24_a0g5r")
-region = Rect2(0, 0, 128, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq8ve"]
-atlas = ExtResource("25_ipbps")
-region = Rect2(0, 0, 128, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_esdtu"]
-atlas = ExtResource("26_ixq0n")
-region = Rect2(0, 0, 128, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_udavn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5d5ip")
-}],
-"loop": true,
-"name": &"Build",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fq8ve")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_esdtu")
-}],
-"loop": true,
-"name": &"destroy",
-"speed": 5.0
-}]
-
 [node name="Level_nav" type="Node"]
-script = ExtResource("1_yuckl")
+script = ExtResource("1_6up8h")
 
 [node name="CollectionCharacters" type="Node2D" parent="."]
 y_sort_enabled = true
-script = ExtResource("6_igkpd")
-mob_scene = ExtResource("1_m6uql")
-knight_scene = ExtResource("6_pg1o4")
-worker_scene = ExtResource("4_qsf12")
-archer_scene = ExtResource("5_w6lqq")
-house_scene = ExtResource("8_0fg1f")
+script = ExtResource("2_ttrpn")
+mob_scene = ExtResource("3_0pj3o")
+knight_scene = ExtResource("4_8sppa")
+worker_scene = ExtResource("5_ekr6e")
+archer_scene = ExtResource("6_wngri")
+house_scene = ExtResource("7_ks358")
 
-[node name="BaseCastle" parent="CollectionCharacters" instance=ExtResource("6_t6skt")]
+[node name="BaseCastle" parent="CollectionCharacters" instance=ExtResource("8_1i7x5")]
 position = Vector2(1192, 611)
 
-[node name="GoldMine" parent="CollectionCharacters" instance=ExtResource("8_0gjid")]
+[node name="GoldMine" parent="CollectionCharacters" instance=ExtResource("9_oea2h")]
 position = Vector2(1796, 435)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="CollectionCharacters"]
 position = Vector2(9, -2)
 navigation_polygon = SubResource("NavigationPolygon_mubjo")
 
-[node name="TileMapCollection" parent="CollectionCharacters" instance=ExtResource("4_f0qxx")]
+[node name="TileMapCollection" parent="CollectionCharacters" instance=ExtResource("10_7c1hx")]
 
 [node name="MobTimer" type="Timer" parent="CollectionCharacters"]
 wait_time = 15.0
-script = ExtResource("7_ow1mq")
+script = ExtResource("11_xln2d")
 
 [node name="Worker_3rd_pos" type="StaticBody2D" parent="CollectionCharacters"]
 position = Vector2(1795, 584)
@@ -521,40 +518,26 @@ vertical_alignment = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Gold"]
-position = Vector2(70, 27)
-texture = ExtResource("12_0tlau")
+position = Vector2(80, 27)
+texture = ExtResource("12_t3ngb")
 
-[node name="Wood" type="Label" parent="CollectionCharacters"]
+[node name="Population" type="Label" parent="CollectionCharacters"]
 z_index = 2
-offset_left = 2190.0
-offset_top = 110.0
-offset_right = 2234.0
-offset_bottom = 182.0
+offset_left = 41.0
+offset_top = 11.0
+offset_right = 239.0
+offset_bottom = 83.0
 theme_override_font_sizes/font_size = 50
-text = "2"
+text = "2 / 2"
 horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Wood"]
-position = Vector2(70, 17)
-texture = ExtResource("13_t2o3v")
-
-[node name="Meat" type="Label" parent="CollectionCharacters"]
-z_index = 2
-offset_left = 2190.0
-offset_top = 205.0
-offset_right = 2234.0
-offset_bottom = 277.0
-theme_override_font_sizes/font_size = 50
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 2
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Meat"]
-position = Vector2(70, 27)
-texture = ExtResource("14_f8fmh")
+[node name="HouseSprite" type="AnimatedSprite2D" parent="CollectionCharacters/Population"]
+position = Vector2(-10, 60)
+scale = Vector2(0.328125, 0.359646)
+sprite_frames = SubResource("SpriteFrames_udavn")
+offset = Vector2(0, -70)
 
 [node name="Score" type="Label" parent="CollectionCharacters"]
 z_index = 2
@@ -608,7 +591,7 @@ position = Vector2(-485, 15)
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_lktuy")
 format = 2
-layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 65563, 0, 0, 65564, 65536, 0, 131099, 0, 0, 131100, 65536, 0, 65565, 65536, 0, 131101, 65536, 0)
+layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0)
 
 [node name="SpawnKnightButton" type="TextureButton" parent="CollectionCharacters"]
 z_index = 2
@@ -619,9 +602,9 @@ offset_bottom = 1209.0
 mouse_default_cursor_shape = 3
 shortcut = SubResource("Shortcut_mfvyq")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("9_osq5o")
-texture_pressed = ExtResource("11_wnup4")
-texture_hover = ExtResource("10_7axr7")
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
 metadata/_edit_group_ = true
 
 [node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnKnightButton"]
@@ -639,7 +622,7 @@ vertical_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
 position = Vector2(110, 129)
-texture = ExtResource("12_0tlau")
+texture = ExtResource("12_t3ngb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
 position = Vector2(93, 70)
@@ -653,9 +636,9 @@ offset_right = 1958.0
 offset_bottom = 1209.0
 shortcut = SubResource("Shortcut_275x6")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("9_osq5o")
-texture_pressed = ExtResource("11_wnup4")
-texture_hover = ExtResource("10_7axr7")
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
 metadata/_edit_group_ = true
 
 [node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnWorkerButton"]
@@ -677,7 +660,7 @@ vertical_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
 position = Vector2(110, 129)
-texture = ExtResource("12_0tlau")
+texture = ExtResource("12_t3ngb")
 
 [node name="SpawnArcherButton" type="TextureButton" parent="CollectionCharacters"]
 z_index = 2
@@ -687,29 +670,30 @@ offset_right = 2167.0
 offset_bottom = 1209.0
 shortcut = SubResource("Shortcut_0pkwn")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("9_osq5o")
-texture_pressed = ExtResource("11_wnup4")
-texture_hover = ExtResource("10_7axr7")
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
 
 [node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnArcherButton"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
-position = Vector2(93, 85)
+position = Vector2(93, 70)
 sprite_frames = SubResource("SpriteFrames_7yaoj")
 
 [node name="Label" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 offset_left = 45.0
-offset_top = 123.0
+offset_top = 110.0
 offset_right = 89.0
-offset_bottom = 181.0
+offset_bottom = 168.0
 theme_override_font_sizes/font_size = 40
 text = "4"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
-position = Vector2(110, 140)
-texture = ExtResource("12_0tlau")
+position = Vector2(110, 125)
+texture = ExtResource("12_t3ngb")
 
 [node name="SpawnHouseButton2" type="TextureButton" parent="CollectionCharacters"]
 z_index = 2
@@ -720,9 +704,9 @@ offset_bottom = 1209.0
 mouse_default_cursor_shape = 3
 shortcut = SubResource("Shortcut_mfvyq")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("9_osq5o")
-texture_pressed = ExtResource("11_wnup4")
-texture_hover = ExtResource("10_7axr7")
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
 metadata/_edit_group_ = true
 
 [node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnHouseButton2"]
@@ -734,7 +718,7 @@ offset_top = 100.0
 offset_right = 89.0
 offset_bottom = 172.0
 theme_override_font_sizes/font_size = 50
-text = "3"
+text = "10"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -745,11 +729,8 @@ sprite_frames = SubResource("SpriteFrames_udavn")
 offset = Vector2(0, -70)
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
-position = Vector2(110, 129)
-texture = ExtResource("12_0tlau")
-
-[node name="WoodTree" parent="CollectionCharacters" instance=ExtResource("29_1womv")]
-position = Vector2(627, 805)
+position = Vector2(130, 129)
+texture = ExtResource("12_t3ngb")
 
 [connection signal="timeout" from="CollectionCharacters/MobTimer" to="CollectionCharacters" method="_on_mob_timer_timeout"]
 [connection signal="pressed" from="CollectionCharacters/SpawnKnightButton" to="CollectionCharacters" method="_on_spawn_knight_button_pressed"]

@@ -228,3 +228,5 @@ func _on_attack_area_body_exited(_body):
 		player_chase = true #fixen
 	#player_attack = false
 	#player_chase = true
+
+

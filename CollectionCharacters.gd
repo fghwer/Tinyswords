@@ -20,26 +20,23 @@ var house_to_spawn = null
 var cost_knight = 2
 var cost_worker = 2
 var cost_archer = 1
-var cost_house = 4
+var cost_house = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.Player.gold = 4
+	Global.Player.populationMax = 10
 	Global.Player.score = 0
 	SpawnKnightButtonLabel.set_text(str(cost_knight))
 	SpawnWorkerButtonLabel.set_text(str(cost_worker))
 	SpawnArcherButtonLabel.set_text(str(cost_archer))
 	SpawnHouseButtonLabel.set_text(str(cost_house))
+	
 	$MobTimer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
-	#for _i in self.get_children():
-	#	var n_pop = 0
-	#	if _i is CharacterBody2D:
-	#		print(_i.name)
 	
 	#if Input.is_action_just_pressed("spawn_knight"):
 	#	_on_spawn_knight_button_button_up()
@@ -64,6 +61,8 @@ func _process(_delta):
 	var score_label = get_node("Score")
 	score_label.set_text("Score : " + str(Global.Player.score))
 	
+	var population_label = get_node("Population")
+	population_label.set_text(str(Global.Player.populationMax)+ " / " + str(Global.Player.population))
 	
 
 
@@ -117,7 +116,7 @@ func _on_mob_timer_timeout():
 
 func _on_spawn_worker_button_pressed():
 	
-	if Global.Player.gold >= cost_worker:
+	if Global.Player.gold >= cost_worker && Global.Player.populationMax > Global.Player.population:
 		
 		var worker = worker_scene.instantiate()
 		var worker_spawn_location = Vector2.ZERO
@@ -147,7 +146,7 @@ func _on_spawn_worker_button_pressed():
 
 
 func _on_spawn_archer_button_pressed():
-	if Global.Player.gold >= cost_archer:
+	if Global.Player.gold >= cost_archer && Global.Player.populationMax > Global.Player.population:
 		archer_to_spawn = archer_scene.instantiate()
 		waiting_for_click = true
 
@@ -160,11 +159,12 @@ func _spawn_archer_at_mouse_position():
 		archer_to_spawn = null
 		waiting_for_click = false
 		#print("spawn archer")
+		Global.Player.population += 2
 		Global.Player.gold -= cost_archer	
 
 
 func _on_spawn_knight_button_pressed():
-	if Global.Player.gold >= cost_knight:
+	if Global.Player.gold >= cost_knight && Global.Player.populationMax > Global.Player.population:
 		knight_to_spawn = knight_scene.instantiate()
 		waiting_for_click = true
 		print("button")
@@ -177,18 +177,19 @@ func _spawn_knight_at_mouse_position():
 		add_child(knight_to_spawn)
 		knight_to_spawn = null
 		waiting_for_click = false
-		#print("spawn")
+		print("spawn")
+		Global.Player.population += 2
 		Global.Player.gold -= cost_knight
 		
 
 
 
 func _on_spawn_house_button_2_pressed():
-	#print("test")
+	print("test")
 	if Global.Player.gold >= cost_house:
 		house_to_spawn = house_scene.instantiate()
 		waiting_for_click = true
-		#print("button")
+		print("button")
 
 func _spawn_house_at_mouse_position():
 	if house_to_spawn:
@@ -198,7 +199,8 @@ func _spawn_house_at_mouse_position():
 		add_child(house_to_spawn)
 		house_to_spawn = null
 		waiting_for_click = false
-		#print("spawn")
+		print("spawn")
+		Global.Player.populationMax += 10
 		Global.Player.gold -= cost_house
 		
 
