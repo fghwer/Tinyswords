@@ -23,9 +23,8 @@ var frame_neu = 0
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(_delta):
-	
+	#print(speed.localize_path())
 	$ProgressBar.set_value_no_signal(life*100/maxlife)
-	
 	#move_and_slide()
 	if player_attack:
 		if player != null:
