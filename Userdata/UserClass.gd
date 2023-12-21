@@ -4,6 +4,7 @@ extends Node
 class_name  User
 
 var gold = null
+var wood = null
 var life = null
 var level = null
 var score = null

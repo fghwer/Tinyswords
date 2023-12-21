@@ -1,13 +1,15 @@
-[gd_scene load_steps=88 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=99 format=3 uid="uid://dui7577q0pfbf"]
 
 [ext_resource type="Script" path="res://Level/Level_1/Level_1.gd" id="1_6up8h"]
 [ext_resource type="Script" path="res://CollectionCharacters.gd" id="2_ttrpn"]
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="3_0pj3o"]
 [ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://Game/Player/knight_nav.tscn" id="4_8sppa"]
 [ext_resource type="PackedScene" uid="uid://cestlw4yjtrau" path="res://Game/Player/worker.tscn" id="5_ekr6e"]
+[ext_resource type="PackedScene" uid="uid://moycxjlvjibw" path="res://Game/Player/worker_wood.tscn" id="6_ptcmt"]
 [ext_resource type="PackedScene" uid="uid://cha58xc6rvcqn" path="res://Game/Player/archer.tscn" id="6_wngri"]
 [ext_resource type="PackedScene" uid="uid://c38je02pmeokp" path="res://Game/Buildings/base_house.tscn" id="7_ks358"]
 [ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="8_1i7x5"]
+[ext_resource type="PackedScene" uid="uid://ci5g4hxg7yq4l" path="res://Game/Buildings/wood_tree.tscn" id="9_myx3v"]
 [ext_resource type="PackedScene" uid="uid://dpi3jmc1unbuh" path="res://Game/Buildings/gold_mine.tscn" id="9_oea2h"]
 [ext_resource type="PackedScene" uid="uid://bwi2cip47a6yq" path="res://Level/Level_1/Level_1_Map.tscn" id="10_7c1hx"]
 [ext_resource type="Script" path="res://GUI/MobTimer.gd" id="11_xln2d"]
@@ -15,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://com1yineegfp4" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Construction.png" id="13_m1c03"]
 [ext_resource type="Texture2D" uid="uid://dc7m4s14pxf7d" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="14_rua03"]
 [ext_resource type="Texture2D" uid="uid://cr4xta41b3enk" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Destroyed.png" id="15_3d758"]
+[ext_resource type="Texture2D" uid="uid://6pyusyeuojpn" path="res://Tiny Swords (Update 010)/Resources/Resources/W_Idle.png" id="15_6m6nt"]
 [ext_resource type="Texture2D" uid="uid://derjuf8obuolq" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="16_4a8fv"]
 [ext_resource type="Texture2D" uid="uid://dmrjbnspkdt4x" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.png" id="17_epksj"]
 [ext_resource type="Texture2D" uid="uid://bpmumnm2haumu" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Up.png" id="18_dhh7v"]
@@ -27,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://bytg6xgju7svf" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="24_q6be5"]
 [ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="25_1kevc"]
 [ext_resource type="Texture2D" uid="uid://rd5fq633d2yh" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="26_l1jaf"]
+[ext_resource type="Texture2D" uid="uid://8o6khnhmnu5t" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Spawn.png" id="31_u8g2m"]
+[ext_resource type="Texture2D" uid="uid://qu4s3n573un" path="res://Tiny Swords (Update 010)/Resources/Resources/W_Spawn.png" id="32_8q0ca"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
 vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1109, 409, 1048, 654, 49, 850, 52, 1041, 12, 732, 525, 355, 894, 356, 369, 605, 6, 601, 47, 228, 49, 484, 11, 727)
@@ -452,6 +457,50 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uesk"]
+atlas = ExtResource("31_u8g2m")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug7b2"]
+atlas = ExtResource("31_u8g2m")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khcv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uesk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug7b2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4k4d"]
+atlas = ExtResource("32_8q0ca")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv22e"]
+atlas = ExtResource("32_8q0ca")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g462f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4k4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv22e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="InputEventKey" id="InputEventKey_1i8i0"]
 device = -1
 keycode = 49
@@ -469,8 +518,12 @@ script = ExtResource("2_ttrpn")
 mob_scene = ExtResource("3_0pj3o")
 knight_scene = ExtResource("4_8sppa")
 worker_scene = ExtResource("5_ekr6e")
+wood_worker_scene = ExtResource("6_ptcmt")
 archer_scene = ExtResource("6_wngri")
 house_scene = ExtResource("7_ks358")
+
+[node name="WoodTree" parent="CollectionCharacters" instance=ExtResource("9_myx3v")]
+position = Vector2(635, 778)
 
 [node name="BaseCastle" parent="CollectionCharacters" instance=ExtResource("8_1i7x5")]
 position = Vector2(1192, 611)
@@ -514,6 +567,32 @@ shape = SubResource("CircleShape2D_8f8vy")
 
 [node name="Marker" type="Marker2D" parent="CollectionCharacters/Worker_4rd_pos/Worker_4rd_pos"]
 
+[node name="Wood_Worker_3rd_pos" type="StaticBody2D" parent="CollectionCharacters"]
+position = Vector2(814, 880)
+metadata/_edit_group_ = true
+
+[node name="Worker_3rd_pos" type="Area2D" parent="CollectionCharacters/Wood_Worker_3rd_pos"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionCharacters/Wood_Worker_3rd_pos/Worker_3rd_pos"]
+shape = SubResource("CircleShape2D_8f8vy")
+
+[node name="Marker" type="Marker2D" parent="CollectionCharacters/Wood_Worker_3rd_pos/Worker_3rd_pos"]
+
+[node name="Wood_Worker_4rd_pos" type="StaticBody2D" parent="CollectionCharacters"]
+position = Vector2(1178, 826)
+metadata/_edit_group_ = true
+
+[node name="Worker_4rd_pos" type="Area2D" parent="CollectionCharacters/Wood_Worker_4rd_pos"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionCharacters/Wood_Worker_4rd_pos/Worker_4rd_pos"]
+shape = SubResource("CircleShape2D_8f8vy")
+
+[node name="Marker" type="Marker2D" parent="CollectionCharacters/Wood_Worker_4rd_pos/Worker_4rd_pos"]
+
 [node name="Gold" type="Label" parent="CollectionCharacters"]
 z_index = 2
 offset_left = 2190.0
@@ -529,6 +608,22 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Gold"]
 position = Vector2(80, 27)
 texture = ExtResource("12_t3ngb")
+
+[node name="Wood" type="Label" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 2190.0
+offset_top = 107.0
+offset_right = 2234.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Wood"]
+position = Vector2(80, 20)
+texture = ExtResource("15_6m6nt")
 
 [node name="Population" type="Label" parent="CollectionCharacters"]
 z_index = 2
@@ -600,7 +695,7 @@ position = Vector2(-485, 15)
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_lktuy")
 format = 2
-layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0)
+layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0, 65563, 0, 0, 65564, 65536, 0, 65565, 65536, 0)
 
 [node name="UpgradeBanner" type="TileMap" parent="CollectionCharacters"]
 process_mode = 2
@@ -747,6 +842,7 @@ offset_left = 1766.0
 offset_top = 1017.0
 offset_right = 1958.0
 offset_bottom = 1209.0
+scale = Vector2(0.5, 1)
 shortcut = SubResource("Shortcut_275x6")
 shortcut_in_tooltip = false
 texture_normal = ExtResource("21_oh3wr")
@@ -755,16 +851,19 @@ texture_hover = ExtResource("23_arswm")
 metadata/_edit_group_ = true
 
 [node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnWorkerButton"]
+position = Vector2(-90, 0)
+scale = Vector2(2, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
 position = Vector2(93, 85)
 sprite_frames = SubResource("SpriteFrames_odovj")
-animation = &"idle"
+animation = &"flee"
+frame = 2
 
 [node name="Label" type="Label" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
-offset_left = 45.0
+offset_left = 48.0
 offset_top = 100.0
-offset_right = 89.0
+offset_right = 92.0
 offset_bottom = 172.0
 theme_override_font_sizes/font_size = 50
 text = "2"
@@ -772,8 +871,79 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
-position = Vector2(110, 129)
+position = Vector2(104, 129)
 texture = ExtResource("12_t3ngb")
+
+[node name="GoldTransport" type="Node2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
+y_sort_enabled = true
+position = Vector2(90, 110)
+
+[node name="Gold1" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout/GoldTransport"]
+position = Vector2(0.213547, 0.969856)
+rotation = 0.23911
+sprite_frames = SubResource("SpriteFrames_khcv5")
+offset = Vector2(-28.626, -74.3041)
+
+[node name="Gold2" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout/GoldTransport"]
+y_sort_enabled = true
+position = Vector2(0.213493, 1.53104)
+rotation = -0.958186
+sprite_frames = SubResource("SpriteFrames_khcv5")
+offset = Vector2(58.6435, -42.6985)
+
+[node name="SpawnWoodWorkerButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 1870.0
+offset_top = 1017.0
+offset_right = 2062.0
+offset_bottom = 1209.0
+scale = Vector2(0.5, 1)
+shortcut = SubResource("Shortcut_275x6")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnWoodWorkerButton"]
+position = Vector2(-90, 0)
+scale = Vector2(2, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout"]
+position = Vector2(93, 85)
+sprite_frames = SubResource("SpriteFrames_odovj")
+animation = &"flee"
+frame = 2
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout"]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 92.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout"]
+position = Vector2(104, 129)
+texture = ExtResource("12_t3ngb")
+
+[node name="WoodTransport" type="Node2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout"]
+y_sort_enabled = true
+position = Vector2(95, 117)
+
+[node name="Wood1" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout/WoodTransport"]
+y_sort_enabled = true
+position = Vector2(12, -78)
+rotation = 0.715585
+sprite_frames = SubResource("SpriteFrames_g462f")
+
+[node name="Wood2" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout/WoodTransport"]
+y_sort_enabled = true
+position = Vector2(0, -80)
+rotation = 0.408407
+sprite_frames = SubResource("SpriteFrames_g462f")
 
 [node name="SpawnArcherButton" type="TextureButton" parent="CollectionCharacters"]
 z_index = 2
@@ -851,5 +1021,6 @@ texture = ExtResource("12_t3ngb")
 [connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_3" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_3_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnKnightButton" to="CollectionCharacters" method="_on_spawn_knight_button_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnWorkerButton" to="CollectionCharacters" method="_on_spawn_worker_button_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnWoodWorkerButton" to="CollectionCharacters" method="_on_spawn_wood_worker_button_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnArcherButton" to="CollectionCharacters" method="_on_spawn_archer_button_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnHouseButton2" to="CollectionCharacters" method="_on_spawn_house_button_2_pressed"]

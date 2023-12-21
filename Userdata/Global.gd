@@ -5,7 +5,7 @@ var Player = User.new()
 var knight_maxlife = 1000
 var knight_speed = 75
 
-func _process(delta):
+func _process(_delta):
 	if Player.score >= 100 && Player.level == 1:
 		level_up()
 

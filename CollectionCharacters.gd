@@ -3,13 +3,14 @@ extends Node2D
 @export var mob_scene: PackedScene
 @export var knight_scene : PackedScene
 @export var worker_scene : PackedScene
+@export var wood_worker_scene : PackedScene
 @export var archer_scene : PackedScene
 @export var house_scene : PackedScene
 @onready var SpawnKnightButtonLabel: Label = get_node("SpawnKnightButton/ButtonLayout/Label")
 @onready var SpawnWorkerButtonLabel: Label = get_node("SpawnWorkerButton/ButtonLayout/Label")
 @onready var SpawnArcherButtonLabel: Label = get_node("SpawnArcherButton/ButtonLayout/Label")
 @onready var SpawnHouseButtonLabel: Label = get_node("SpawnHouseButton2/ButtonLayout/Label")
-
+@onready var SpawnWoodWorkerButtonLabel: Label = get_node("SpawnWoodWorkerButton/ButtonLayout/Label")
 #@onready var navigation_agent: NavigationAgent2D = get_node("mob_scene/NavigationAgent2D")
 #@export var knight_scene : PackedScene
 var startpos_knight = Vector2.ZERO
@@ -21,6 +22,7 @@ var cost_knight = 2
 var cost_worker = 2
 var cost_archer = 3
 var cost_house = 10
+var cost_wood_worker = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,10 +30,13 @@ func _ready():
 	Global.Player.gold = 10
 	Global.Player.populationMax = 10
 	Global.Player.score = 0
+	Global.Player.wood = 0
 	SpawnKnightButtonLabel.set_text(str(cost_knight))
 	SpawnWorkerButtonLabel.set_text(str(cost_worker))
+	SpawnWoodWorkerButtonLabel.set_text(str(cost_worker))
 	SpawnArcherButtonLabel.set_text(str(cost_archer))
 	SpawnHouseButtonLabel.set_text(str(cost_house))
+	
 	
 	$MobTimer.start()
 
@@ -65,7 +70,8 @@ func _process(_delta):
 	var population_label = get_node("Population")
 	population_label.set_text(str(Global.Player.populationMax)+ " / " + str(Global.Player.population))
 	
-
+	var wood_label = get_node("Wood")
+	wood_label.set_text(str(Global.Player.wood))
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
@@ -206,3 +212,26 @@ func _spawn_house_at_mouse_position():
 		Global.Player.gold -= cost_house
 		
 
+
+
+func _on_spawn_wood_worker_button_pressed():
+	
+	if Global.Player.gold >= cost_wood_worker && Global.Player.populationMax > Global.Player.population:
+		
+		var worker = wood_worker_scene.instantiate()
+		var worker_spawn_location = Vector2.ZERO
+		worker_spawn_location = $BaseCastle.position
+		worker_spawn_location.y += 120
+		worker_spawn_location.x -= 60
+		var target_pos = Vector2.ZERO
+		target_pos = $WoodTree.position
+		target_pos.y += 50
+		worker.position = worker_spawn_location
+		worker.startpos = worker_spawn_location
+		worker.treepos = target_pos
+		worker.worker_3rd_pos = $Wood_Worker_3rd_pos.position
+		worker.worker_4rd_pos = $Wood_Worker_4rd_pos.position
+		worker.init_target_position(target_pos)
+		add_child(worker)
+		Global.Player.gold -= cost_worker
+		Global.Player.population += 1

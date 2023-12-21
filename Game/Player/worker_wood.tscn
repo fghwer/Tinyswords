@@ -10,13 +10,13 @@ script/source = "extends CharacterBody2D
 @export var maxlife = 1000.
 @onready var navigation_agent: NavigationAgent2D = get_node(\"NavigationAgent2D\")
 @onready var BloodParticle: GPUParticles2D = get_node(\"ParticleInterface/BloodParticle\")
-@onready var Gold1: AnimatedSprite2D = get_node(\"GoldTransport/Gold1\")
-@onready var Gold2: AnimatedSprite2D = get_node(\"GoldTransport/Gold2\")
+@onready var Wood1: AnimatedSprite2D = get_node(\"WoodTransport/Wood1\")
+@onready var Wood2: AnimatedSprite2D = get_node(\"WoodTransport/Wood2\")
 #@onready var navigation_agent: NavigationAgent2D = get_node(\"NavigationAgent2D\")
 #@onready var BloodParticle: GPUParticles2D = get_node(\"ParticleInterface/BloodParticle\")
 var life = maxlife
 var startpos = Vector2.ZERO
-var minepos = Vector2.ZERO
+var treepos = Vector2.ZERO
 var worker_3rd_pos = Vector2.ZERO
 var worker_4rd_pos = Vector2.ZERO
 #var Base_pos = Vector2.ZERO
@@ -33,28 +33,28 @@ var player = null
 var frame_alt = 0
 var frame_neu = 0
 var backpack = 0
-var trigger_gold = false
+var trigger_wood = false
 #var max_backpack = 1
 
 func _ready():
-	$GoldTransport.visible = false
-	Gold1.stop()
-	Gold2.stop()
+	$WoodTransport.visible = false
+	Wood1.stop()
+	Wood2.stop()
 
 func _physics_process(_delta):
 	
 	$ProgressBar.set_value_no_signal(life*100/maxlife)	
 	#print(backpack)
-	if backpack == 1 and not trigger_gold:
-		#print(\"hi\", trigger_gold)
-		$GoldTransport.visible = true
-		#Gold1.visible = true
-		#Gold2.visible = true
-		Gold1.animation = \"default\"
-		Gold2.animation = \"default\"
-		Gold1.play()
-		Gold2.play()
-		trigger_gold = true
+	if backpack == 1 and not trigger_wood:
+		#print(\"hi\", trigger_wood)
+		$WoodTransport.visible = true
+		#Wood1.visible = true
+		#Wood2.visible = true
+		Wood1.animation = \"default\"
+		Wood2.animation = \"default\"
+		Wood1.play()
+		Wood2.play()
+		trigger_wood = true
 	#if player != null:
 	#	print(player.name)
 	if flee_trigger and player != null:
@@ -67,7 +67,7 @@ func _physics_process(_delta):
 			#$AnimatedSprite2D.animation = \"walk\"
 			$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play()
-	elif ( idle_after_flee_end_trigger == true or player == null) and flee_trigger == true:
+	elif ( idle_after_flee_end_trigger == true or player == null) and flee_trigger:
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.animation = \"idle\"
 		if $AnimatedSprite2D.animation == \"idle\" and $AnimatedSprite2D.frame == 5:
@@ -87,26 +87,26 @@ func _physics_process(_delta):
 				if $AnimatedSprite2D.frame == 5:
 					player = null
 					interact_trigger = false
-					init_target_position(minepos)
-					#_getGold()
+					init_target_position(treepos)
+					#_getWood()
 				elif $AnimatedSprite2D.frame == 1 and backpack == 1:
 					backpack = 0
-					trigger_gold = false
-					$GoldTransport.visible = false
-			elif player.name == \"GoldMine\":
-				$AnimatedSprite2D.animation = \"mine\"
+					trigger_wood = false
+					$WoodTransport.visible = false
+			elif player.name == \"WoodTree\":
+				$AnimatedSprite2D.animation = \"chop\"
 				if $AnimatedSprite2D.frame == 5:
 					backpack = 1
 					player = null
 					interact_trigger = false
 					init_target_position(worker_3rd_pos)
-				#_draftgold()
-			elif player.name == \"Worker_3rd_pos\":
+				#_draftwood()
+			elif player.name == \"Wood_Worker_3rd_pos\":
 				player = null
 				interact_trigger = false
 				#print($BaseCastle.position)
 				init_target_position(worker_4rd_pos)
-			elif player.name == \"Worker_4rd_pos\":
+			elif player.name == \"Wood_Worker_4rd_pos\":
 				player = null
 				interact_trigger = false
 				#print($BaseCastle.position)
@@ -164,49 +164,64 @@ func init_bloodparticles(direction : Vector3):
 
 
 func _on_interact_area_area_entered(area):
-	#print(\"test\")
-	player = area.get_parent()
-	if player.name == \"BaseCastle\" and backpack != 0:
-		interact_trigger = true
-		interact_stand_trigger = true
-		Global.Player.gold +=1
-		#backpack = 0
-	elif player.name == \"GoldMine\" and backpack == 0:
-		interact_trigger = true
-		interact_stand_trigger = true
-		#backpack = 1
-	elif player.name == \"Worker_3rd_pos\" and backpack != 0:
-		interact_trigger = true
-	elif player.name == \"Worker_4rd_pos\" and backpack != 0:
-		interact_trigger = true
-	#else: 
-	#	print(\"oops:\", player.name, backpack)
+	if flee_trigger == true:
+		pass
+	else:
+		#print(\\\"test\\\")
+		player = area.get_parent()
+		if player.name == \"BaseCastle\" and backpack != 0:
+			interact_trigger = true
+			interact_stand_trigger = true
+			Global.Player.gold +=1
+			#backpack = 0
+		elif player.name == \"WoodTree\" and backpack == 0:
+			interact_trigger = true
+			interact_stand_trigger = true
+			#backpack = 1
+		elif player.name == \"Wood_Worker_3rd_pos\" and backpack != 0:
+			interact_trigger = true
+		elif player.name == \"Wood_Worker_4rd_pos\" and backpack != 0:
+			interact_trigger = true
+		#else: 
+		#	print(\\\"oops:\\\", player.name, backpack)
 	
 
 
 func _on_flee_area_body_entered(body):
-	#print(\"flee\")
-	player = body
-	flee_trigger = true
-
+	if flee_trigger == true:
+		pass
+	else:
+		#print(\\\"flee\\\")
+		player = body
+		flee_trigger = true
 func _on_stop_flee_area_body_exited(_body):
-	#print(\"exit\")
-	player = null
-	idle_after_flee_end_trigger = true
-	print(\"bitte\")
-	#flee_trigger = false
+	var other_player_in_area = false
+	for _i in $StopFleeArea.get_overlapping_bodies():
+		#i_olb += 1
+		#print(i_olb, _i)
+		#var smallest_dist_i = 1000000. # just larger value than all distances
+		if _i != null:# and i_olb != 1: # i_olb is 1 for first list element (which is old, dead player - not updated when player dies)
+			other_player_in_area = true
+	if other_player_in_area:		
+		pass
+	else:
+		player = null
+		idle_after_flee_end_trigger = true
+	#player = null
+	#player_chase = false
 
 
-#func _draftgold():
+
+#func _draftwood():
 #	if !backpack >= max_backpack:
 #		backpack +=1
 #		print(\"draft\")
 
-#func _getGold():
+#func _getWood():
 #	if backpack >= 0:
 #		backpack -=1
-#		Global.Player.gold +=1
-#		print(\"getgold\")
+#		Global.Player.wood +=1
+#		print(\"getwood\")
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1vhe"]
@@ -590,7 +605,7 @@ script = SubResource("GDScript_26ckk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_gyh1j")
-animation = &"flee_idle"
+animation = &"chop"
 centered = false
 offset = Vector2(-96, -123)
 
@@ -671,19 +686,21 @@ y_sort_enabled = true
 
 [node name="Wood1" type="AnimatedSprite2D" parent="WoodTransport"]
 y_sort_enabled = true
-position = Vector2(12, -78)
+position = Vector2(-0.555222, 2.31767)
 rotation = 0.715585
 sprite_frames = SubResource("SpriteFrames_lcsqt")
 frame = 1
 frame_progress = 0.197294
+offset = Vector2(-43.2176, -68.8535)
 
 [node name="Wood2" type="AnimatedSprite2D" parent="WoodTransport"]
 y_sort_enabled = true
-position = Vector2(0, -80)
+position = Vector2(-0.975721, 6.52215)
 rotation = 0.408407
 sprite_frames = SubResource("SpriteFrames_lcsqt")
 frame = 1
 frame_progress = 0.163023
+offset = Vector2(-33.4666, -79.7936)
 
 [connection signal="body_entered" from="FleeArea" to="." method="_on_flee_area_body_entered" flags=18]
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered" flags=18]
