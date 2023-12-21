@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 signal hit 
-@export var maxlife = 1000.
-@export var speed = 75 # How fast the player will move (pixels/sec).
+@export var maxlife = Global.knight_maxlife
+@export var speed = Global.knight_speed # How fast the player will move (pixels/sec).
 @onready var BloodParticle: GPUParticles2D = get_node("ParticleInterface/BloodParticle")
 var startpos = Vector2.ZERO
 var life = maxlife
