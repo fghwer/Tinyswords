@@ -19,7 +19,7 @@ var archer_to_spawn = null
 var house_to_spawn = null
 var cost_knight = 2
 var cost_worker = 2
-var cost_archer = 1
+var cost_archer = 3
 var cost_house = 10
 
 # Called when the node enters the scene tree for the first time.
@@ -134,6 +134,7 @@ func _on_spawn_worker_button_pressed():
 		worker.init_target_position(target_pos)
 		add_child(worker)
 		Global.Player.gold -= cost_worker
+		Global.Player.population += 1
 	
 
 

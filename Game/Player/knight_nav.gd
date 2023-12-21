@@ -14,6 +14,8 @@ var player = null
 var frame_alt = 0
 var frame_neu = 0
 
+
+
 #const SPEED = 50.0
 #const JUMP_VELOCITY = -400.0
 
@@ -23,7 +25,6 @@ var frame_neu = 0
 func _physics_process(_delta):
 	
 	$ProgressBar.set_value_no_signal(life*100/maxlife)
-
 	
 	#move_and_slide()
 	if player_attack:
@@ -51,6 +52,7 @@ func _physics_process(_delta):
 				if player.life != null:
 					if player.life > 0:
 						player.life -= 100
+						
 				player.BloodParticle.emitting = true
 				var blood_direction = Vector3.ZERO
 				blood_direction.x = player.position.x - position.x
@@ -58,6 +60,7 @@ func _physics_process(_delta):
 				player.init_bloodparticles(blood_direction)
 				if player.life <= 0:
 					Global.Player.score += 100
+					print("test - score ")
 					player.queue_free()
 					var i_olb = 0
 					for _i in $attack_area.get_overlapping_bodies():
