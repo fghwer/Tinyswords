@@ -6,7 +6,9 @@ var knight_maxlife = 1000
 var knight_speed = 75
 
 func _process(_delta):
-	if Player.score >= 100 && Player.level == 1:
+	if Player.score >= 1000 && Player.level == 1:
+		level_up()
+	if Player.score >= 2000 && Player.level == 2:
 		level_up()
 
 
