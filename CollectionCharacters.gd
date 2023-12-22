@@ -6,10 +6,13 @@ extends Node2D
 @export var wood_worker_scene : PackedScene
 @export var archer_scene : PackedScene
 @export var house_scene : PackedScene
+@export var tower_scene : PackedScene
+
 @onready var SpawnKnightButtonLabel: Label = get_node("SpawnKnightButton/ButtonLayout/Label")
 @onready var SpawnWorkerButtonLabel: Label = get_node("SpawnWorkerButton/ButtonLayout/Label")
 @onready var SpawnArcherButtonLabel: Label = get_node("SpawnArcherButton/ButtonLayout/Label")
 @onready var SpawnHouseButtonLabel: Label = get_node("SpawnHouseButton2/ButtonLayout/Label")
+@onready var SpawnTowerButtonLabel: Label = get_node("SpawnTowerButton/ButtonLayout/Label")
 @onready var SpawnWoodWorkerButtonLabel: Label = get_node("SpawnWoodWorkerButton/ButtonLayout/Label")
 #@onready var navigation_agent: NavigationAgent2D = get_node("mob_scene/NavigationAgent2D")
 #@export var knight_scene : PackedScene
@@ -18,6 +21,7 @@ var waiting_for_click = false
 var knight_to_spawn = null
 var archer_to_spawn = null
 var house_to_spawn = null
+var tower_to_spawn = null
 
 #Gold 
 var cost_knight_gold = 2
@@ -36,7 +40,7 @@ func _ready():
 	Global.Player.gold = 10
 	Global.Player.populationMax = 10
 	Global.Player.score = 0
-	Global.Player.wood = 3
+	Global.Player.wood = 5
 	SpawnKnightButtonLabel.set_text(str(cost_knight_gold))
 	SpawnWorkerButtonLabel.set_text(str(cost_worker_gold))
 	SpawnWoodWorkerButtonLabel.set_text(str(cost_worker_gold))
@@ -59,9 +63,13 @@ func _process(_delta):
 	if waiting_for_click and Input.is_action_just_pressed("click"):
 		if house_to_spawn:
 			print("waiting for click:", house_scene, house_to_spawn)
+			
+		if tower_to_spawn:
+			print("waiting for click:", tower_scene, tower_to_spawn)
 		_spawn_knight_at_mouse_position()
 		_spawn_archer_at_mouse_position()
 		_spawn_house_at_mouse_position()
+		_spawn_tower_at_mouse_position()
 		
 	
 	for _i in $TileMapCollection/AnimatedTerrain.get_children():
@@ -198,31 +206,6 @@ func _spawn_knight_at_mouse_position():
 		
 
 
-
-func _on_spawn_house_button_2_pressed():
-	print("test")
-	if Global.Player.gold >= cost_house_gold && Global.Player.wood >= cost_house_wood :
-		house_to_spawn = house_scene.instantiate()
-		waiting_for_click = true
-		print("button")
-
-func _spawn_house_at_mouse_position():
-	if house_to_spawn:
-		var mouse_position = get_viewport().get_mouse_position()
-		house_to_spawn.position = mouse_position
-		house_to_spawn.startpos = mouse_position
-		add_child(house_to_spawn)
-		house_to_spawn = null
-		waiting_for_click = false
-		print("spawn")
-		Global.Player.populationMax += 10
-		Global.Player.gold -= cost_house_gold
-		Global.Player.wood -= cost_house_wood
-		
-		
-
-
-
 func _on_spawn_wood_worker_button_pressed():
 	
 	if Global.Player.gold >= cost_wood_worker_gold && Global.Player.populationMax > Global.Player.population:
@@ -244,3 +227,54 @@ func _on_spawn_wood_worker_button_pressed():
 		add_child(worker)
 		Global.Player.gold -= cost_worker_gold
 		Global.Player.population += 1
+
+
+# BUILDINGS
+func _on_spawn_house_button_2_pressed():
+	print("test")
+	if Global.Player.gold >= cost_house_gold && Global.Player.wood >= cost_house_wood :
+		house_to_spawn = house_scene.instantiate()
+		waiting_for_click = true
+		print("button")
+
+func _spawn_house_at_mouse_position():
+	if house_to_spawn:
+		var mouse_position = get_viewport().get_mouse_position()
+		house_to_spawn.position = mouse_position
+		house_to_spawn.startpos = mouse_position
+		add_child(house_to_spawn)
+		house_to_spawn = null
+		waiting_for_click = false
+		print("spawn")
+		Global.Player.populationMax += 10
+		Global.Player.gold -= cost_house_gold
+		Global.Player.wood -= cost_house_wood
+		
+		
+		
+
+
+func _on_spawn_tower_button_pressed():
+	print("tower")
+	if Global.Player.gold >= cost_house_gold && Global.Player.wood >= cost_house_wood :
+		tower_to_spawn = tower_scene.instantiate()
+		waiting_for_click = true
+		print("button")
+
+
+
+func _spawn_tower_at_mouse_position():
+	if tower_to_spawn:
+		var mouse_position = get_viewport().get_mouse_position()
+		tower_to_spawn.position = mouse_position
+		tower_to_spawn.startpos = mouse_position
+		add_child(tower_to_spawn)
+		tower_to_spawn = null
+		waiting_for_click = false
+		print("spawn")
+		Global.Player.populationMax += 10
+		Global.Player.gold -= cost_house_gold
+		Global.Player.wood -= cost_house_wood
+		
+		
+

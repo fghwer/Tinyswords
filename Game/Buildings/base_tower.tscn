@@ -1,29 +1,17 @@
-[gd_scene load_steps=33 format=3 uid="uid://c38je02pmeokp"]
+[gd_scene load_steps=30 format=3 uid="uid://0icrr0sawub3"]
 
-[ext_resource type="Texture2D" uid="uid://com1yineegfp4" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Construction.png" id="1_c7sst"]
-[ext_resource type="Script" path="res://Game/Buildings/base_house.gd" id="1_glyc0"]
-[ext_resource type="Texture2D" uid="uid://cr4xta41b3enk" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Destroyed.png" id="2_efhg1"]
-[ext_resource type="Texture2D" uid="uid://dc7m4s14pxf7d" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="3_1vynu"]
-[ext_resource type="Texture2D" uid="uid://drtdah6ngiivv" path="res://Tiny Swords (Update 010)/Effects/Fire/Fire.png" id="5_s8o3w"]
-[ext_resource type="Texture2D" uid="uid://c0ak3sqx7ixi1" path="res://Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="6_hq0q2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5d5ip"]
-atlas = ExtResource("1_c7sst")
-region = Rect2(0, 0, 128, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq8ve"]
-atlas = ExtResource("3_1vynu")
-region = Rect2(0, 0, 128, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_esdtu"]
-atlas = ExtResource("2_efhg1")
-region = Rect2(0, 0, 128, 192)
+[ext_resource type="Script" path="res://Game/Buildings/base_tower.gd" id="1_2smn5"]
+[ext_resource type="Texture2D" uid="uid://crdry3wgtdnsh" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Construction.png" id="2_pygvq"]
+[ext_resource type="Texture2D" uid="uid://cefp22rlcbldx" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Blue.png" id="3_d4lmj"]
+[ext_resource type="Texture2D" uid="uid://beowi0u6wchu3" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Destroyed.png" id="4_d0f3u"]
+[ext_resource type="Texture2D" uid="uid://drtdah6ngiivv" path="res://Tiny Swords (Update 010)/Effects/Fire/Fire.png" id="5_ex8r3"]
+[ext_resource type="Texture2D" uid="uid://c0ak3sqx7ixi1" path="res://Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="6_g4gm1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kx35i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5d5ip")
+"texture": ExtResource("2_pygvq")
 }],
 "loop": true,
 "name": &"Build",
@@ -31,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fq8ve")
+"texture": ExtResource("3_d4lmj")
 }],
 "loop": true,
 "name": &"default",
@@ -39,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_esdtu")
+"texture": ExtResource("4_d0f3u")
 }],
 "loop": true,
 "name": &"destroy",
@@ -47,35 +35,35 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6xei"]
-radius = 20.0
+radius = 18.0
 height = 80.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtefe"]
-atlas = ExtResource("5_s8o3w")
+atlas = ExtResource("5_ex8r3")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vskbm"]
-atlas = ExtResource("5_s8o3w")
+atlas = ExtResource("5_ex8r3")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6m0u"]
-atlas = ExtResource("5_s8o3w")
+atlas = ExtResource("5_ex8r3")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhkj8"]
-atlas = ExtResource("5_s8o3w")
+atlas = ExtResource("5_ex8r3")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqk2v"]
-atlas = ExtResource("5_s8o3w")
+atlas = ExtResource("5_ex8r3")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2iu50"]
-atlas = ExtResource("5_s8o3w")
+atlas = ExtResource("5_ex8r3")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta6t4"]
-atlas = ExtResource("5_s8o3w")
+atlas = ExtResource("5_ex8r3")
 region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_weiw5"]
@@ -134,39 +122,39 @@ color = Color(0.611765, 0.611765, 0.611765, 1)
 color_initial_ramp = SubResource("GradientTexture1D_8sgm8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rgew"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wen4c"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_meylc"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8kym"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnla4"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_utt2b"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5va1o"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(1152, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kv21"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(1344, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4nde"]
-atlas = ExtResource("6_hq0q2")
+atlas = ExtResource("6_g4gm1")
 region = Rect2(1536, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mf53b"]
@@ -208,16 +196,15 @@ animations = [{
 position = Vector2(523, 314)
 collision_layer = 3
 collision_mask = 0
-script = ExtResource("1_glyc0")
+script = ExtResource("1_2smn5")
 
-[node name="HouseSprite" type="AnimatedSprite2D" parent="."]
+[node name="TowerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 70)
 sprite_frames = SubResource("SpriteFrames_kx35i")
-animation = &"destroy"
 offset = Vector2(0, -70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.06581e-13, 48)
+position = Vector2(3, 72)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_w6xei")
 

@@ -1,11 +1,11 @@
-[gd_scene load_steps=99 format=3 uid="uid://dui7577q0pfbf"]
+[gd_scene load_steps=103 format=3 uid="uid://dui7577q0pfbf"]
 
 [ext_resource type="Script" path="res://Level/Level_1/Level_1.gd" id="1_6up8h"]
 [ext_resource type="Script" path="res://CollectionCharacters.gd" id="2_ttrpn"]
 [ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="3_0pj3o"]
 [ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://Game/Player/knight_nav.tscn" id="4_8sppa"]
-[ext_resource type="PackedScene" uid="uid://cestlw4yjtrau" path="res://Game/Player/worker.tscn" id="5_ekr6e"]
-[ext_resource type="PackedScene" uid="uid://moycxjlvjibw" path="res://Game/Player/worker_wood.tscn" id="6_ptcmt"]
+[ext_resource type="PackedScene" uid="uid://dsjwy0ogftvi" path="res://Game/Player/worker.tscn" id="5_ekr6e"]
+[ext_resource type="PackedScene" uid="uid://dji3jfo0mh5dw" path="res://Game/Player/worker_wood.tscn" id="6_ptcmt"]
 [ext_resource type="PackedScene" uid="uid://cha58xc6rvcqn" path="res://Game/Player/archer.tscn" id="6_wngri"]
 [ext_resource type="PackedScene" uid="uid://c38je02pmeokp" path="res://Game/Buildings/base_house.tscn" id="7_ks358"]
 [ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="8_1i7x5"]
@@ -32,6 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://rd5fq633d2yh" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="26_l1jaf"]
 [ext_resource type="Texture2D" uid="uid://8o6khnhmnu5t" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Spawn.png" id="31_u8g2m"]
 [ext_resource type="Texture2D" uid="uid://qu4s3n573un" path="res://Tiny Swords (Update 010)/Resources/Resources/W_Spawn.png" id="32_8q0ca"]
+[ext_resource type="Texture2D" uid="uid://crdry3wgtdnsh" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Construction.png" id="33_mxyoo"]
+[ext_resource type="Texture2D" uid="uid://cefp22rlcbldx" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Blue.png" id="34_tejxp"]
+[ext_resource type="Texture2D" uid="uid://beowi0u6wchu3" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Destroyed.png" id="35_344ch"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
 vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1109, 409, 1048, 654, 49, 850, 52, 1041, 12, 732, 525, 355, 894, 356, 369, 605, 6, 601, 47, 228, 49, 484, 11, 727)
@@ -509,6 +512,33 @@ unicode = 49
 [sub_resource type="Shortcut" id="Shortcut_jva2j"]
 events = [SubResource("InputEventKey_1i8i0")]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5dvr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_mxyoo")
+}],
+"loop": true,
+"name": &"Build",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_tejxp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_344ch")
+}],
+"loop": true,
+"name": &"destroy",
+"speed": 5.0
+}]
+
 [node name="Level_nav" type="Node"]
 script = ExtResource("1_6up8h")
 
@@ -687,7 +717,7 @@ position = Vector2(30, 50)
 scale = Vector2(2.2, 2.2)
 tile_set = SubResource("TileSet_3cqhb")
 format = 2
-layer_0/tile_data = PackedInt32Array(393231, 131072, 0, 458767, 131072, 1, 524303, 131072, 2, 393230, 65536, 0, 458766, 65536, 1, 524302, 65536, 2, 393229, 65536, 0, 458765, 65536, 1, 524301, 65536, 2, 393228, 65536, 0, 458764, 65536, 1, 524300, 65536, 2, 393227, 65537, 0, 458763, 65537, 1, 524299, 65537, 2, 393226, 1, 0, 458762, 1, 1, 524298, 1, 2, 393216, 1, 0, 458752, 1, 1, 524288, 1, 2, 393217, 65537, 0, 458753, 65537, 1, 524289, 65537, 2, 393218, 131072, 0, 458754, 131072, 1, 524290, 131072, 2)
+layer_0/tile_data = PackedInt32Array(393231, 131072, 0, 458767, 131072, 1, 524303, 131072, 2, 393230, 65536, 0, 458766, 65536, 1, 524302, 65536, 2, 393229, 65536, 0, 458765, 65536, 1, 524301, 65536, 2, 393228, 65536, 0, 458764, 65536, 1, 524300, 65536, 2, 393227, 65537, 0, 458763, 65537, 1, 524299, 65537, 2, 393226, 1, 0, 458762, 1, 1, 524298, 1, 2, 393216, 1, 0, 458752, 1, 1, 524288, 1, 2, 393217, 65537, 0, 458753, 65537, 1, 524289, 65537, 2, 393218, 65536, 0, 458754, 65536, 1, 524290, 65536, 2, 524291, 131072, 2, 458755, 131072, 1, 393219, 131072, 0)
 
 [node name="UIRibbons" type="TileMap" parent="CollectionCharacters"]
 z_index = 1
@@ -1014,17 +1044,16 @@ texture = ExtResource("12_t3ngb")
 
 [node name="SpawnHouseButton2" type="TextureButton" parent="CollectionCharacters"]
 z_index = 2
-offset_left = 150.0
-offset_top = 1017.0
-offset_right = 342.0
-offset_bottom = 1209.0
+offset_left = 120.0
+offset_top = 1016.0
+offset_right = 312.0
+offset_bottom = 1208.0
 mouse_default_cursor_shape = 3
 shortcut = SubResource("Shortcut_jva2j")
 shortcut_in_tooltip = false
 texture_normal = ExtResource("21_oh3wr")
 texture_pressed = ExtResource("22_u1gae")
 texture_hover = ExtResource("23_arswm")
-metadata/_edit_group_ = true
 
 [node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnHouseButton2"]
 metadata/_edit_group_ = true
@@ -1067,6 +1096,68 @@ position = Vector2(82, 131)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("12_t3ngb")
 
+[node name="SpawnTowerButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 321.0
+offset_top = 1015.0
+offset_right = 513.0
+offset_bottom = 1207.0
+mouse_default_cursor_shape = 3
+shortcut = SubResource("Shortcut_jva2j")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnTowerButton"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="CollectionCharacters/SpawnTowerButton/ButtonLayout"]
+position = Vector2(155, 125)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("15_6m6nt")
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnTowerButton/ButtonLayout"]
+offset_left = 19.0
+offset_top = 109.0
+offset_right = 77.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="CollectionCharacters/SpawnTowerButton/ButtonLayout"]
+offset_left = 97.0
+offset_top = 109.0
+offset_right = 155.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HouseSprite" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnTowerButton/ButtonLayout"]
+visible = false
+position = Vector2(95, 108.125)
+scale = Vector2(0.65625, 0.6875)
+sprite_frames = SubResource("SpriteFrames_udavn")
+offset = Vector2(0, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnTowerButton/ButtonLayout"]
+position = Vector2(82, 131)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_t3ngb")
+
+[node name="TowerSprite" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnTowerButton/ButtonLayout"]
+position = Vector2(98, 98)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_o5dvr")
+offset = Vector2(0, -70)
+
 [connection signal="timeout" from="CollectionCharacters/MobTimer" to="CollectionCharacters" method="_on_mob_timer_timeout"]
 [connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_1" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_1_pressed"]
 [connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_2" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_2_pressed"]
@@ -1076,3 +1167,4 @@ texture = ExtResource("12_t3ngb")
 [connection signal="pressed" from="CollectionCharacters/SpawnWoodWorkerButton" to="CollectionCharacters" method="_on_spawn_wood_worker_button_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnArcherButton" to="CollectionCharacters" method="_on_spawn_archer_button_pressed"]
 [connection signal="pressed" from="CollectionCharacters/SpawnHouseButton2" to="CollectionCharacters" method="_on_spawn_house_button_2_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnTowerButton" to="CollectionCharacters" method="_on_spawn_tower_button_pressed"]
