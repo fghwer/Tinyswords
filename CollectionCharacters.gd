@@ -18,11 +18,17 @@ var waiting_for_click = false
 var knight_to_spawn = null
 var archer_to_spawn = null
 var house_to_spawn = null
-var cost_knight = 2
-var cost_worker = 2
-var cost_archer = 3
-var cost_house = 10
-var cost_wood_worker = 2
+
+#Gold 
+var cost_knight_gold = 2
+var cost_worker_gold = 2
+var cost_archer_gold = 3
+var cost_house_gold = 10
+var cost_wood_worker_gold = 2
+
+#Wood
+var cost_archer_wood = 1
+var cost_house_wood = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,12 +36,12 @@ func _ready():
 	Global.Player.gold = 10
 	Global.Player.populationMax = 10
 	Global.Player.score = 0
-	Global.Player.wood = 0
-	SpawnKnightButtonLabel.set_text(str(cost_knight))
-	SpawnWorkerButtonLabel.set_text(str(cost_worker))
-	SpawnWoodWorkerButtonLabel.set_text(str(cost_worker))
-	SpawnArcherButtonLabel.set_text(str(cost_archer))
-	SpawnHouseButtonLabel.set_text(str(cost_house))
+	Global.Player.wood = 3
+	SpawnKnightButtonLabel.set_text(str(cost_knight_gold))
+	SpawnWorkerButtonLabel.set_text(str(cost_worker_gold))
+	SpawnWoodWorkerButtonLabel.set_text(str(cost_worker_gold))
+	SpawnArcherButtonLabel.set_text(str(cost_archer_gold))
+	SpawnHouseButtonLabel.set_text(str(cost_house_gold))
 	
 	
 	$MobTimer.start()
@@ -123,7 +129,7 @@ func _on_mob_timer_timeout():
 
 func _on_spawn_worker_button_pressed():
 	
-	if Global.Player.gold >= cost_worker && Global.Player.populationMax > Global.Player.population:
+	if Global.Player.gold >= cost_worker_gold && Global.Player.populationMax > Global.Player.population:
 		
 		var worker = worker_scene.instantiate()
 		var worker_spawn_location = Vector2.ZERO
@@ -139,7 +145,7 @@ func _on_spawn_worker_button_pressed():
 		worker.worker_4rd_pos = $Worker_4rd_pos.position
 		worker.init_target_position(target_pos)
 		add_child(worker)
-		Global.Player.gold -= cost_worker
+		Global.Player.gold -= cost_worker_gold
 		Global.Player.population += 1
 	
 
@@ -154,7 +160,7 @@ func _on_spawn_worker_button_pressed():
 
 
 func _on_spawn_archer_button_pressed():
-	if Global.Player.gold >= cost_archer && Global.Player.populationMax > Global.Player.population:
+	if Global.Player.gold >= cost_archer_gold && Global.Player.wood >= cost_archer_wood && Global.Player.populationMax > Global.Player.population:
 		archer_to_spawn = archer_scene.instantiate()
 		waiting_for_click = true
 
@@ -168,11 +174,12 @@ func _spawn_archer_at_mouse_position():
 		waiting_for_click = false
 		#print("spawn archer")
 		Global.Player.population += 2
-		Global.Player.gold -= cost_archer	
+		Global.Player.gold -= cost_archer_gold
+		Global.Player.wood -= cost_archer_wood
 
 
 func _on_spawn_knight_button_pressed():
-	if Global.Player.gold >= cost_knight && Global.Player.populationMax > Global.Player.population:
+	if Global.Player.gold >= cost_knight_gold && Global.Player.populationMax > Global.Player.population:
 		knight_to_spawn = knight_scene.instantiate()
 		waiting_for_click = true
 		print("button")
@@ -187,14 +194,14 @@ func _spawn_knight_at_mouse_position():
 		waiting_for_click = false
 		print("spawn")
 		Global.Player.population += 2
-		Global.Player.gold -= cost_knight
+		Global.Player.gold -= cost_knight_gold
 		
 
 
 
 func _on_spawn_house_button_2_pressed():
 	print("test")
-	if Global.Player.gold >= cost_house:
+	if Global.Player.gold >= cost_house_gold && Global.Player.wood >= cost_house_wood :
 		house_to_spawn = house_scene.instantiate()
 		waiting_for_click = true
 		print("button")
@@ -209,14 +216,16 @@ func _spawn_house_at_mouse_position():
 		waiting_for_click = false
 		print("spawn")
 		Global.Player.populationMax += 10
-		Global.Player.gold -= cost_house
+		Global.Player.gold -= cost_house_gold
+		Global.Player.wood -= cost_house_wood
+		
 		
 
 
 
 func _on_spawn_wood_worker_button_pressed():
 	
-	if Global.Player.gold >= cost_wood_worker && Global.Player.populationMax > Global.Player.population:
+	if Global.Player.gold >= cost_wood_worker_gold && Global.Player.populationMax > Global.Player.population:
 		
 		var worker = wood_worker_scene.instantiate()
 		var worker_spawn_location = Vector2.ZERO
@@ -233,5 +242,5 @@ func _on_spawn_wood_worker_button_pressed():
 		worker.worker_4rd_pos = $Wood_Worker_4rd_pos.position
 		worker.init_target_position(target_pos)
 		add_child(worker)
-		Global.Player.gold -= cost_worker
+		Global.Player.gold -= cost_worker_gold
 		Global.Player.population += 1

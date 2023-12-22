@@ -173,6 +173,7 @@ func _on_interact_area_area_entered(area):
 			interact_trigger = true
 			interact_stand_trigger = true
 			Global.Player.gold +=1
+			print(\"Gold\")
 			#backpack = 0
 		elif player.name == \"GoldMine\" and backpack == 0:
 			interact_trigger = true

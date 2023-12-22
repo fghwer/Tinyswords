@@ -964,6 +964,7 @@ position = Vector2(93, 70)
 sprite_frames = SubResource("SpriteFrames_7yaoj")
 
 [node name="Label" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+visible = false
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 offset_left = 45.0
 offset_top = 110.0
@@ -975,7 +976,40 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+visible = false
 position = Vector2(110, 125)
+texture = ExtResource("12_t3ngb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+position = Vector2(155, 125)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("15_6m6nt")
+
+[node name="Label2" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+offset_left = 19.0
+offset_top = 109.0
+offset_right = 77.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+offset_left = 97.0
+offset_top = 109.0
+offset_right = 155.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+position = Vector2(82, 131)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("12_t3ngb")
 
 [node name="SpawnHouseButton2" type="TextureButton" parent="CollectionCharacters"]
@@ -995,13 +1029,30 @@ metadata/_edit_group_ = true
 [node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnHouseButton2"]
 metadata/_edit_group_ = true
 
+[node name="Sprite2D2" type="Sprite2D" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
+position = Vector2(155, 125)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("15_6m6nt")
+
 [node name="Label" type="Label" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
-offset_left = 45.0
-offset_top = 100.0
-offset_right = 89.0
-offset_bottom = 172.0
+offset_left = 19.0
+offset_top = 109.0
+offset_right = 77.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 50
 text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
+offset_left = 97.0
+offset_top = 109.0
+offset_right = 155.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "5"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -1012,7 +1063,8 @@ sprite_frames = SubResource("SpriteFrames_udavn")
 offset = Vector2(0, -70)
 
 [node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
-position = Vector2(130, 129)
+position = Vector2(82, 131)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("12_t3ngb")
 
 [connection signal="timeout" from="CollectionCharacters/MobTimer" to="CollectionCharacters" method="_on_mob_timer_timeout"]

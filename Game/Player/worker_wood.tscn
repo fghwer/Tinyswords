@@ -172,7 +172,7 @@ func _on_interact_area_area_entered(area):
 		if player.name == \"BaseCastle\" and backpack != 0:
 			interact_trigger = true
 			interact_stand_trigger = true
-			Global.Player.gold +=1
+			Global.Player.wood +=1
 			#backpack = 0
 		elif player.name == \"WoodTree\" and backpack == 0:
 			interact_trigger = true
@@ -194,6 +194,7 @@ func _on_flee_area_body_entered(body):
 		#print(\\\"flee\\\")
 		player = body
 		flee_trigger = true
+
 func _on_stop_flee_area_body_exited(_body):
 	var other_player_in_area = false
 	for _i in $StopFleeArea.get_overlapping_bodies():
