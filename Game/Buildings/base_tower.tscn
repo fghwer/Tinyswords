@@ -201,7 +201,6 @@ collision_mask = 0
 script = ExtResource("1_2smn5")
 
 [node name="Archer" parent="." instance=ExtResource("2_hs3cg")]
-visible = false
 z_index = 1
 position = Vector2(0, -52)
 
