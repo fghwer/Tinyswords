@@ -134,10 +134,6 @@ func _physics_process(_delta):
 				player_attack = false
 				player_chase = true
 			#i_olb = 0
-	
-
-	
-
 	else:
 		#print("hello")
 		velocity = Vector2.ZERO

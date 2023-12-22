@@ -272,7 +272,6 @@ func _spawn_tower_at_mouse_position():
 		tower_to_spawn = null
 		waiting_for_click = false
 		print("spawn")
-		Global.Player.populationMax += 10
 		Global.Player.gold -= cost_house_gold
 		Global.Player.wood -= cost_house_wood
 		

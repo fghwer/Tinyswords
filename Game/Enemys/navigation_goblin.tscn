@@ -320,6 +320,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+z_as_relative = false
 shape = SubResource("CircleShape2D_q8ikk")
 
 [node name="attack_area" type="Area2D" parent="."]
