@@ -1,0 +1,1078 @@
+[gd_scene load_steps=99 format=3 uid="uid://dui7577q0pfbf"]
+
+[ext_resource type="Script" path="res://Level/Level_1/Level_1.gd" id="1_6up8h"]
+[ext_resource type="Script" path="res://CollectionCharacters.gd" id="2_ttrpn"]
+[ext_resource type="PackedScene" uid="uid://dnwuogk3qx34q" path="res://Game/Enemys/navigation_goblin.tscn" id="3_0pj3o"]
+[ext_resource type="PackedScene" uid="uid://gkjo8nl0byar" path="res://Game/Player/knight_nav.tscn" id="4_8sppa"]
+[ext_resource type="PackedScene" uid="uid://cestlw4yjtrau" path="res://Game/Player/worker.tscn" id="5_ekr6e"]
+[ext_resource type="PackedScene" uid="uid://moycxjlvjibw" path="res://Game/Player/worker_wood.tscn" id="6_ptcmt"]
+[ext_resource type="PackedScene" uid="uid://cha58xc6rvcqn" path="res://Game/Player/archer.tscn" id="6_wngri"]
+[ext_resource type="PackedScene" uid="uid://c38je02pmeokp" path="res://Game/Buildings/base_house.tscn" id="7_ks358"]
+[ext_resource type="PackedScene" uid="uid://wdhhntdxisic" path="res://Game/Buildings/base_castle.tscn" id="8_1i7x5"]
+[ext_resource type="PackedScene" uid="uid://ci5g4hxg7yq4l" path="res://Game/Buildings/wood_tree.tscn" id="9_myx3v"]
+[ext_resource type="PackedScene" uid="uid://dpi3jmc1unbuh" path="res://Game/Buildings/gold_mine.tscn" id="9_oea2h"]
+[ext_resource type="PackedScene" uid="uid://bwi2cip47a6yq" path="res://Level/Level_1/Level_1_Map.tscn" id="10_7c1hx"]
+[ext_resource type="Script" path="res://GUI/MobTimer.gd" id="11_xln2d"]
+[ext_resource type="Texture2D" uid="uid://1v77kmd101c" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Idle.png" id="12_t3ngb"]
+[ext_resource type="Texture2D" uid="uid://com1yineegfp4" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Construction.png" id="13_m1c03"]
+[ext_resource type="Texture2D" uid="uid://dc7m4s14pxf7d" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="14_rua03"]
+[ext_resource type="Texture2D" uid="uid://cr4xta41b3enk" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Destroyed.png" id="15_3d758"]
+[ext_resource type="Texture2D" uid="uid://6pyusyeuojpn" path="res://Tiny Swords (Update 010)/Resources/Resources/W_Idle.png" id="15_6m6nt"]
+[ext_resource type="Texture2D" uid="uid://derjuf8obuolq" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="16_4a8fv"]
+[ext_resource type="Texture2D" uid="uid://dmrjbnspkdt4x" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.png" id="17_epksj"]
+[ext_resource type="Texture2D" uid="uid://bpmumnm2haumu" path="res://Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Up.png" id="18_dhh7v"]
+[ext_resource type="Texture2D" uid="uid://bieo11eu2dlii" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png" id="19_ki7b0"]
+[ext_resource type="Texture2D" uid="uid://dedim2okv6obq" path="res://Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_Connection_Right.png" id="20_nr657"]
+[ext_resource type="Script" path="res://Userdata/Global.gd" id="21_hs4we"]
+[ext_resource type="Texture2D" uid="uid://wydcaa3ycwb" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides.png" id="21_oh3wr"]
+[ext_resource type="Texture2D" uid="uid://cxvjuwt0kd6jm" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides_Pressed.png" id="22_u1gae"]
+[ext_resource type="Texture2D" uid="uid://bjoyh48rvbf4g" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Hover_9Slides.png" id="23_arswm"]
+[ext_resource type="Texture2D" uid="uid://bytg6xgju7svf" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="24_q6be5"]
+[ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="25_1kevc"]
+[ext_resource type="Texture2D" uid="uid://rd5fq633d2yh" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="26_l1jaf"]
+[ext_resource type="Texture2D" uid="uid://8o6khnhmnu5t" path="res://Tiny Swords (Update 010)/Resources/Resources/G_Spawn.png" id="31_u8g2m"]
+[ext_resource type="Texture2D" uid="uid://qu4s3n573un" path="res://Tiny Swords (Update 010)/Resources/Resources/W_Spawn.png" id="32_8q0ca"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mubjo"]
+vertices = PackedVector2Array(1040, 947, 822, 960, 810, 959, 364, 733, 364, 729, 1044, 714, 1188, 719, 370, 610, 2000, 608, 2291, 611, 2001, 612, 2296, 670, 2362, 219, 2360, 1039, 2304, 1037, 2302, 285, 2308, 225, 2346, 220, 2291, 614, 1325, -37, 1324, -31, 1460, 1302, 902, 1295, 1062, 1243, 1294, 1242, 1679, 350, 2034, 350, 1873, 423, 1704, 423, 1107, 1174, 1262, 1174, 1870, 480, 1701, 475, 2295, 674, 1993, 669, 1994, 673, 1321, 947, 1316, 719, 1316, 654, 2019, 970, 1243, 64, 1249, 63, 1246, 400, 1240, 399, 328, 963, 1024, -39, 1122, 65, 1117, 65, 1028, -31, 15, 46, 9, 34, 6.07489, 219.744, 13, 220, 763, 1332, 764, 1320, -7, 1050, -4, 1047, -11, 221, 5, 606, 1115, 411, 1109, 409, 1048, 654, 49, 850, 52, 1041, 12, 732, 525, 355, 894, 356, 369, 605, 6, 601, 47, 228, 49, 484, 11, 727)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 12, 11, 18, 9), PackedInt32Array(19, 12, 17, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(24, 23, 29, 30), PackedInt32Array(27, 26, 8, 31), PackedInt32Array(31, 8, 7, 32), PackedInt32Array(11, 14, 33), PackedInt32Array(34, 11, 33, 35), PackedInt32Array(36, 37, 38, 34, 35, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(2, 44, 3), PackedInt32Array(45, 19, 20, 41, 40, 46, 47, 48), PackedInt32Array(45, 48, 49, 50), PackedInt32Array(51, 50, 49, 52), PackedInt32Array(2, 1, 53, 54), PackedInt32Array(54, 53, 55, 56), PackedInt32Array(56, 55, 57, 51, 58), PackedInt32Array(47, 46, 59, 60), PackedInt32Array(9, 18, 10), PackedInt32Array(7, 10, 34, 38), PackedInt32Array(7, 38, 61), PackedInt32Array(4, 7, 61, 5), PackedInt32Array(29, 0, 6, 37, 36, 30), PackedInt32Array(62, 63, 56, 64), PackedInt32Array(25, 28, 32, 7, 42), PackedInt32Array(43, 42, 7, 59), PackedInt32Array(65, 66, 60, 59, 7, 67), PackedInt32Array(67, 7, 58, 68), PackedInt32Array(51, 52, 69, 70, 68), PackedInt32Array(4, 3, 64, 71), PackedInt32Array(71, 64, 56), PackedInt32Array(51, 68, 58), PackedInt32Array(56, 58, 71)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(763, 1332, -7, 1050, -11, 221, 6.07489, 219.744, 9, 34, 1024, -39, 1325, -37, 2362, 219, 2360, 1039, 2304, 1037, 2295, 674, 1994, 673, 2019, 970, 1321, 947, 1262, 1174, 1294, 1242, 1460, 1302, 902, 1295, 1062, 1243, 1107, 1174, 1040, 947, 822, 960), PackedVector2Array(49, 850, 12, 732, 364, 733, 328, 963, 810, 959, 764, 1320, -4, 1047, 52, 1041), PackedVector2Array(1044, 714, 1188, 719, 1316, 719, 1316, 654, 1048, 654), PackedVector2Array(2000, 608, 2034, 350, 1679, 350, 1246, 400, 1249, 63, 1324, -31, 2346, 220, 2308, 225, 2302, 285, 2291, 611), PackedVector2Array(1109, 409, 894, 356, 525, 355, 369, 605, 6, 601, 49, 484, 47, 228, 13, 220, 15, 46, 1028, -31, 1117, 65), PackedVector2Array(5, 606, 370, 610, 364, 729, 11, 727), PackedVector2Array(2001, 612, 2291, 614, 2296, 670, 1993, 669), PackedVector2Array(1122, 65, 1115, 411, 1240, 399, 1243, 64), PackedVector2Array(1701, 475, 1870, 480, 1873, 423, 1704, 423)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f8vy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d5ip"]
+atlas = ExtResource("13_m1c03")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq8ve"]
+atlas = ExtResource("14_rua03")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esdtu"]
+atlas = ExtResource("15_3d758")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udavn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d5ip")
+}],
+"loop": true,
+"name": &"Build",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq8ve")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esdtu")
+}],
+"loop": true,
+"name": &"destroy",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_0plhr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 6, 1030, 0, 0, 0, 0, 6, 237, 0, 0, 0, 0, 6, 1030)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_ag5fu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 921, 1291, 0, 0, 0, 0, 1451, 1296, 0, 0, 0, 0, 1296, 1250, 0, 0, 0, 0, 1071, 1243, 0, 0, 0, 0, 921, 1291)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_e0m5v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2317, 1030, 0, 0, 0, 0, 2368, 1028, 0, 0, 0, 0, 2368, 220, 0, 0, 0, 0, 2319, 228, 0, 0, 0, 0, 2318, 555, 0, 0, 0, 0, 2349, 591, 0, 0, 0, 0, 2348, 710, 0, 0, 0, 0, 2327, 766, 0, 0, 0, 0, 2317, 1030)
+}
+point_count = 9
+
+[sub_resource type="Curve2D" id="Curve2D_yu7uq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1041, -33, 0, 0, 0, 0, 1323, -32, 0, 0, 0, 0, 1184, -24, 0, 0, 0, 0, 1041, -33)
+}
+point_count = 4
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se3lu"]
+texture = ExtResource("16_4a8fv")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r5oi"]
+texture = ExtResource("17_epksj")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mfgu"]
+texture = ExtResource("18_dhh7v")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3cqhb"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_se3lu")
+sources/1 = SubResource("TileSetAtlasSource_7r5oi")
+sources/2 = SubResource("TileSetAtlasSource_6mfgu")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjyrt"]
+texture = ExtResource("19_ki7b0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fucyx"]
+texture = ExtResource("20_nr657")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lktuy"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_tjyrt")
+sources/1 = SubResource("TileSetAtlasSource_fucyx")
+
+[sub_resource type="InputEventKey" id="InputEventKey_4xpbi"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_mfvyq"]
+events = [SubResource("InputEventKey_4xpbi")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc07l"]
+atlas = ExtResource("24_q6be5")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65x3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc07l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="InputEventKey" id="InputEventKey_jf14t"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_0pkwn"]
+events = [SubResource("InputEventKey_jf14t")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bab5h"]
+atlas = ExtResource("26_l1jaf")
+region = Rect2(576, 768, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7yaoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bab5h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="InputEventKey" id="InputEventKey_58fo7"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_275x6"]
+events = [SubResource("InputEventKey_58fo7")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1vhe"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmllu"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff5jc"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3beps"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lvy1"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnsdw"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12cwi"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(0, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiqri"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(192, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65yqv"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(384, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxq3f"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(576, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcvc5"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(768, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c45uo"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(960, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jj67"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boacq"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn4su"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0uyd"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeld3"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy776"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5nul"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifr4b"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkjqr"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13f86"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyfpm"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n13wd"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjm0m"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p20x"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v32ct"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dctv7"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxty1"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ci35"]
+atlas = ExtResource("25_1kevc")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odovj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1vhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmllu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff5jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3beps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lvy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnsdw")
+}],
+"loop": true,
+"name": &"chop",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12cwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiqri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65yqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxq3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcvc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c45uo")
+}],
+"loop": true,
+"name": &"flee",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jj67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boacq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn4su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0uyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeld3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy776")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5nul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifr4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkjqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13f86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyfpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n13wd")
+}],
+"loop": false,
+"name": &"mine",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjm0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p20x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v32ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dctv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxty1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ci35")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uesk"]
+atlas = ExtResource("31_u8g2m")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug7b2"]
+atlas = ExtResource("31_u8g2m")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khcv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uesk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug7b2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4k4d"]
+atlas = ExtResource("32_8q0ca")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv22e"]
+atlas = ExtResource("32_8q0ca")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g462f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4k4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv22e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="InputEventKey" id="InputEventKey_1i8i0"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_jva2j"]
+events = [SubResource("InputEventKey_1i8i0")]
+
+[node name="Level_nav" type="Node"]
+script = ExtResource("1_6up8h")
+
+[node name="CollectionCharacters" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_ttrpn")
+mob_scene = ExtResource("3_0pj3o")
+knight_scene = ExtResource("4_8sppa")
+worker_scene = ExtResource("5_ekr6e")
+wood_worker_scene = ExtResource("6_ptcmt")
+archer_scene = ExtResource("6_wngri")
+house_scene = ExtResource("7_ks358")
+
+[node name="WoodTree" parent="CollectionCharacters" instance=ExtResource("9_myx3v")]
+position = Vector2(635, 778)
+
+[node name="BaseCastle" parent="CollectionCharacters" instance=ExtResource("8_1i7x5")]
+position = Vector2(1192, 611)
+
+[node name="GoldMine" parent="CollectionCharacters" instance=ExtResource("9_oea2h")]
+position = Vector2(1796, 435)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="CollectionCharacters"]
+position = Vector2(9, -2)
+navigation_polygon = SubResource("NavigationPolygon_mubjo")
+
+[node name="TileMapCollection" parent="CollectionCharacters" instance=ExtResource("10_7c1hx")]
+
+[node name="MobTimer" type="Timer" parent="CollectionCharacters"]
+wait_time = 15.0
+script = ExtResource("11_xln2d")
+
+[node name="Worker_3rd_pos" type="StaticBody2D" parent="CollectionCharacters"]
+position = Vector2(1795, 584)
+metadata/_edit_group_ = true
+
+[node name="Worker_3rd_pos" type="Area2D" parent="CollectionCharacters/Worker_3rd_pos"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionCharacters/Worker_3rd_pos/Worker_3rd_pos"]
+shape = SubResource("CircleShape2D_8f8vy")
+
+[node name="Marker" type="Marker2D" parent="CollectionCharacters/Worker_3rd_pos/Worker_3rd_pos"]
+
+[node name="Worker_4rd_pos" type="StaticBody2D" parent="CollectionCharacters"]
+position = Vector2(1301, 838)
+metadata/_edit_group_ = true
+
+[node name="Worker_4rd_pos" type="Area2D" parent="CollectionCharacters/Worker_4rd_pos"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionCharacters/Worker_4rd_pos/Worker_4rd_pos"]
+shape = SubResource("CircleShape2D_8f8vy")
+
+[node name="Marker" type="Marker2D" parent="CollectionCharacters/Worker_4rd_pos/Worker_4rd_pos"]
+
+[node name="Wood_Worker_3rd_pos" type="StaticBody2D" parent="CollectionCharacters"]
+position = Vector2(814, 880)
+metadata/_edit_group_ = true
+
+[node name="Worker_3rd_pos" type="Area2D" parent="CollectionCharacters/Wood_Worker_3rd_pos"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionCharacters/Wood_Worker_3rd_pos/Worker_3rd_pos"]
+shape = SubResource("CircleShape2D_8f8vy")
+
+[node name="Marker" type="Marker2D" parent="CollectionCharacters/Wood_Worker_3rd_pos/Worker_3rd_pos"]
+
+[node name="Wood_Worker_4rd_pos" type="StaticBody2D" parent="CollectionCharacters"]
+position = Vector2(1178, 826)
+metadata/_edit_group_ = true
+
+[node name="Worker_4rd_pos" type="Area2D" parent="CollectionCharacters/Wood_Worker_4rd_pos"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionCharacters/Wood_Worker_4rd_pos/Worker_4rd_pos"]
+shape = SubResource("CircleShape2D_8f8vy")
+
+[node name="Marker" type="Marker2D" parent="CollectionCharacters/Wood_Worker_4rd_pos/Worker_4rd_pos"]
+
+[node name="Gold" type="Label" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 2190.0
+offset_top = 13.0
+offset_right = 2234.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Gold"]
+position = Vector2(80, 27)
+texture = ExtResource("12_t3ngb")
+
+[node name="Wood" type="Label" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 2190.0
+offset_top = 107.0
+offset_right = 2234.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/Wood"]
+position = Vector2(80, 20)
+texture = ExtResource("15_6m6nt")
+
+[node name="Population" type="Label" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 41.0
+offset_top = 11.0
+offset_right = 239.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 50
+text = "2 / 2"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_group_ = true
+
+[node name="HouseSprite" type="AnimatedSprite2D" parent="CollectionCharacters/Population"]
+position = Vector2(-10, 60)
+scale = Vector2(0.328125, 0.359646)
+sprite_frames = SubResource("SpriteFrames_udavn")
+offset = Vector2(0, -70)
+
+[node name="Score" type="Label" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 928.0
+offset_right = 1328.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 50
+text = "Score
+"
+vertical_alignment = 1
+
+[node name="MobPath2" type="Path2D" parent="CollectionCharacters"]
+curve = SubResource("Curve2D_0plhr")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="CollectionCharacters/MobPath2"]
+position = Vector2(6, 1030)
+rotation = -1.5708
+
+[node name="MobPath" type="Path2D" parent="CollectionCharacters"]
+curve = SubResource("Curve2D_ag5fu")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="CollectionCharacters/MobPath"]
+position = Vector2(921, 1291)
+rotation = 0.00943368
+
+[node name="MobPath3" type="Path2D" parent="CollectionCharacters"]
+curve = SubResource("Curve2D_e0m5v")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="CollectionCharacters/MobPath3"]
+position = Vector2(2317, 1030)
+rotation = -0.0391956
+
+[node name="MobPath4" type="Path2D" parent="CollectionCharacters"]
+curve = SubResource("Curve2D_yu7uq")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="CollectionCharacters/MobPath4"]
+position = Vector2(1041, -33)
+rotation = 0.00354608
+
+[node name="UIBanners" type="TileMap" parent="CollectionCharacters"]
+z_index = 1
+position = Vector2(30, 50)
+scale = Vector2(2.2, 2.2)
+tile_set = SubResource("TileSet_3cqhb")
+format = 2
+layer_0/tile_data = PackedInt32Array(393231, 131072, 0, 458767, 131072, 1, 524303, 131072, 2, 393230, 65536, 0, 458766, 65536, 1, 524302, 65536, 2, 393229, 65536, 0, 458765, 65536, 1, 524301, 65536, 2, 393228, 65536, 0, 458764, 65536, 1, 524300, 65536, 2, 393227, 65537, 0, 458763, 65537, 1, 524299, 65537, 2, 393226, 1, 0, 458762, 1, 1, 524298, 1, 2, 393216, 1, 0, 458752, 1, 1, 524288, 1, 2, 393217, 65537, 0, 458753, 65537, 1, 524289, 65537, 2, 393218, 131072, 0, 458754, 131072, 1, 524290, 131072, 2)
+
+[node name="UIRibbons" type="TileMap" parent="CollectionCharacters"]
+z_index = 1
+position = Vector2(-485, 15)
+scale = Vector2(1.5, 1.5)
+tile_set = SubResource("TileSet_lktuy")
+format = 2
+layer_0/tile_data = PackedInt32Array(14, 0, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 131072, 0, 28, 65536, 0, 27, 0, 0, 29, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0, 65563, 0, 0, 65564, 65536, 0, 65565, 65536, 0)
+
+[node name="UpgradeBanner" type="TileMap" parent="CollectionCharacters"]
+process_mode = 2
+visible = false
+z_index = 1
+position = Vector2(30, 50)
+scale = Vector2(2.2, 2.2)
+tile_set = SubResource("TileSet_3cqhb")
+format = 2
+layer_0/tile_data = PackedInt32Array(393231, 131072, 0, 458767, 131072, 1, 524303, 131072, 2, 393230, 65536, 0, 458766, 65536, 1, 524302, 65536, 2, 393229, 65536, 0, 458765, 65536, 1, 524301, 65536, 2, 393228, 65536, 0, 458764, 65536, 1, 524300, 65536, 2, 393227, 131072, 2, 458763, 65537, 1, 524299, 65537, 2, 393226, 65536, 2, 458762, 1, 1, 524298, 1, 2, 393216, 1, 0, 458752, 1, 1, 524288, 1, 2, 393217, 65537, 0, 458753, 65537, 1, 524289, 65537, 2, 393218, 131072, 0, 458754, 131072, 1, 524290, 131072, 2, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 65542, 65536, 0, 131078, 65536, 1, 131079, 65536, 1, 131080, 65536, 1, 131081, 65536, 1, 131082, 65536, 1, 196618, 65536, 1, 196617, 65536, 1, 196616, 65536, 1, 196614, 65536, 1, 196615, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 65536, 1, 262153, 65536, 1, 262154, 65536, 1, 327690, 65536, 1, 327689, 65536, 1, 327688, 65536, 1, 327687, 65536, 1, 327686, 65536, 1, 327685, 65536, 1, 262149, 65536, 1, 196613, 65536, 1, 131077, 65536, 1, 65541, 65536, 0, 393221, 65536, 2, 393222, 65536, 2, 393223, 65536, 2, 393224, 65536, 2, 393225, 65536, 2, 327691, 131072, 1, 262155, 131072, 1, 196619, 131072, 1, 65547, 131072, 0, 131083, 131072, 1, 65540, 1, 0, 131076, 1, 1, 196612, 1, 1, 262148, 1, 1, 327684, 1, 1, 393220, 1, 2)
+script = ExtResource("21_hs4we")
+
+[node name="Update_Button_1" type="TextureButton" parent="CollectionCharacters/UpgradeBanner"]
+z_index = 2
+offset_left = 306.364
+offset_top = 290.0
+offset_right = 498.364
+offset_bottom = 482.0
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 3
+shortcut = SubResource("Shortcut_mfvyq")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_1"]
+
+[node name="Label" type="Label" parent="CollectionCharacters/UpgradeBanner/Update_Button_1/ButtonLayout"]
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 89.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_1/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_65x3r")
+
+[node name="Update_Button_2" type="TextureButton" parent="CollectionCharacters/UpgradeBanner"]
+z_index = 2
+offset_left = 465.0
+offset_top = 289.091
+offset_right = 657.0
+offset_bottom = 481.091
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_0pkwn")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_2"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_2/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_7yaoj")
+
+[node name="Label" type="Label" parent="CollectionCharacters/UpgradeBanner/Update_Button_2/ButtonLayout"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+offset_left = 45.0
+offset_top = 110.0
+offset_right = 89.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 40
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Update_Button_3" type="TextureButton" parent="CollectionCharacters/UpgradeBanner"]
+z_index = 2
+offset_left = 613.182
+offset_top = 290.455
+offset_right = 805.182
+offset_bottom = 482.455
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 3
+shortcut = SubResource("Shortcut_mfvyq")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_3"]
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="CollectionCharacters/UpgradeBanner/Update_Button_3/ButtonLayout"]
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 89.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/UpgradeBanner/Update_Button_3/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_65x3r")
+
+[node name="SpawnKnightButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 1557.0
+offset_top = 1017.0
+offset_right = 1749.0
+offset_bottom = 1209.0
+mouse_default_cursor_shape = 3
+shortcut = SubResource("Shortcut_mfvyq")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnKnightButton"]
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 89.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
+position = Vector2(110, 129)
+texture = ExtResource("12_t3ngb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnKnightButton/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_65x3r")
+
+[node name="SpawnWorkerButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 1766.0
+offset_top = 1017.0
+offset_right = 1958.0
+offset_bottom = 1209.0
+scale = Vector2(0.5, 1)
+shortcut = SubResource("Shortcut_275x6")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnWorkerButton"]
+position = Vector2(-90, 0)
+scale = Vector2(2, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
+position = Vector2(93, 85)
+sprite_frames = SubResource("SpriteFrames_odovj")
+animation = &"flee"
+frame = 2
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 92.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
+position = Vector2(104, 129)
+texture = ExtResource("12_t3ngb")
+
+[node name="GoldTransport" type="Node2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout"]
+y_sort_enabled = true
+position = Vector2(90, 110)
+
+[node name="Gold1" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout/GoldTransport"]
+position = Vector2(0.213547, 0.969856)
+rotation = 0.23911
+sprite_frames = SubResource("SpriteFrames_khcv5")
+offset = Vector2(-28.626, -74.3041)
+
+[node name="Gold2" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWorkerButton/ButtonLayout/GoldTransport"]
+y_sort_enabled = true
+position = Vector2(0.213493, 1.53104)
+rotation = -0.958186
+sprite_frames = SubResource("SpriteFrames_khcv5")
+offset = Vector2(58.6435, -42.6985)
+
+[node name="SpawnWoodWorkerButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 1870.0
+offset_top = 1017.0
+offset_right = 2062.0
+offset_bottom = 1209.0
+scale = Vector2(0.5, 1)
+shortcut = SubResource("Shortcut_275x6")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnWoodWorkerButton"]
+position = Vector2(-90, 0)
+scale = Vector2(2, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout"]
+position = Vector2(93, 85)
+sprite_frames = SubResource("SpriteFrames_odovj")
+animation = &"flee"
+frame = 2
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout"]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 92.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout"]
+position = Vector2(104, 129)
+texture = ExtResource("12_t3ngb")
+
+[node name="WoodTransport" type="Node2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout"]
+y_sort_enabled = true
+position = Vector2(95, 117)
+
+[node name="Wood1" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout/WoodTransport"]
+y_sort_enabled = true
+position = Vector2(12, -78)
+rotation = 0.715585
+sprite_frames = SubResource("SpriteFrames_g462f")
+
+[node name="Wood2" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnWoodWorkerButton/ButtonLayout/WoodTransport"]
+y_sort_enabled = true
+position = Vector2(0, -80)
+rotation = 0.408407
+sprite_frames = SubResource("SpriteFrames_g462f")
+
+[node name="SpawnArcherButton" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 1975.0
+offset_top = 1017.0
+offset_right = 2167.0
+offset_bottom = 1209.0
+shortcut = SubResource("Shortcut_0pkwn")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnArcherButton"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+position = Vector2(93, 70)
+sprite_frames = SubResource("SpriteFrames_7yaoj")
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+offset_left = 45.0
+offset_top = 110.0
+offset_right = 89.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 40
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+visible = false
+position = Vector2(110, 125)
+texture = ExtResource("12_t3ngb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+position = Vector2(155, 125)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("15_6m6nt")
+
+[node name="Label2" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+offset_left = 19.0
+offset_top = 109.0
+offset_right = 77.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+offset_left = 97.0
+offset_top = 109.0
+offset_right = 155.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="CollectionCharacters/SpawnArcherButton/ButtonLayout"]
+position = Vector2(82, 131)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_t3ngb")
+
+[node name="SpawnHouseButton2" type="TextureButton" parent="CollectionCharacters"]
+z_index = 2
+offset_left = 150.0
+offset_top = 1017.0
+offset_right = 342.0
+offset_bottom = 1209.0
+mouse_default_cursor_shape = 3
+shortcut = SubResource("Shortcut_jva2j")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("21_oh3wr")
+texture_pressed = ExtResource("22_u1gae")
+texture_hover = ExtResource("23_arswm")
+metadata/_edit_group_ = true
+
+[node name="ButtonLayout" type="Node2D" parent="CollectionCharacters/SpawnHouseButton2"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
+position = Vector2(155, 125)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("15_6m6nt")
+
+[node name="Label" type="Label" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
+offset_left = 19.0
+offset_top = 109.0
+offset_right = 77.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
+offset_left = 97.0
+offset_top = 109.0
+offset_right = 155.0
+offset_bottom = 181.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 50
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HouseSprite" type="AnimatedSprite2D" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
+position = Vector2(95, 108.125)
+scale = Vector2(0.65625, 0.6875)
+sprite_frames = SubResource("SpriteFrames_udavn")
+offset = Vector2(0, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectionCharacters/SpawnHouseButton2/ButtonLayout"]
+position = Vector2(82, 131)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_t3ngb")
+
+[connection signal="timeout" from="CollectionCharacters/MobTimer" to="CollectionCharacters" method="_on_mob_timer_timeout"]
+[connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_1" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_1_pressed"]
+[connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_2" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_2_pressed"]
+[connection signal="pressed" from="CollectionCharacters/UpgradeBanner/Update_Button_3" to="CollectionCharacters/UpgradeBanner" method="_on_update_button_3_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnKnightButton" to="CollectionCharacters" method="_on_spawn_knight_button_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnWorkerButton" to="CollectionCharacters" method="_on_spawn_worker_button_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnWoodWorkerButton" to="CollectionCharacters" method="_on_spawn_wood_worker_button_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnArcherButton" to="CollectionCharacters" method="_on_spawn_archer_button_pressed"]
+[connection signal="pressed" from="CollectionCharacters/SpawnHouseButton2" to="CollectionCharacters" method="_on_spawn_house_button_2_pressed"]

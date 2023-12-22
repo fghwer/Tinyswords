@@ -1,8 +1,229 @@
 [gd_scene load_steps=55 format=3 uid="uid://dji3jfo0mh5dw"]
 
-[ext_resource type="Script" path="res://Game/Player/worker.gd" id="1_mxnek"]
 [ext_resource type="Texture2D" uid="uid://djfuynpteq848" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="2_q8gfr"]
 [ext_resource type="Texture2D" uid="uid://qu4s3n573un" path="res://Tiny Swords (Update 010)/Resources/Resources/W_Spawn.png" id="3_nf5te"]
+
+[sub_resource type="GDScript" id="GDScript_26ckk"]
+script/source = "extends CharacterBody2D
+
+@export var speed = 125 # How fast the player will move (pixels/sec).
+@export var maxlife = 1000.
+@onready var navigation_agent: NavigationAgent2D = get_node(\"NavigationAgent2D\")
+@onready var BloodParticle: GPUParticles2D = get_node(\"ParticleInterface/BloodParticle\")
+@onready var Wood1: AnimatedSprite2D = get_node(\"WoodTransport/Wood1\")
+@onready var Wood2: AnimatedSprite2D = get_node(\"WoodTransport/Wood2\")
+#@onready var navigation_agent: NavigationAgent2D = get_node(\"NavigationAgent2D\")
+#@onready var BloodParticle: GPUParticles2D = get_node(\"ParticleInterface/BloodParticle\")
+var life = maxlife
+var startpos = Vector2.ZERO
+var treepos = Vector2.ZERO
+var worker_3rd_pos = Vector2.ZERO
+var worker_4rd_pos = Vector2.ZERO
+#var Base_pos = Vector2.ZERO
+#var screen_size # Size of the game window.
+#var i_nav=0
+#var player_chase = false
+#var player_attack = false
+var interact_trigger = false
+var interact_stand_trigger = false
+var flee_trigger = false
+var idle_after_flee_end_trigger = false
+var i_idle_after_flee = 0
+var player = null
+var frame_alt = 0
+var frame_neu = 0
+var backpack = 0
+var trigger_wood = false
+#var max_backpack = 1
+
+func _ready():
+	$WoodTransport.visible = false
+	Wood1.stop()
+	Wood2.stop()
+
+func _physics_process(_delta):
+	
+	$ProgressBar.set_value_no_signal(life*100/maxlife)	
+	#print(backpack)
+	if backpack == 1 and not trigger_wood:
+		#print(\"hi\", trigger_wood)
+		$WoodTransport.visible = true
+		#Wood1.visible = true
+		#Wood2.visible = true
+		Wood1.animation = \"default\"
+		Wood2.animation = \"default\"
+		Wood1.play()
+		Wood2.play()
+		trigger_wood = true
+	#if player != null:
+	#	print(player.name)
+	if flee_trigger and player != null:
+		$AnimatedSprite2D.animation = \"flee\"
+		velocity = (position - player.position).normalized()*speed
+		if velocity.x > 0:
+			#$AnimatedSprite2D.animation = \"flee\"
+			$AnimatedSprite2D.flip_h = false
+		elif velocity.x < 0:
+			#$AnimatedSprite2D.animation = \"walk\"
+			$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play()
+	elif ( idle_after_flee_end_trigger == true or player == null) and flee_trigger:
+		velocity = Vector2.ZERO
+		$AnimatedSprite2D.animation = \"idle\"
+		if $AnimatedSprite2D.animation == \"idle\" and $AnimatedSprite2D.frame == 5:
+			i_idle_after_flee += 1
+			if i_idle_after_flee == 10 or player == null:
+				flee_trigger = false
+				idle_after_flee_end_trigger = false
+				i_idle_after_flee = 0
+	elif interact_trigger:# and player != null:
+		
+		if interact_stand_trigger:
+			velocity = Vector2.ZERO
+			interact_stand_trigger = false
+		if player != null:
+			if player.name == \"BaseCastle\":
+				$AnimatedSprite2D.animation = \"idle\"
+				if $AnimatedSprite2D.frame == 5:
+					player = null
+					interact_trigger = false
+					init_target_position(treepos)
+					#_getWood()
+				elif $AnimatedSprite2D.frame == 1 and backpack == 1:
+					backpack = 0
+					trigger_wood = false
+					$WoodTransport.visible = false
+			elif player.name == \"WoodTree\":
+				$AnimatedSprite2D.animation = \"chop\"
+				if $AnimatedSprite2D.frame == 5:
+					backpack = 1
+					player = null
+					interact_trigger = false
+					init_target_position(worker_3rd_pos)
+				#_draftwood()
+			elif player.name == \"Wood_Worker_3rd_pos\":
+				player = null
+				interact_trigger = false
+				#print($BaseCastle.position)
+				init_target_position(worker_4rd_pos)
+			elif player.name == \"Wood_Worker_4rd_pos\":
+				player = null
+				interact_trigger = false
+				#print($BaseCastle.position)
+				init_target_position(startpos)
+		else: 
+			interact_trigger = false
+			
+	else:
+		if interact_trigger != false or interact_stand_trigger != false or flee_trigger != false or idle_after_flee_end_trigger != false:
+			print(interact_trigger, interact_stand_trigger, flee_trigger,idle_after_flee_end_trigger)
+			interact_trigger = false
+			interact_stand_trigger = false
+			flee_trigger = false
+			idle_after_flee_end_trigger = false
+		if navigation_agent.is_navigation_finished():
+				return
+		else:
+			#if i_nav == 0:
+			#var target_position: Vector2 = navigation_agent.target_position
+			var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+			var current_agent_position: Vector2 = navigation_agent.get_parent().position
+			#next_path_position -= current_agent_position
+			var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
+			velocity = new_velocity
+			#print(target_position, current_agent_position, next_path_position)
+		if velocity == Vector2.ZERO:
+			if backpack ==0:
+				$AnimatedSprite2D.animation = \"idle\"
+			else:
+				$AnimatedSprite2D.animation = \"flee_idle\"
+			$AnimatedSprite2D.flip_h = false
+		elif velocity.x > 0:
+			if backpack == 0:
+				$AnimatedSprite2D.animation = \"walk\"
+			else:
+				$AnimatedSprite2D.animation = \"flee\"
+			$AnimatedSprite2D.flip_h = false
+		elif velocity.x < 0:
+			if backpack == 0:
+				$AnimatedSprite2D.animation = \"walk\"
+			else:
+				$AnimatedSprite2D.animation = \"flee\"
+			#$AnimatedSprite2D.animation = \"walk\"
+			$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play()	
+
+	move_and_slide()
+
+func init_target_position(navigation_target_pos : Vector2):
+	$NavigationAgent2D.set_target_position(navigation_target_pos)
+
+func init_bloodparticles(direction : Vector3):
+	BloodParticle.get_process_material().direction = direction
+
+
+
+func _on_interact_area_area_entered(area):
+	if flee_trigger == true:
+		pass
+	else:
+		#print(\\\"test\\\")
+		player = area.get_parent()
+		if player.name == \"BaseCastle\" and backpack != 0:
+			interact_trigger = true
+			interact_stand_trigger = true
+			Global.Player.wood +=1
+			#backpack = 0
+		elif player.name == \"WoodTree\" and backpack == 0:
+			interact_trigger = true
+			interact_stand_trigger = true
+			#backpack = 1
+		elif player.name == \"Wood_Worker_3rd_pos\" and backpack != 0:
+			interact_trigger = true
+		elif player.name == \"Wood_Worker_4rd_pos\" and backpack != 0:
+			interact_trigger = true
+		#else: 
+		#	print(\\\"oops:\\\", player.name, backpack)
+	
+
+
+func _on_flee_area_body_entered(body):
+	if flee_trigger == true:
+		pass
+	else:
+		#print(\\\"flee\\\")
+		player = body
+		flee_trigger = true
+
+func _on_stop_flee_area_body_exited(_body):
+	var other_player_in_area = false
+	for _i in $StopFleeArea.get_overlapping_bodies():
+		#i_olb += 1
+		#print(i_olb, _i)
+		#var smallest_dist_i = 1000000. # just larger value than all distances
+		if _i != null:# and i_olb != 1: # i_olb is 1 for first list element (which is old, dead player - not updated when player dies)
+			other_player_in_area = true
+	if other_player_in_area:		
+		pass
+	else:
+		player = null
+		idle_after_flee_end_trigger = true
+	#player = null
+	#player_chase = false
+
+
+
+#func _draftwood():
+#	if !backpack >= max_backpack:
+#		backpack +=1
+#		print(\"draft\")
+
+#func _getWood():
+#	if backpack >= 0:
+#		backpack -=1
+#		Global.Player.wood +=1
+#		print(\"getwood\")
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1vhe"]
 atlas = ExtResource("2_q8gfr")
@@ -380,12 +601,12 @@ animations = [{
 y_sort_enabled = true
 position = Vector2(688, 329)
 collision_layer = 2
-script = ExtResource("1_mxnek")
+script = SubResource("GDScript_26ckk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_gyh1j")
-animation = &"flee_idle"
+animation = &"chop"
 centered = false
 offset = Vector2(-96, -123)
 
@@ -466,19 +687,21 @@ y_sort_enabled = true
 
 [node name="Wood1" type="AnimatedSprite2D" parent="WoodTransport"]
 y_sort_enabled = true
-position = Vector2(12, -78)
+position = Vector2(-0.555222, 2.31767)
 rotation = 0.715585
 sprite_frames = SubResource("SpriteFrames_lcsqt")
 frame = 1
 frame_progress = 0.197294
+offset = Vector2(-43.2176, -68.8535)
 
 [node name="Wood2" type="AnimatedSprite2D" parent="WoodTransport"]
 y_sort_enabled = true
-position = Vector2(0, -80)
+position = Vector2(-0.975721, 6.52215)
 rotation = 0.408407
 sprite_frames = SubResource("SpriteFrames_lcsqt")
 frame = 1
 frame_progress = 0.163023
+offset = Vector2(-33.4666, -79.7936)
 
 [connection signal="body_entered" from="FleeArea" to="." method="_on_flee_area_body_entered" flags=18]
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered" flags=18]

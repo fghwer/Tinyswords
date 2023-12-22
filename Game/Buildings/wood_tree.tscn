@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ci5g4hxg7yq4l"]
+[gd_scene load_steps=25 format=3 uid="uid://ci5g4hxg7yq4l"]
 
 [ext_resource type="Script" path="res://Game/Buildings/wood_tree.gd" id="1_8aabp"]
 [ext_resource type="Texture2D" uid="uid://b0ap7upgprvnj" path="res://Tiny Swords (Update 010)/Resources/Trees/Tree.png" id="1_dv6i1"]
@@ -134,7 +134,29 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yvqrn"]
 radius = 26.0192
 
+[sub_resource type="Gradient" id="Gradient_gqiim"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4hxt0"]
+gradient = SubResource("Gradient_gqiim")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nc2im"]
+particle_flag_disable_z = true
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 600.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 700.0
+damping_max = 900.0
+angle_max = 45.0
+scale_min = 2.0
+scale_max = 6.0
+color = Color(0.45098, 0.356863, 0.239216, 1)
+color_initial_ramp = SubResource("GradientTexture1D_4hxt0")
+
 [node name="WoodTree" type="StaticBody2D"]
+y_sort_enabled = true
 collision_mask = 0
 script = ExtResource("1_8aabp")
 metadata/_edit_group_ = true
@@ -165,4 +187,15 @@ collision_mask = 16
 position = Vector2(0, 70)
 shape = SubResource("CircleShape2D_yvqrn")
 
-[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[node name="ParticleInterface" type="Node2D" parent="."]
+
+[node name="BloodParticle" type="GPUParticles2D" parent="ParticleInterface"]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_nc2im")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.9
+fixed_fps = 7
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]

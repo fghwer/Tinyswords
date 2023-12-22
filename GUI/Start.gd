@@ -12,7 +12,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-#test3
+
 #test
 
 func _on_button_labor_pressed():
