@@ -6,7 +6,7 @@ extends Node2D
 @export var wood_worker_scene : PackedScene
 @export var archer_scene : PackedScene
 @export var house_scene : PackedScene
-@export var tower_scene : PackedScene
+@export var tower_scene = load("res://Game/Buildings/base_tower.tscn")
 
 @onready var SpawnKnightButtonLabel: Label = get_node("SpawnKnightButton/ButtonLayout/Label")
 @onready var SpawnWorkerButtonLabel: Label = get_node("SpawnWorkerButton/ButtonLayout/Label")
