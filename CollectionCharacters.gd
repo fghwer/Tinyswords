@@ -1,5 +1,5 @@
 extends Node2D
-
+# Packed Scenes
 @export var mob_scene: PackedScene
 @export var knight_scene : PackedScene
 @export var worker_scene : PackedScene
@@ -8,12 +8,16 @@ extends Node2D
 @export var house_scene : PackedScene
 @export var tower_scene = load("res://Game/Buildings/base_tower.tscn")
 
-@onready var SpawnKnightButtonLabel: Label = get_node("SpawnKnightButton/ButtonLayout/Label")
-@onready var SpawnWorkerButtonLabel: Label = get_node("SpawnWorkerButton/ButtonLayout/Label")
-@onready var SpawnArcherButtonLabel: Label = get_node("SpawnArcherButton/ButtonLayout/Label")
-@onready var SpawnHouseButtonLabel: Label = get_node("SpawnHouseButton2/ButtonLayout/Label")
-@onready var SpawnTowerButtonLabel: Label = get_node("SpawnTowerButton/ButtonLayout/Label")
-@onready var SpawnWoodWorkerButtonLabel: Label = get_node("SpawnWoodWorkerButton/ButtonLayout/Label")
+# Player Buttons
+@onready var SpawnKnightButtonLabel: Label = get_node("PlayerButtons/SpawnKnightButton/ButtonLayout/Label")
+@onready var SpawnWorkerButtonLabel: Label = get_node("PlayerButtons/SpawnWorkerButton/ButtonLayout/Label")
+@onready var SpawnArcherButtonLabel: Label = get_node("PlayerButtons/SpawnArcherButton/ButtonLayout/Label")
+@onready var SpawnWoodWorkerButtonLabel: Label = get_node("PlayerButtons/SpawnWoodWorkerButton/ButtonLayout/Label")
+
+# Building Buttons
+@onready var SpawnHouseButtonLabel: Label = get_node("BuildingButtons/SpawnHouseButton/ButtonLayout/Label")
+@onready var SpawnTowerButtonLabel: Label = get_node("BuildingButtons/SpawnTowerButton/ButtonLayout/Label")
+
 #@onready var navigation_agent: NavigationAgent2D = get_node("mob_scene/NavigationAgent2D")
 #@export var knight_scene : PackedScene
 var startpos_knight = Vector2.ZERO
@@ -46,6 +50,8 @@ func _ready():
 	SpawnWoodWorkerButtonLabel.set_text(str(cost_worker_gold))
 	SpawnArcherButtonLabel.set_text(str(cost_archer_gold))
 	SpawnHouseButtonLabel.set_text(str(cost_house_gold))
+	$PlayerButtons.visible = false
+	$BuildingButtons.visible = false
 	
 	
 	$MobTimer.start()
@@ -275,5 +281,31 @@ func _spawn_tower_at_mouse_position():
 		Global.Player.gold -= cost_house_gold
 		Global.Player.wood -= cost_house_wood
 		
-		
 
+
+
+
+func _on_extend_player_button_pressed():
+	$PlayerButtons.visible = true
+	$ExtendButtons/ExtendPlayerButton.visible = false
+
+
+
+func _on_cut_player_button_pressed():
+	$PlayerButtons.visible = false
+	$ExtendButtons/ExtendPlayerButton.visible = true
+	
+	
+
+
+
+func _on_extend_building_button_pressed():
+	$BuildingButtons.visible = true
+	$ExtendButtons/ExtendBuildingButton.visible = false
+	
+
+
+
+func _on_cut_building_button_pressed():
+	$BuildingButtons.visible = false
+	$ExtendButtons/ExtendBuildingButton.visible = true

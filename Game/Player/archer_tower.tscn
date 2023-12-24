@@ -462,7 +462,8 @@ orbit_velocity_max = 0.0
 
 [node name="Archer_tower" type="CharacterBody2D"]
 y_sort_enabled = true
-collision_layer = 3
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_i4uk2")
 metadata/_edit_group_ = true
 
@@ -474,6 +475,7 @@ animation = &"shot_top"
 offset = Vector2(0, -33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(0, 26)
 shape = SubResource("CircleShape2D_wj33q")
