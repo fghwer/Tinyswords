@@ -95,15 +95,19 @@ func _process(_delta):
 				i_pos = i
 				playerposition = testposition
 		$TileMapCollection/PositionMarker/Sprite2D.position = playerposition						
-		
-		if Input.is_action_just_pressed("click") and PlayerPositionsVacancy[i_pos] == true:
-			$TileMapCollection/PositionMarker.visible = false
-			PlayerPositionsVacancy[i_pos] = false
-			_spawn_knight_at_mouse_position(playerposition)
-			_spawn_archer_at_mouse_position(playerposition)
-			_spawn_house_at_mouse_position(playerposition)
-			_spawn_tower_at_mouse_position(playerposition)
-		
+		if i_pos != null:
+			if PlayerPositionsVacancy[i_pos] == false:
+				$TileMapCollection/PositionMarker/Sprite2D.texture = load("res://Tiny Swords (Update 010)/UI/Pointers/02_disabled.png")
+			elif PlayerPositionsVacancy[i_pos] == true:
+				$TileMapCollection/PositionMarker/Sprite2D.texture = load("res://Tiny Swords (Update 010)/UI/Pointers/02.png")
+			if Input.is_action_just_pressed("click") and PlayerPositionsVacancy[i_pos] == true:
+				$TileMapCollection/PositionMarker.visible = false
+				PlayerPositionsVacancy[i_pos] = false
+				_spawn_knight_at_mouse_position(playerposition)
+				_spawn_archer_at_mouse_position(playerposition)
+				_spawn_house_at_mouse_position(playerposition)
+				_spawn_tower_at_mouse_position(playerposition)
+			
 	
 	for _i in $TileMapCollection/AnimatedTerrain.get_children():
 		_i.play()
