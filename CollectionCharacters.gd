@@ -41,6 +41,8 @@ var cost_house_wood = 5
 var testposition = Vector2.ZERO
 var PlayerPositions: Array[Vector2] = []
 
+var PlayerPositionsVacancy: Array[bool] = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,12 +52,9 @@ func _ready():
 		for Py in range(370,1010,64):
 			testposition.x = Px
 			testposition.y = Py
+			var vacancy = true
 			PlayerPositions.append(testposition)
-	#testposition.x = 1.0
-	#testposition.y = 2.0
-	#PlayerPositions.append(testposition)
-	print(PlayerPositions)
-	#print($UpgradeBanner.get_path())
+			PlayerPositionsVacancy.append(vacancy)
 	Global.Player.gold = 10
 	Global.Player.populationMax = 10
 	Global.Player.score = 0
@@ -84,7 +83,7 @@ func _process(_delta):
 	if waiting_for_click:
 		$TileMapCollection/PositionMarker.visible = true
 		var min_dist = 100000.
-		#var i_pos = null
+		var i_pos = null
 		var playerposition = Vector2.ZERO
 		var mouse_position = get_viewport().get_mouse_position()
 		for i in range (0,PlayerPositions.size(),1):
@@ -93,18 +92,13 @@ func _process(_delta):
 			dist = pow((mouse_position.x - testposition.x),2.0) + pow((mouse_position.y - testposition.y),2.0)
 			if dist < min_dist:
 				min_dist = dist
-				#i_pos = i
+				i_pos = i
 				playerposition = testposition
 		$TileMapCollection/PositionMarker/Sprite2D.position = playerposition						
-
 		
-		if Input.is_action_just_pressed("click"):
+		if Input.is_action_just_pressed("click") and PlayerPositionsVacancy[i_pos] == true:
 			$TileMapCollection/PositionMarker.visible = false
-			if house_to_spawn:
-				print("waiting for click:", house_scene, house_to_spawn)
-				
-			if tower_to_spawn:
-				print("waiting for click:", tower_scene, tower_to_spawn)
+			PlayerPositionsVacancy[i_pos] = false
 			_spawn_knight_at_mouse_position(playerposition)
 			_spawn_archer_at_mouse_position(playerposition)
 			_spawn_house_at_mouse_position(playerposition)
