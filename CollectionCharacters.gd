@@ -38,9 +38,24 @@ var cost_wood_worker_gold = 2
 var cost_archer_wood = 1
 var cost_house_wood = 5
 
+var testposition = Vector2.ZERO
+var PlayerPositions: Array[Vector2] = []
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print($UpgradeBanner.get_path())
+	#LandTile ObenLinks: 354, 370
+	#LandTile UntenRechts: 2018, 946
+	for Px in range(354,2082,64):
+		for Py in range(370,1010,64):
+			testposition.x = Px
+			testposition.y = Py
+			PlayerPositions.append(testposition)
+	#testposition.x = 1.0
+	#testposition.y = 2.0
+	#PlayerPositions.append(testposition)
+	print(PlayerPositions)
+	#print($UpgradeBanner.get_path())
 	Global.Player.gold = 10
 	Global.Player.populationMax = 10
 	Global.Player.score = 0
@@ -66,16 +81,34 @@ func _process(_delta):
 	#	_on_spawn_worker_button_pressed()
 	#elif Input.is_action_just_pressed("spawn_archer"):
 	#	_on_spawn_archer_button_button_up()
-	if waiting_for_click and Input.is_action_just_pressed("click"):
-		if house_to_spawn:
-			print("waiting for click:", house_scene, house_to_spawn)
-			
-		if tower_to_spawn:
-			print("waiting for click:", tower_scene, tower_to_spawn)
-		_spawn_knight_at_mouse_position()
-		_spawn_archer_at_mouse_position()
-		_spawn_house_at_mouse_position()
-		_spawn_tower_at_mouse_position()
+	if waiting_for_click:
+		$TileMapCollection/PositionMarker.visible = true
+		var min_dist = 100000.
+		#var i_pos = null
+		var playerposition = Vector2.ZERO
+		var mouse_position = get_viewport().get_mouse_position()
+		for i in range (0,PlayerPositions.size(),1):
+			testposition = PlayerPositions[i]
+			var dist = 0
+			dist = pow((mouse_position.x - testposition.x),2.0) + pow((mouse_position.y - testposition.y),2.0)
+			if dist < min_dist:
+				min_dist = dist
+				#i_pos = i
+				playerposition = testposition
+		$TileMapCollection/PositionMarker/Sprite2D.position = playerposition						
+
+		
+		if Input.is_action_just_pressed("click"):
+			$TileMapCollection/PositionMarker.visible = false
+			if house_to_spawn:
+				print("waiting for click:", house_scene, house_to_spawn)
+				
+			if tower_to_spawn:
+				print("waiting for click:", tower_scene, tower_to_spawn)
+			_spawn_knight_at_mouse_position(playerposition)
+			_spawn_archer_at_mouse_position(playerposition)
+			_spawn_house_at_mouse_position(playerposition)
+			_spawn_tower_at_mouse_position(playerposition)
 		
 	
 	for _i in $TileMapCollection/AnimatedTerrain.get_children():
@@ -178,11 +211,13 @@ func _on_spawn_archer_button_pressed():
 		archer_to_spawn = archer_scene.instantiate()
 		waiting_for_click = true
 
-func _spawn_archer_at_mouse_position():
+func _spawn_archer_at_mouse_position(playerposition : Vector2):
 	if archer_to_spawn:
-		var mouse_position = get_viewport().get_mouse_position()
-		archer_to_spawn.position = mouse_position
-		archer_to_spawn.startpos = mouse_position
+		#var mouse_position = get_viewport().get_mouse_position()
+		archer_to_spawn.position = playerposition
+		archer_to_spawn.position.y -= 10
+		archer_to_spawn.startpos = playerposition
+		archer_to_spawn.startpos.y -= 10
 		add_child(archer_to_spawn)
 		archer_to_spawn = null
 		waiting_for_click = false
@@ -198,11 +233,13 @@ func _on_spawn_knight_button_pressed():
 		waiting_for_click = true
 		print("button")
 		
-func _spawn_knight_at_mouse_position():
+func _spawn_knight_at_mouse_position(playerposition : Vector2):
 	if knight_to_spawn:
-		var mouse_position = get_viewport().get_mouse_position()
-		knight_to_spawn.position = mouse_position
-		knight_to_spawn.startpos = mouse_position
+		#var mouse_position = get_viewport().get_mouse_position()
+		knight_to_spawn.position = playerposition
+		knight_to_spawn.position.y -= 10
+		knight_to_spawn.startpos = playerposition
+		knight_to_spawn.startpos.y -= 10
 		add_child(knight_to_spawn)
 		knight_to_spawn = null
 		waiting_for_click = false
@@ -243,11 +280,13 @@ func _on_spawn_house_button_2_pressed():
 		waiting_for_click = true
 		print("button")
 
-func _spawn_house_at_mouse_position():
+func _spawn_house_at_mouse_position(playerposition : Vector2):
 	if house_to_spawn:
-		var mouse_position = get_viewport().get_mouse_position()
-		house_to_spawn.position = mouse_position
-		house_to_spawn.startpos = mouse_position
+		#var mouse_position = get_viewport().get_mouse_position()
+		house_to_spawn.position = playerposition
+		house_to_spawn.position.y -= 10
+		house_to_spawn.startpos = playerposition
+		house_to_spawn.startpos.y -= 10
 		add_child(house_to_spawn)
 		house_to_spawn = null
 		waiting_for_click = false
@@ -269,11 +308,13 @@ func _on_spawn_tower_button_pressed():
 
 
 
-func _spawn_tower_at_mouse_position():
+func _spawn_tower_at_mouse_position(playerposition : Vector2):
 	if tower_to_spawn:
-		var mouse_position = get_viewport().get_mouse_position()
-		tower_to_spawn.position = mouse_position
-		tower_to_spawn.startpos = mouse_position
+		#var mouse_position = get_viewport().get_mouse_position()
+		tower_to_spawn.position = playerposition
+		tower_to_spawn.position.y -= 10
+		tower_to_spawn.startpos = playerposition
+		tower_to_spawn.startpos.y -= 10
 		add_child(tower_to_spawn)
 		tower_to_spawn = null
 		waiting_for_click = false

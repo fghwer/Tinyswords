@@ -22,6 +22,8 @@ Global="*res://Userdata/Global.gd"
 
 window/stretch/mode="canvas_items"
 window/stretch/scale=0.5
+mouse_cursor/custom_image="res://Tiny Swords (Update 010)/UI/Pointers/01.png"
+mouse_cursor/custom_image_hotspot=Vector2(22, 18)
 
 [input]
 
